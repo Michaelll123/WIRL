@@ -1,0 +1,106 @@
+<CurrentEdit>
+<prefix>        intentActivity.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        if (mTargetExtras != null)
+            intentActivity.putExtras(mTargetExtras);
+        mOpenActivity = PendingIntent.getActivity(this, 0, intentActivity, PendingIntent.FLAG_UPDATE_CURRENT);
+    }
+
+    /**
+     * Manually save a Bundle object to SharedPreferences.
+     * http://stackoverflow.com/a/13692248/2088273
+     */
+    private void saveBundle(SharedPreferences.Editor editor, Bundle bundle) {
+        if (bundle == null)
+            return;
+
+        for (String key : bundle.keySet()) {
+</prefix>
+<before>            Object o = gameState.get(key);
+            if (o == null){
+                ed.remove(header + key);
+            } else if (o instanceof Integer){
+                ed.putInt(header + key, (Integer) o);
+            } else if (o instanceof Long){
+                ed.putLong(header + key, (Long) o);
+            } else if (o instanceof Boolean){
+                ed.putBoolean(header + key, (Boolean) o);
+            } else if (o instanceof CharSequence){
+                ed.putString(header + key, ((CharSequence) o).toString());
+            } else if (o instanceof Bundle){
+                saveBundle(header + key, ((Bundle) o));
+            }
+        }
+
+        ed.commit();
+</before>
+<after></after>
+<suffix>    }
+
+    /**
+     * Manually load a Bundle from SharedPreferences.
+     */
+    private Bundle loadBundle(SharedPreferences preferences) {
+        Bundle result = new Bundle();
+        for (Map.Entry o : preferences.getAll().entrySet()) {
+            String key = (String) o.getKey();
+            if (key.startsWith(EXTRA_HEADER)) {
+                key = key.replace(EXTRA_HEADER, "");
+                if (o.getValue() instanceof Integer)
+                    result.putInt(key, (Integer) o.getValue());
+                else if (o.getValue() instanceof Long)
+</suffix>
+</CurrentEdit>
+<CtxEdits>
+<Edit>
+<prefix>        intentActivity.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        if (mTargetExtras != null)
+            intentActivity.putExtras(mTargetExtras);
+        mOpenActivity = PendingIntent.getActivity(this, 0, intentActivity, PendingIntent.FLAG_UPDATE_CURRENT);
+    }
+
+    /**
+     * Manually save a Bundle object to SharedPreferences.
+     * http://stackoverflow.com/a/13692248/2088273
+     */
+    private void saveBundle(SharedPreferences.Editor editor, Bundle bundle) {
+        if (bundle == null)
+            return;
+
+        for (String key : bundle.keySet()) {
+</prefix>
+<before></before>
+<after>            Object o = gameState.get(key);
+            if (o == null){
+                ed.remove(header + key);
+            } else if (o instanceof Integer){
+                ed.putInt(header + key, (Integer) o);
+            } else if (o instanceof Long){
+                ed.putLong(header + key, (Long) o);
+            } else if (o instanceof Boolean){
+                ed.putBoolean(header + key, (Boolean) o);
+            } else if (o instanceof CharSequence){
+                ed.putString(header + key, ((CharSequence) o).toString());
+            } else if (o instanceof Bundle){
+                saveBundle(header + key, ((Bundle) o));
+            }
+        }
+
+        ed.commit();
+</after>
+<suffix>    }
+
+    /**
+     * Manually load a Bundle from SharedPreferences.
+     */
+    private Bundle loadBundle(SharedPreferences preferences) {
+        Bundle result = new Bundle();
+        for (Map.Entry o : preferences.getAll().entrySet()) {
+            String key = (String) o.getKey();
+            if (key.startsWith(EXTRA_HEADER)) {
+                key = key.replace(EXTRA_HEADER, "");
+                if (o.getValue() instanceof Integer)
+                    result.putInt(key, (Integer) o.getValue());
+                else if (o.getValue() instanceof Long)
+</suffix>
+</Edit>
+</CtxEdits>

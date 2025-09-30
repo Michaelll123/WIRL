@@ -1,0 +1,74 @@
+<CurrentEdit>
+<prefix>            default: return Font.PLAIN;
+        }
+    }
+
+    // adapted from: https://stackoverflow.com/a/18800845/1251543
+    @Override public File getImageFile() {
+        if (empty(getContent())) return null;
+
+        Graphics2D g2d = getGraphics2D();
+
+        final ParsedText txt = getParsedText(g2d);
+        if (getWidth() == 0) setWidth(txt.width);
+        if (getHeight() == 0) setHeight(txt.height);
+
+        g2d.dispose();
+</prefix>
+<before>        final BufferedImage img = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
+</before>
+<after></after>
+<suffix>    }
+
+    protected ParsedText getParsedText() { return getParsedText(getGraphics2D()); }
+
+    private Graphics2D getGraphics2D() {
+        final BufferedImage img = new BufferedImage(1, 1, BufferedImage.TYPE_INT_ARGB);
+        final Graphics2D g2d = img.createGraphics();
+        final Font font = getFont();
+        g2d.setFont(font);
+        return g2d;
+    }
+
+    private Font getFont() {
+        return new Font(getFontFamily(), getAwtFontStyle(), getFontSize());
+</suffix>
+</CurrentEdit>
+<CtxEdits>
+<Edit>
+<prefix>            default: return Font.PLAIN;
+        }
+    }
+
+    // adapted from: https://stackoverflow.com/a/18800845/1251543
+    @Override public File getImageFile() {
+        if (empty(getContent())) return null;
+
+        Graphics2D g2d = getGraphics2D();
+
+        final ParsedText txt = getParsedText(g2d);
+        if (getWidth() == 0) setWidth(txt.width);
+        if (getHeight() == 0) setHeight(txt.height);
+
+        g2d.dispose();
+</prefix>
+<before></before>
+<after>        final BufferedImage img = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
+</after>
+<suffix>    }
+
+    protected ParsedText getParsedText() { return getParsedText(getGraphics2D()); }
+
+    private Graphics2D getGraphics2D() {
+        final BufferedImage img = new BufferedImage(1, 1, BufferedImage.TYPE_INT_ARGB);
+        final Graphics2D g2d = img.createGraphics();
+        final Font font = getFont();
+        g2d.setFont(font);
+        return g2d;
+    }
+
+    private Font getFont() {
+        return new Font(getFontFamily(), getAwtFontStyle(), getFontSize());
+</suffix>
+</Edit>
+</CtxEdits>

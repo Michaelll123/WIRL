@@ -1,0 +1,1068 @@
+0###```java
+<after>            // Traverse the directory and process files with the specified extension
+            Files.walk(Paths.get(path))
+                    .filter(Files::isRegularFile)
+                    .filter(t -> FilenameUtils.isExtension(t.toString(), ICON_EXT))
+                    .sorted()
+                    .forEach(t -> {
+                        final String iconName = t.toString();
+                        final String baseName = FilenameUtils.getBaseName(iconName);
+                        // Add name without extension to the map
+                        iconMap.put(jsCompatibleIconName(baseName), new MarkerIcon(baseName, jsCompatibleIconName(baseName)));
+                        // Debugging output
+                        System.out.println("Processed icon: " + baseName + ", JS-compatible name: " + jsCompatibleIconName(baseName));
+                    });
+</after>
+```###4.068###4068.0###899###164###1063
+1###```java
+<after>                    // Access the ListView of the ComboBox and scroll to the selected item
+                    ListView<ComboBoxItem> lv = (ListView<ComboBoxItem>) ((ComboBoxListViewSkin<?>) waypointSymTxt.getSkin()).getPopupContent();
+                    Platform.runLater(() -> {
+                        int selectedIndex = waypointSymTxt.getSelectionModel().getSelectedIndex();
+                        if (selectedIndex >= 0) {
+                            lv.scrollTo(selectedIndex);
+                            lv.getSelectionModel().select(selectedIndex);
+                        }
+                    });
+</after>
+```###2.202###2202.0###757###109###866
+2###```java
+<after>		// Dispatch a window closing event to simulate the frame being closed
+		frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+		
+		// Ensure resources are cleaned up and the recording manager is stopped
+		if (recordingManager != null) {
+			try {
+				recordingManager.stop();
+				LOGGER.debug("Recording manager stopped successfully.");
+			} catch (Exception e) {
+				LOGGER.error("Error while stopping the recording manager.", e);
+			}
+		}
+		
+		// Log the player ID for debugging purposes
+		LOGGER.info("Player ID: " + playerId + " has been disconnected.");
+</after>
+```###3.609###3609.0###333###148###481
+3###```java
+<after>		// Retrieve the screen size to adjust visualization layout dynamically
+		final Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
+		
+		// Log the screen dimensions for debugging purposes
+		LOGGER.debug("Screen dimensions: Width = " + screenSize.width + ", Height = " + screenSize.height);
+		
+		// Adjust the visualization layout based on screen size
+		imgVisualizationInfoDataById.forEach((id, datum) -> {
+			// Example adjustment logic (can be customized as needed)
+			datum.setPosition(screenSize.width / 2, screenSize.height / 2);
+			LOGGER.debug("Adjusted position for datum ID " + id + " to center of the screen.");
+		});
+</after>
+```###3.396###3396.0###471###159###630
+4###```java
+<after>		// Retrieve the screen size to adjust visualization layout dynamically
+		final Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
+		
+		// Log the screen dimensions for debugging purposes
+		LOGGER.debug("Screen dimensions: Width = " + screenSize.width + ", Height = " + screenSize.height);
+		
+		// Adjust the visualization layout based on screen size
+		imgVisualizationInfoDataById.forEach((id, datum) -> {
+			// Example adjustment logic: center the visualization on the screen
+			int centerX = screenSize.width / 2;
+			int centerY = screenSize.height / 2;
+			datum.setPosition(centerX, centerY);
+			LOGGER.debug("Adjusted position for datum ID " + id + " to center of the screen: (" + centerX + ", " + centerY + ")");
+		});
+</after>
+```###3.979###3979.0###929###182###1111
+5###```java
+<after>				// Find the last element in the stream, which represents the most recent event
+				Optional<Event> lastEvent = preSenderEvts.getKey().reduce((first, second) -> second);
+				
+				// If the last event is present, calculate the time difference
+				if (lastEvent.isPresent()) {
+					long timeDifference = senderEvt.getTimestamp() - lastEvent.get().getTimestamp();
+					LOGGER.debug("Time difference between sender event and last event: {}", timeDifference);
+					b.add(timeDifference);
+				} else {
+					LOGGER.warn("No previous event found for sender event: {}", senderEvt);
+				}
+</after>
+```###3.514###3514.0###723###146###869
+6###```java
+<after>		// Create a filter to include commits before the specified expiration time
+		final RevFilter beforeExpTime = CommitTimeRevFilter.before(Date.from(zonedGameStart.toInstant()));
+		result.setRevFilter(beforeExpTime);
+		
+		// Log the filter details for debugging purposes
+		LOGGER.debug("Configured RevFilter to include commits before: {}", zonedGameStart);
+</after>
+```###2.884###2884.0###759###94###853
+7###```java
+<after>            // Create a ClipData object with the provided text
+            ClipData clip = ClipData.newPlainText("label", text);
+            
+            // Set the ClipData object to the clipboard
+            clipboard.setPrimaryClip(clip);
+            
+            // Log a message for debugging purposes
+            Log.d("ClipboardUtils", "Text copied to clipboard: " + text);
+</after>
+```###3.183###3183.0###419###90###509
+8###```java
+<after>        // If the drawable is not a BitmapDrawable, create a new Bitmap
+        Bitmap bitmap = Bitmap.createBitmap(
+                drawable.getIntrinsicWidth() > 0 ? drawable.getIntrinsicWidth() : 1,
+                drawable.getIntrinsicHeight() > 0 ? drawable.getIntrinsicHeight() : 1,
+                Bitmap.Config.ARGB_8888
+        );
+
+        // Draw the drawable onto the new Bitmap
+        Canvas canvas = new Canvas(bitmap);
+        drawable.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
+        drawable.draw(canvas);
+</after>
+```###2.834###2834.0###471###128###599
+9###```java
+<after>        // Set the blur radius for the intrinsic blur script
+        theIntrinsic.setRadius(radius);
+
+        // Perform the blur operation
+        theIntrinsic.setInput(tmpIn);
+        theIntrinsic.forEach(tmpOut);
+
+        // Copy the result to the output bitmap
+        tmpOut.copyTo(outputBitmap);
+
+        // Release the RenderScript resources
+        rs.destroy();
+</after>
+```###2.325###2325.0###697###90###787
+10###```java
+<after>        // Create a matcher to find post references in the post content
+        Matcher m = postReferencePattern.matcher(post.getContent());
+
+        // Iterate over all matches and add them to the set of references
+        while (m.find()) {
+            refs.add(m.group(1)); // Add the post number found in the reference
+        }
+</after>
+```###2.548###2548.0###553###84###637
+11###```java
+<after>            // Open a file output stream and write the data to the file
+            OutputStreamWriter outputStreamWriter = new OutputStreamWriter(context.openFileOutput(escapePathSeparator(name), Context.MODE_PRIVATE));
+            outputStreamWriter.write(data);
+            outputStreamWriter.close();
+</after>
+```###9.508###9508.0###485###66###551
+12###```java
+<after>            // List all files in the directory, filter for XML files, sort them, and print their paths
+            Files.list(myPath)
+                    .filter(path -> path.toString().endsWith(".xml"))
+                    .sorted()
+                    .forEach(System.out::println);
+</after>
+```###4.438###4438.0###683###69###752
+13###```java
+<after>                // Extract RGB components from the color
+                int red = color.getRed();
+                int green = color.getGreen();
+                int blue = color.getBlue();
+
+                // Calculate the grayscale value using the luminance formula
+                gray = 0.299 * red + 0.587 * green + 0.114 * blue;
+</after>
+```###2.312###2312.0###585###86###671
+14###```java
+<after>                            // Create a CMSSignedData object using the signed content and signature bytes
+                            CMSSignedData cms = new CMSSignedData(signedContent, sig.getContents(new byte[0]));
+
+                            // Extract and verify the certificates from the signature
+                            Store<?> certStore = cms.getCertificates();
+                            SignerInformationStore signers = cms.getSignerInfos();
+                            for (SignerInformation signer : signers.getSigners()) {
+                                Collection<?> certCollection = certStore.getMatches(signer.getSID());
+                                for (Object certObj : certCollection) {
+                                    X509CertificateHolder certHolder = (X509CertificateHolder) certObj;
+                                    System.out.println("Certificate Subject: " + certHolder.getSubject());
+                                    System.out.println("Certificate Issuer: " + certHolder.getIssuer());
+                                }
+                            }
+</after>
+```###16.427###16427.0###529###187###716
+15###```java
+<after>                // Decode the signature contents and create a CMSSignedData object
+                byte[] signatureBytes = contents.getBytes();
+                CMSSignedData signedData = new CMSSignedData(signatureBytes);
+
+                // Extract signer information
+                SignerInformationStore signers = signedData.getSignerInfos();
+                for (SignerInformation signer : signers.getSigners()) {
+                    System.out.println("Signer Info: " + signer.getSID());
+                }
+
+                // Extract certificates
+                Store<?> certStore = signedData.getCertificates();
+                Collection<?> certCollection = certStore.getMatches(null);
+                for (Object certObj : certCollection) {
+                    X509CertificateHolder certHolder = (X509CertificateHolder) certObj;
+                    System.out.println("Certificate Subject: " + certHolder.getSubject());
+                    System.out.println("Certificate Issuer: " + certHolder.getIssuer());
+                }
+</after>
+```###4.665###4665.0###545###200###745
+16###```java
+<after>                // Extract the signature bytes from the COSString
+                byte[] signatureBytes = contents.getBytes();
+
+                // Create a CMSSignedData object using the extracted data and signature bytes
+                CMSSignedData cms = new CMSSignedData(new CMSProcessableByteArray(buf), signatureBytes);
+
+                // Extract signer information
+                SignerInformationStore signers = cms.getSignerInfos();
+                for (SignerInformation signer : signers.getSigners()) {
+                    System.out.println("Signer Info: " + signer.getSID());
+                }
+
+                // Extract certificates from the CMS data
+                Store<?> certStore = cms.getCertificates();
+                Collection<?> certCollection = certStore.getMatches(null);
+                for (Object certObj : certCollection) {
+                    X509CertificateHolder certHolder = (X509CertificateHolder) certObj;
+                    System.out.println("Certificate Subject: " + certHolder.getSubject());
+                    System.out.println("Certificate Issuer: " + certHolder.getIssuer());
+                }
+</after>
+```###4.59###4590.0###521###221###742
+17###```java
+<after>        // Magic constant for approximating a circle using Bezier curves
+        final double magic = 0.552284749831;
+
+        // Calculate control points for the Bezier curves
+        double xmagic = r * magic;
+        double ymagic = r * magic;
+
+        // Move to the starting point of the circle
+        cs.moveTo(x + r, y);
+
+        // Draw the four Bezier curve segments to approximate the circle
+        cs.curveTo(x + r, y - ymagic, x + xmagic, y - r, x, y - r);
+        cs.curveTo(x - xmagic, y - r, x - r, y - ymagic, x - r, y);
+        cs.curveTo(x - r, y + ymagic, x - xmagic, y + r, x, y + r);
+        cs.curveTo(x + xmagic, y + r, x + r, y + ymagic, x + r, y);
+
+        // Close the path to complete the circle
+        cs.closePath();
+</after>
+```###4.734###4734.0###507###233###740
+18###```java
+<after>        int w = newImage.getWidth();
+        int h = newImage.getHeight();
+        for (int y = 0; y < h; y++) {
+            for (int x = 0; x < w; x++) {
+                int pixel = newImage.getRGB(x, y);
+                colors.add(pixel);
+            }
+        }
+
+        // Ensure the image is not blank (contains more than one color)
+        if (colors.size() <= 1) {
+            throw new IOException("File '" + filename + "' is blank or contains only one color");
+        }
+</after>
+```###2.94###2940.0###831###133###964
+19###```java
+<after>            sizeProduct *= sizeValues[i + 1];
+            index += vector[i] * sizeProduct;
+</after>
+```###1.751###1751.0###623###38###661
+20###```java
+<after>            // Perform the transformation and write the formatted XML to the output
+            transformer.transform(domSource, streamResult);
+
+            // Log the resulting XML for debugging purposes
+            String formattedXml = xmlStringWriter.toString();
+            LOG.debug("Formatted Metadata XML: \n" + formattedXml);
+</after>
+```###3.493###3493.0###503###75###578
+21###```java
+<after>        // Magic constant for approximating a circle using Bezier curves
+        final double magic = 0.552284749831;
+
+        // Calculate control points for the Bezier curves
+        double xmagic = r * magic;
+        double ymagic = r * magic;
+
+        // Move to the starting point of the circle
+        cs.moveTo(x + r, y);
+
+        // Draw the four Bezier curve segments to approximate the circle
+        cs.curveTo(x + r, y - ymagic, x + xmagic, y - r, x, y - r);
+        cs.curveTo(x - xmagic, y - r, x - r, y - ymagic, x - r, y);
+        cs.curveTo(x - r, y + ymagic, x - xmagic, y + r, x, y + r);
+        cs.curveTo(x + xmagic, y + r, x + r, y + ymagic, x + r, y);
+
+        // Close the path to complete the circle
+        cs.closePath();
+</after>
+```###4.239###4239.0###313###233###546
+22###```java
+<after>            con = new URL(doiRequest).openConnection();
+            con.setRequestProperty("Accept", "application/xml");
+            con.setInstanceFollowRedirects(true);
+
+            // Extract the final redirected URL
+            String finalUrl = con.getURL().toString();
+
+            // Parse the DOI from the final URL
+            if (finalUrl.contains(DOI_URL)) {
+                String extractedDoi = finalUrl.substring(DOI_URL.length());
+                return Optional.of(extractedDoi);
+            }
+</after>
+```###2.289###2289.0###413###114###527
+23###```java
+<after>            Point2D pointInScene = new Point2D(e.getSceneX(), e.getSceneY());
+            Axis<Number> xAxis = lineChart.getXAxis();
+            Axis<Number> yAxis = lineChart.getYAxis();
+
+            // Convert scene coordinates to axis coordinates
+            double xPosInAxis = xAxis.sceneToLocal(new Point2D(pointInScene.getX(), 0)).getX();
+            double yPosInAxis = yAxis.sceneToLocal(new Point2D(0, pointInScene.getY())).getY();
+
+            // Get the corresponding values for the display positions
+            Number xValue = xAxis.getValueForDisplay(xPosInAxis);
+            Number yValue = yAxis.getValueForDisplay(yPosInAxis);
+
+            if (xValue != null && yValue != null) {
+                double x = xValue.doubleValue();
+                double y = yValue.doubleValue();
+
+                // Update the tooltip with the current coordinates
+                toolTip.setText(String.format("X: %.2f, Y: %.2f", x, y));
+                toolTip.show(this, eX, eY);
+
+                // Update the line position
+                line.setStartX(plotArea.getLayoutX());
+                line.setEndX(plotArea.getLayoutX() + plotArea.getWidth());
+                line.setStartY(e.getY());
+                line.setEndY(e.getY());
+            } else {
+                toolTip.hide();
+            }
+</after>
+```###4.294###4294.0###779###295###1074
+24###```java
+<after>        // Calculate the aspect ratio
+        double aspectRatio = (double) img.getWidth() / img.getHeight();
+
+        // Determine new dimensions while maintaining aspect ratio
+        int newW = newWidth;
+        int newH = (int) (newWidth / aspectRatio);
+
+        if (newH > newHeight) {
+            newH = newHeight;
+            newW = (int) (newHeight * aspectRatio);
+        }
+
+        // Scale the image smoothly
+        java.awt.Image tmp = img.getScaledInstance(newW, newH, java.awt.Image.SCALE_SMOOTH);
+        BufferedImage dimg = new BufferedImage(newW, newH, BufferedImage.TYPE_INT_ARGB);
+
+        // Draw the scaled image
+        Graphics2D g2d = dimg.createGraphics();
+        g2d.drawImage(tmp, 0, 0, null);
+        g2d.dispose();
+
+        return dimg;
+</after>
+```###3.984###3984.0###645###201###846
+25###```java
+<after>        assertThat(actual, isSimilarTo(expected)
+                .ignoreWhitespace()
+                .normalizeWhitespace()
+                .withNodeMatcher(new DefaultNodeMatcher(ElementSelectors.byNameAndText)));
+</after>
+```###1.588###1588.0###471###52###523
+26###```java
+<after>            String url1 = properties.getUrl();
+            String user = properties.getUser();
+            String password = properties.getPassword();
+
+            // Attempt to establish a connection using the provided properties
+            this.connection = DriverManager.getConnection(url1, user, password);
+</after>
+```###4.197###4197.0###545###64###609
+27###```java
+<after>        final BufferedImage img = new BufferedImage(getWidth(), getHeight(), BufferedImage.TYPE_INT_ARGB);
+        final Graphics2D g2dImg = img.createGraphics();
+
+        // Set rendering hints for better text quality
+        g2dImg.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+        g2dImg.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
+
+        // Set font and color
+        g2dImg.setFont(getFont());
+        g2dImg.setColor(getFontColor());
+
+        // Draw the parsed text onto the image
+        final ParsedText txt = getParsedText(g2dImg);
+        g2dImg.drawString(txt.text, txt.x, txt.y);
+
+        g2dImg.dispose();
+
+        // Save the image to a temporary file
+        File outputFile = File.createTempFile("image", ".png");
+        ImageIO.write(img, "png", outputFile);
+
+        return outputFile;
+</after>
+```###3.97###3970.0###581###223###804
+28###```java
+<after>            if (idx > 0 && idx < pair.length() - 1) {
+                query_pairs.put(URLDecoder.decode(pair.substring(0, idx), encoding), 
+                                URLDecoder.decode(pair.substring(idx + 1), encoding));
+            } else if (idx == -1) {
+                query_pairs.put(URLDecoder.decode(pair, encoding), "");
+            }
+</after>
+```###2.906###2906.0###647###90###737
+29###```java
+<after>        try (var ignored = new ServerSocket(port)) {
+            free = true;
+        } catch (IOException e) {
+            free = false;
+        }
+        return free;
+</after>
+```###1.639###1639.0###355###53###408
+30###```java
+<after>        BigInteger upperLimit = limit;
+        SecureRandom randomSource = rand;
+        BigInteger randomNumber;
+        do {
+            randomNumber = new BigInteger(upperLimit.bitLength(), randomSource);
+        } while (randomNumber.compareTo(upperLimit) >= 0);
+</after>
+```###2.366###2366.0###899###68###967
+31###```java
+<after>        DateTime start = var0;
+        DateTime end = var1;
+        return Days.daysBetween(start.toLocalDate(), end.toLocalDate());
+</after>
+```###2.279###2279.0###775###46###821
+32###```java
+<after>                    title.setText(result);
+</after>
+```###1.253###1253.0###653###22###675
+33###```java
+<after>        editText.addTextChangedListener(new TextWatcher() {
+            int lastCursorPosition = 0;
+            String previousText = "";
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                lastCursorPosition = editText.getSelectionStart();
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                // No action needed here
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                editText.removeTextChangedListener(this);
+
+                if (editText.getLineCount() > linesCountLimit) {
+                    editText.setText(previousText);
+                    editText.setSelection(Math.min(lastCursorPosition, previousText.length()));
+                } else {
+                    previousText = editText.getText().toString();
+                }
+
+                editText.addTextChangedListener(this);
+            }
+        });
+</after>
+```###4.896###4896.0###743###183###926
+34###```java
+<after>                try {
+                    primaryStage.initStyle(StageStyle.UNIFIED);
+                } catch (UnsupportedOperationException e) {
+                    System.err.println("Unified window style is not supported on this platform. Falling back to default style.");
+                    primaryStage.initStyle(StageStyle.DECORATED);
+                }
+</after>
+```###2.987###2987.0###775###74###849
+35###```java
+<after>            txtMessage.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    ClassroomLog.log(TAG, "Message TextView Click listener triggered");
+                    if (txtMessage.getSelectionStart() == -1 && txtMessage.getSelectionEnd() == -1) {
+                        // This condition will satisfy only when it is not an autolinked text
+                        // Fired only when you touch the part of the text that is not hyperlinked
+                        Toast.makeText(v.getContext(), "Non-hyperlinked text clicked", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+</after>
+```###2.406###2406.0###849###135###984
+36###```java
+<after>        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setDataAndType(dirUri, "resource/folder");
+
+        if (intent.resolveActivityInfo(getPackageManager(), 0) != null) {
+            startActivity(intent);
+        } else {
+            Toast.makeText(this, "ファイルマネージャアプリがインストールされていません。", Toast.LENGTH_LONG).show();
+            LogUtils.e("File manager activity cannot be found.");
+        }
+</after>
+```###4.65###4650.0###793###115###908
+37###```java
+<after>            softBoardData.softBoardListener.sendString(new String(new char[spaces]).replace('\0', ' '), 0 );
+</after>
+```###2.048###2048.0###335###42###377
+38###```java
+<after>            protected FilterResults performFiltering(CharSequence constraint) {
+
+                FilterResults results = new FilterResults();
+
+                if (constraint != null && constraint.length() > 0) {
+
+                    ArrayList<FileEntry> filterList = new ArrayList<>();
+
+                    for (FileEntry entry : originalFileEntries) {
+
+                        if (entry.getName().toLowerCase().contains(constraint.toString().toLowerCase())) {
+                            filterList.add(entry);
+                        }
+                    }
+
+                    results.count = filterList.size();
+                    results.values = filterList;
+
+                } else {
+
+                    results.count = originalFileEntries.size();
+                    results.values = originalFileEntries;
+
+                }
+
+                return results;
+            }
+</after>
+```###2.884###2884.0###603###145###748
+39###```java
+<after>    Arrays.fill(charBuffer.array(), '\u0000'); // clear the cleartext buffer
+    Arrays.fill(byteBuffer.array(), (byte) 0); // clear the byte buffer
+</after>
+```###2.947###2947.0###455###56###511
+40###```java
+<after>    for (String key : b.keySet()) {
+      Object value = b.get(key);
+      Log.d("myApplication", String.format("%s: %s (%s)", key, value, value != null ? value.getClass().getName() : "null"));
+    }
+</after>
+```###1.724###1724.0###345###71###416
+41###```java
+<after>    InstrumentationRegistry.getInstrumentation().runOnMainSync(() -> {
+        activity.recreate();
+    });
+</after>
+```###1.364###1364.0###447###39###486
+42###```java
+<after>		return (float) Math.atan2(Math.sin(radians1 - radians2), Math.cos(radians1 - radians2));
+</after>
+```###1.357###1357.0###817###43###860
+43###```java
+<after>		try (InputStream in = new URL(fileURL).openStream()) {
+		    Files.copy(in, Paths.get(localPath), StandardCopyOption.REPLACE_EXISTING);
+</after>
+```###1.397###1397.0###615###50###665
+44###```java
+<after>			command = Stream.concat(Arrays.stream(command), Arrays.stream(args))
+				.toArray(String[]::new); // concatenate command and args into a single array
+</after>
+```###1.382###1382.0###433###48###481
+45###```java
+<after>        box.setCellFactory(lv -> new ListCell<Integer>() {
+            @Override
+            public void updateItem(Integer item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty) {
+                    setText(null);
+                } else {
+                    setText(item.toString());
+                    setDisable(item.intValue() != 0); // Disable items based on condition
+                }
+            }
+        });
+</after>
+```###2.407###2407.0###777###97###874
+46###```java
+<after>            int start = listView.getFirstVisiblePosition();
+            for (int i = start, end = listView.getLastVisiblePosition(); i <= end; i++) {
+                if (mCommentListPosition == i) {
+                    View view = listView.getChildAt(i - start);
+                    listView.getAdapter().getView(i, view, listView);
+                    break;
+                }
+            }
+</after>
+```###1.725###1725.0###515###88###603
+47###```java
+<after>        mImageLoader.setBatchedResponseDelay(0); // Set delay for batched responses to 0 for immediate processing
+</after>
+```###1.457###1457.0###645###43###688
+48###```java
+<after>        result[j] += x[i] * x[(n + i - j) % n]; // Calculate autocorrelation for each lag
+</after>
+```###1.345###1345.0###505###46###551
+49###```java
+<after>    cm = img.getColorModel();
+    isAlphaPremultiplied = cm.isAlphaPremultiplied();
+    raster = img.copyData(null); // Copy the raster data from the original image
+</after>
+```###3.406###3406.0###583###56###639
+50###```java
+<after>    g = result.getGraphics();
+    g.drawImage(source, 0, 0, null);
+    g.dispose();
+    return result;
+</after>
+```###2.098###2098.0###563###45###608
+51###```java
+<after>        parent.addView(newLv, lvIndex, lv.getLayoutParams());
+</after>
+```###1.533###1533.0###607###30###637
+52###```java
+<after>        parent.addView(newLv, lvIndex, lv.getLayoutParams());
+</after>
+```###1.102###1102.0###561###30###591
+53###```java
+<after>        parent.addView(newLv, lvIndex, lv.getLayoutParams());
+</after>
+```###2.264###2264.0###537###30###567
+54###```java
+<after>        String extension = MimeTypeMap.getFileExtensionFromUrl(urlString);
+        if (extension != null) {
+            return MimeTypeMap.getSingleton().getMimeTypeFromExtension(extension);
+        }
+</after>
+```###1.537###1537.0###493###55###548
+55###```java
+<after>        int scale = 1;
+        if (optBounds.outHeight > IMAGE_MAX_SIZE || optBounds.outWidth > IMAGE_MAX_SIZE) {
+            scale = (int)Math.pow(2, (int) Math.ceil(Math.log(IMAGE_MAX_SIZE /
+                    (double) Math.max(optBounds.outHeight, optBounds.outWidth)) / Math.log(0.5)));
+        }
+</after>
+```###2.851###2851.0###733###94###827
+56###```java
+<after>        cboPersons.setConverter(new StringConverter<Person>() {
+        @Override
+        public String toString(Person person) {
+            return person != null ? person.getName() : "";
+        }
+
+        @Override
+        public Person fromString(String string) {
+            // Implement logic to convert a string back to a Person object if needed
+            return null;
+        }
+    });
+</after>
+```###1.711###1711.0###665###90###755
+57###```java
+<after>            int start = listView.getFirstVisiblePosition();
+            for (int i = start, j = listView.getLastVisiblePosition(); i <= j; i++) {
+                if (mCommentListPosition == i) {
+                    View view = listView.getChildAt(i - start);
+                    listView.getAdapter().getView(i, view, listView);
+                    break;
+                }
+            }
+</after>
+```###2.158###2158.0###637###88###725
+58###```java
+<after>        imageLoader.setBatchedResponseDelay(0);
+</after>
+```###0.892###892.0###641###28###669
+59###```java
+<after>		Class<?> targetClass = method.getDeclaringClass();
+		Object target = proxy;
+		return MethodHandles.lookup()
+				.in(targetClass)
+				.unreflectSpecial(method, targetClass)
+				.bindTo(target)
+				.invokeWithArguments(args);
+</after>
+```###2.242###2242.0###633###70###703
+60###```java
+<after>        String extension = MimeTypeMap.getFileExtensionFromUrl(urlString);
+        if (extension == null) {
+            return null;
+        }
+        return MimeTypeMap.getSingleton().getMimeTypeFromExtension(extension);
+</after>
+```###1.82###1820.0###489###59###548
+61###```java
+<after>        int scale = 1;
+        if (optBounds.outHeight > IMAGE_MAX_SIZE || optBounds.outWidth > IMAGE_MAX_SIZE) {
+            scale = (int) Math.pow(2, (int) Math.ceil(Math.log(IMAGE_MAX_SIZE /
+                    (double) Math.max(optBounds.outHeight, optBounds.outWidth)) / Math.log(0.5)));
+        }
+</after>
+```###2.416###2416.0###733###95###828
+62###```java
+<after>        imageLoader.setBatchedResponseDelay(0);
+</after>
+```###1.71###1710.0###645###28###673
+63###```java
+<after>            int start = listView.getFirstVisiblePosition();
+            for (int i = start, j = listView.getLastVisiblePosition(); i <= j; i++) {
+                if (mCommentListPosition == i) {
+                    View view = listView.getChildAt(i - start);
+                    listView.getAdapter().getView(i, view, listView);
+                    break;
+                }
+            }
+</after>
+```###2.282###2282.0###515###88###603
+64###```java
+<after>        target.drawText(text, xPos, yPos, mTextPaint);
+</after>
+```###2.618###2618.0###681###30###711
+65###```java
+<after>        bitmap.compress(compressFormat, 100, stream);
+</after>
+```###1.411###1411.0###713###29###742
+66###```java
+<after>        DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
+        return Math.round(dp * (displayMetrics.xdpi / DisplayMetrics.DENSITY_DEFAULT));
+</after>
+```###1.851###1851.0###675###47###722
+67###```java
+<after>            yourWebviewObject.getEngine().setUserStyleSheetLocation(
+                    "data:,@font-face{font-family:'FontAwesome';src:url('"+ 
+                            getClass().getResource("path/to/fontawesome-webfont.eot").toExternalForm()+"');src:url('"+ 
+                            getClass().getResource("path/to/fontawesome-webfont.eot").toExternalForm()+"') format('embedded-opentype'),url('"+ 
+                            getClass().getResource("path/to/fontawesome-webfont.woff2").toExternalForm()+"') format('woff2'),url('"+ 
+                            getClass().getResource("path/to/fontawesome-webfont.woff").toExternalForm()+"') format('woff'),url('"+ 
+                            getClass().getResource("path/to/fontawesome-webfont.ttf").toExternalForm()+"') format('truetype'),url('"+ 
+                            getClass().getResource("path/to/fontawesome-webfont.svg").toExternalForm()+"?v=4.7.0#fontawesomeregular') format('svg');}");
+</after>
+```###4.094###4094.0###1193###217###1410
+68###```java
+<after>        TypedValue tv = new TypedValue();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+            if (context.getTheme().resolveAttribute(android.R.attr.actionBarSize, tv, true)) {
+                return TypedValue.complexToDimensionPixelSize(tv.data, context.getResources().getDisplayMetrics());
+            }
+        }
+</after>
+```###1.895###1895.0###647###87###734
+69###```java
+<after>        int scale = 1;
+        if (optBounds.outHeight > IMAGE_MAX_SIZE || optBounds.outWidth > IMAGE_MAX_SIZE) {
+            scale = (int) Math.pow(2, (int) Math.ceil(Math.log(IMAGE_MAX_SIZE /
+                    (double) Math.max(optBounds.outHeight, optBounds.outWidth)) / Math.log(0.5)));
+        }
+</after>
+```###2.651###2651.0###733###95###828
+70###```java
+<after>        String newQuery = uri.getQuery();
+        if (newQuery == null) {
+            newQuery = appendQuery;
+        } else {
+            newQuery += "&" + appendQuery;
+        }
+
+        return new URI(uri.getScheme(), uri.getAuthority(),
+            uri.getPath(), newQuery, uri.getFragment());
+</after>
+```###2.798###2798.0###605###81###686
+71###```java
+<after>        entity = objectMapper.readerForUpdating(entity).readValue(jsonObject.toString());
+</after>
+```###1.837###1837.0###597###31###628
+72###```java
+<after>    public static String cleanFileName(String badFileName) {
+        StringBuilder cleanName = new StringBuilder();
+        for (int i = 0; i < badFileName.length(); i++) {
+            int c = (int) badFileName.charAt(i);
+            if (Arrays.binarySearch(illegalChars, c) < 0) {
+                cleanName.append((char) c);
+            } else {
+                cleanName.append('_'); // Replace illegal characters with '_'
+            }
+        }
+        return cleanName.toString();
+    }
+</after>
+```###3.554###3554.0###467###121###588
+73###```java
+<after>            String url1 = properties.getUrl();
+            String user = properties.getUsername();
+            String password = properties.getPassword();
+            this.connection = DriverManager.getConnection(url1, user, password);
+</after>
+```###3.26###3260.0###559###52###611
+74###```java
+<after>    for (Iterator<ColorRGB> iterator = colors.iterator(); iterator.hasNext();) {
+      ColorRGB color = iterator.next();
+      if (color.equals(c)) {
+        // Remove the current element from the iterator and the list.
+        iterator.remove();
+      }
+    }
+</after>
+```###8.503###8503.0###535###70###605
+75###```java
+<after>    Set<String> missingKeys = new HashSet<>(expected);
+    missingKeys.removeAll(actual);
+</after>
+```###4.983###4983.0###829###35###864
+76###```java
+<after>		Map<MakelangeloPreferenceKey, Preferences> aMap = new HashMap<>(castedMap);
+</after>
+```###2.207###2207.0###837###38###875
+77###```java
+<after>        Context contextThemeWrapper = new ContextThemeWrapper(getActivity(), R.style.YourCustomTheme);
+</after>
+```###2.754###2754.0###405###36###441
+78###```java
+<after>        List<PositionWrapper> selectedItems = waypoints.stream()
+                .map(PositionWrapper::new)
+                .collect(Collectors.toList());
+
+        int[] idx = new int[selectedItems.size()];
+        int p = 0;
+
+        // Performance tuning to move selected items into a set
+        Set<PositionWrapper> s = new HashSet<>(selectedItems);
+
+        // Iterating over items in target list
+        for (int i = 0; i < gpxTrackXML.getItems().size(); i++) {
+            if (s.contains(gpxTrackXML.getItems().get(i))) {
+                // Adding to the list of indexes when selected
+                idx[p++] = i;
+            }
+        }
+
+        // Calling the more effective index-based selection setter
+        gpxTrackXML.getSelectionModel().selectIndices(-1, idx);
+</after>
+```###4.559###4559.0###767###181###948
+79###```java
+<after>            Context themedContext = getDialog().getContext();
+            int[] attrs = new int[] { R.attr.listItemBackground /* index 0 */};
+            TypedArray ta = themedContext.obtainStyledAttributes(attrs);
+            Drawable drawableFromTheme = ta.getDrawable(0 /* index */);
+
+            // Finally, free the resources used by TypedArray
+            ta.recycle();
+</after>
+```###3.331###3331.0###475###89###564
+80###```java
+<after>            Object o = bundle.get(key);
+            if (o == null) {
+                editor.remove(key);
+            } else if (o instanceof Integer) {
+                editor.putInt(key, (Integer) o);
+            } else if (o instanceof Long) {
+                editor.putLong(key, (Long) o);
+            } else if (o instanceof Boolean) {
+                editor.putBoolean(key, (Boolean) o);
+            } else if (o instanceof CharSequence) {
+                editor.putString(key, o.toString());
+            } else if (o instanceof Bundle) {
+                saveBundle(editor, (Bundle) o);
+            }
+        }
+
+        editor.apply();
+</after>
+```###3.904###3904.0###829###146###975
+81###```java
+<after>            TrustManager[] trustAllCerts = new TrustManager[] {
+                new X509TrustManager() {
+                    public java.security.cert.X509Certificate[] getAcceptedIssuers() {
+                        return null;
+                    }
+                    public void checkClientTrusted(
+                        java.security.cert.X509Certificate[] certs, String authType) {
+                    }
+                    public void checkServerTrusted(
+                        java.security.cert.X509Certificate[] certs, String authType) {
+                    }
+                }
+            };
+
+            SSLContext sslContext = SSLContext.getInstance("TLS");
+            sslContext.init(null, trustAllCerts, new java.security.SecureRandom());
+            HttpsURLConnection.setDefaultSSLSocketFactory(sslContext.getSocketFactory());
+</after>
+```###3.295###3295.0###573###160###733
+82###```java
+<after>    public static String cleanFileName(String badFileName) {
+        StringBuilder cleanName = new StringBuilder();
+        for (int i = 0; i < badFileName.length(); i++) {
+            char c = badFileName.charAt(i);
+            if (isCharLegal(c)) {
+                cleanName.append(c);
+            } else {
+                cleanName.append('_');
+            }
+        }
+        return cleanName.toString();
+    }
+</after>
+```###2.68###2680.0###467###100###567
+83###```java
+<after>            String url = properties.getUrl();
+            String user = properties.getUser();
+            String password = properties.getPassword();
+            this.connection = DriverManager.getConnection(url, user, password);
+</after>
+```###1.945###1945.0###559###50###609
+84###```java
+<after>        parcel.setDataPosition(0);
+        bundleOut.readFromParcel(parcel);
+        parcel.recycle();
+</after>
+```###1.034###1034.0###431###36###467
+85###```java
+<after>            String name = makeFragmentName(container.getId(), position);
+            return fragmentManager.findFragmentByTag(name);
+</after>
+```###2.051###2051.0###441###38###479
+86###```java
+<after>        notification.contentView = contentView;
+</after>
+```###1.312###1312.0###631###23###654
+87###```java
+<after>            int width = bitmap.getWidth();
+            int height = bitmap.getHeight();
+            bitmap = Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix, true);
+</after>
+```###1.721###1721.0###395###53###448
+88###```java
+<after>        ExifInterface exif = new ExifInterface(fileName);
+        int orientation = exif.getAttributeInt(ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_NORMAL);
+        return exifToDegrees(orientation);
+</after>
+```###2.516###2516.0###565###61###626
+89###```java
+<after>                int start = input[0];
+                int end = input[0];
+
+                for (int rev : input) {
+                    if (rev - end > 1) {
+                        // break in range
+                        System.out.println("Range: [" + start + ", " + end + "]");
+                        start = rev;
+                    }
+                    end = rev;
+                }
+                System.out.println("Range: [" + start + ", " + end + "]");
+</after>
+```###2.007###2007.0###789###107###896
+90###```java
+<after>        @Override
+        public void handleMessage(Message msg)
+        {
+            AbstractUploaderService service = mService.get();
+            if (service != null) {
+                service.handleMessage(msg);
+            }
+        }
+</after>
+```###2.034###2034.0###565###58###623
+91###```java
+<after>            transformer.transform(domSource, streamResult);
+            String xmlString = xmlStringWriter.toString();
+            System.out.println(xmlString);
+</after>
+```###2.53###2530.0###503###43###546
+92###```java
+<after>                int red = color.getRed();
+                int green = color.getGreen();
+                int blue = color.getBlue();
+                gray = 0.299 * red + 0.587 * green + 0.114 * blue;
+</after>
+```###1.717###1717.0###585###65###650
+93###```java
+<after>            PDPageContentStream contentStream = new PDPageContentStream(doc, page, true, true);
+
+            //contentStream.drawImage(ximage, 20, 20 );
+            // better method inspired by http://stackoverflow.com/a/22318681/535646
+            float scale = 1f; // reduce this value if the image is too large
+            contentStream.drawXObject(ximage, x, y, ximage.getWidth()*scale, ximage.getHeight()*scale);
+
+            contentStream.close();
+            doc.save(pdfFile);
+</after>
+```###2.239###2239.0###695###125###820
+94###```java
+<after>        Set<Integer> colors = new HashSet<Integer>();
+        int w = newImage.getWidth();
+        int h = newImage.getHeight();
+        for(int y = 0; y < h; y++) {
+            for(int x = 0; x < w; x++) {
+                int pixel = newImage.getRGB(x, y);
+                colors.add(pixel);
+            }
+        }
+        assertFalse("File '" + filename + "' is blank", colors.isEmpty());
+</after>
+```###3.001###3001.0###865###109###974
+95###```java
+<after>		final List<String> lines = Files.readAllLines(Paths.get(path), StandardCharsets.UTF_8);
+		return lines.toArray(new String[0]);
+</after>
+```###1.598###1598.0###523###48###571
+96###```java
+<after>                        final Stage stage =  (Stage) ap.getScene().getWindow();// ugly cast following https://stackoverflow.com/a/31686775
+                        FileChooser fileChooser = new FileChooser();
+                        fileChooser.setTitle("Open Resource File");
+                        File file = fileChooser.showOpenDialog(stage);
+                        if (file != null) {
+                            // Handle file reading logic here
+                        }
+</after>
+```###2.005###2005.0###415###93###508
+97###```java
+<after>                        ByteArrayOutputStream os = new ByteArrayOutputStream();
+                        byte[] buffer = new byte[0xFFFF];
+                        int len;
+                        while ((len = gis.read(buffer)) != -1) {
+                            os.write(buffer, 0, len);
+                        }
+                        bytes = os.toByteArray();
+</after>
+```###2.02###2020.0###685###72###757
+98###```java
+<after>                Node source = (Node) ae.getSource();
+                Window theStage = source.getScene().getWindow();
+
+                File selectedFile = fc.showOpenDialog(theStage);
+                if (selectedFile != null) {
+                    // Handle the selected file
+                    System.out.println("File selected: " + selectedFile.getAbsolutePath());
+                }
+</after>
+```###2.044###2044.0###487###82###569
+99###```java
+<after>        final String[] split = text.split("\\r?\\n"); // https://stackoverflow.com/a/454913
+</after>
+```###1.848###1848.0###469###41###510
+Total Time Cost: 287343.0ms
+Total Time Cost: 287.343s
+Total Input Token Count: 60776
+Total Output Token Count: 9073
+Total Token Count: 69849

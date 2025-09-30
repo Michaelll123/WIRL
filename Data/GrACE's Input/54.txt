@@ -1,0 +1,80 @@
+<CurrentEdit>
+<prefix>
+  /**
+   * Returns a copy of a BufferedImage object.
+   * <p/>
+   * Taken from
+   * <a href="http://stackoverflow.com/a/19327237" target="_blank">here</a>
+   * (CC BY-SA 3.0).
+   *
+   * @param source		the image to copy
+   */
+  public static BufferedImage deepCopy(BufferedImage source) {
+    BufferedImage 	result;
+    Graphics 		g;
+
+    result = new BufferedImage(source.getWidth(), source.getHeight(), source.getType());
+</prefix>
+<before>    g      =  b.getGraphics();
+    g.drawImage(source, 0, 0, null);
+    g.dispose();
+    return b;
+</before>
+<after></after>
+<suffix>  }
+
+  /**
+   * Returns all the pixels of the image as an int array (row-wise).
+   *
+   * @param img		the image to get the pixels from
+   * @return		the pixel array
+   * @see		BufferedImage#getRGB(int, int)
+   */
+  public static int[] getPixels(BufferedImage img) {
+    int[]	result;
+    int		y;
+    int		x;
+    int		i;
+</suffix>
+</CurrentEdit>
+<CtxEdits>
+<Edit>
+<prefix>
+  /**
+   * Returns a copy of a BufferedImage object.
+   * <p/>
+   * Taken from
+   * <a href="http://stackoverflow.com/a/19327237" target="_blank">here</a>
+   * (CC BY-SA 3.0).
+   *
+   * @param source		the image to copy
+   */
+  public static BufferedImage deepCopy(BufferedImage source) {
+    BufferedImage 	result;
+    Graphics 		g;
+
+    result = new BufferedImage(source.getWidth(), source.getHeight(), source.getType());
+</prefix>
+<before></before>
+<after>    g      =  b.getGraphics();
+    g.drawImage(source, 0, 0, null);
+    g.dispose();
+    return b;
+</after>
+<suffix>  }
+
+  /**
+   * Returns all the pixels of the image as an int array (row-wise).
+   *
+   * @param img		the image to get the pixels from
+   * @return		the pixel array
+   * @see		BufferedImage#getRGB(int, int)
+   */
+  public static int[] getPixels(BufferedImage img) {
+    int[]	result;
+    int		y;
+    int		x;
+    int		i;
+</suffix>
+</Edit>
+</CtxEdits>

@@ -1,0 +1,74 @@
+<CurrentEdit>
+<prefix>   * @return		the autocorrelation
+   */
+  public static double[] bruteForce(double[] x) {
+    double[] 	result;
+    int 	n;
+    int		j;
+    int		i;
+
+    if (x.length % 2 != 0)
+      throw new IllegalStateException("Signal array must be of even length, provided: " + x.length);
+
+    n      = x.length;
+    result = new double[n];
+    for (j = 0; j < n; j++) {
+      for (i = 0; i < n; i++)
+</prefix>
+<before>        ac[j] += x[i] * x[(n + i - j) % n];
+</before>
+<after></after>
+<suffix>    }
+
+    return result;
+  }
+
+  /**
+   * Helper method for calculating square.
+   *
+   * @param x		the number to square
+   * @return		the result of x*x
+   */
+  private static double sqr(double x) {
+    return x * x;
+  }
+</suffix>
+</CurrentEdit>
+<CtxEdits>
+<Edit>
+<prefix>   * @return		the autocorrelation
+   */
+  public static double[] bruteForce(double[] x) {
+    double[] 	result;
+    int 	n;
+    int		j;
+    int		i;
+
+    if (x.length % 2 != 0)
+      throw new IllegalStateException("Signal array must be of even length, provided: " + x.length);
+
+    n      = x.length;
+    result = new double[n];
+    for (j = 0; j < n; j++) {
+      for (i = 0; i < n; i++)
+</prefix>
+<before></before>
+<after>        ac[j] += x[i] * x[(n + i - j) % n];
+</after>
+<suffix>    }
+
+    return result;
+  }
+
+  /**
+   * Helper method for calculating square.
+   *
+   * @param x		the number to square
+   * @return		the result of x*x
+   */
+  private static double sqr(double x) {
+    return x * x;
+  }
+</suffix>
+</Edit>
+</CtxEdits>

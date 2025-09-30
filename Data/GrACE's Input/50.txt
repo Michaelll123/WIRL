@@ -1,0 +1,64 @@
+<CurrentEdit>
+<prefix>
+            setListAdapter(new NoteBlockAdapter(getActivity(), mNoteBlockArray));
+        }
+    }
+
+    public void refreshBlocksForCommentStatus(CommentStatus newStatus) {
+        if (mOnCommentStatusChangeListener != null) {
+            mOnCommentStatusChangeListener.onCommentStatusChanged(newStatus);
+            ListView listView = getListView();
+            if (listView == null || mCommentListPosition == ListView.INVALID_POSITION) {
+                return;
+            }
+
+            // Redraw the comment row if it is visible so that the background and text colors update
+            // See: http://stackoverflow.com/questions/4075975/redraw-a-single-row-in-a-listview/9987616#9987616
+</prefix>
+<before>            int start = list.getFirstVisiblePosition();
+            for(int i=start, j=list.getLastVisiblePosition();i<=j;i++)
+                if(target==list.getItemAtPosition(i)){
+                    View view = list.getChildAt(i-start);
+                    list.getAdapter().getView(i, view, list);
+                    break;
+                }
+</before>
+<after></after>
+<suffix>        }
+    }
+}
+</suffix>
+</CurrentEdit>
+<CtxEdits>
+<Edit>
+<prefix>
+            setListAdapter(new NoteBlockAdapter(getActivity(), mNoteBlockArray));
+        }
+    }
+
+    public void refreshBlocksForCommentStatus(CommentStatus newStatus) {
+        if (mOnCommentStatusChangeListener != null) {
+            mOnCommentStatusChangeListener.onCommentStatusChanged(newStatus);
+            ListView listView = getListView();
+            if (listView == null || mCommentListPosition == ListView.INVALID_POSITION) {
+                return;
+            }
+
+            // Redraw the comment row if it is visible so that the background and text colors update
+            // See: http://stackoverflow.com/questions/4075975/redraw-a-single-row-in-a-listview/9987616#9987616
+</prefix>
+<before></before>
+<after>            int start = list.getFirstVisiblePosition();
+            for(int i=start, j=list.getLastVisiblePosition();i<=j;i++)
+                if(target==list.getItemAtPosition(i)){
+                    View view = list.getChildAt(i-start);
+                    list.getAdapter().getView(i, view, list);
+                    break;
+                }
+</after>
+<suffix>        }
+    }
+}
+</suffix>
+</Edit>
+</CtxEdits>

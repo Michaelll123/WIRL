@@ -1,0 +1,100 @@
+0###path###myPath###3.874###2842###17
+1###combox, ComboBoxItem###waypointSymTxt, String###2.683###4749###25
+2###dirName, s.toString().endsWith(".xml")###myPath, s.toString().endsWith("." + ICON_EXT)###3.657###2569###36
+3###event, lineChart, lineChart.getXAxis(), lineChart.getYAxis()###e, this, this.getXAxis(), this.getYAxis()###5.425###3749###41
+4###primaryStage.initStyle(StageStyle.UNIFIED)###myStage.initStyle(StageStyle.DECORATED)###7.487###1337###36
+5###box.setCellFactory(lv -> new ListCell<Integer>() {, @Override, public void updateItem(Integer item, boolean empty) {, super.updateItem(item, empty);, if (empty) {, setText(null);, } else {, setText(item.toString());, setDisable(item.intValue() != 0);, }###waypointSymTxt.setCellFactory(lv -> new ListCell<Label>() {, @Override, public void updateItem(Label item, boolean empty) {, super.updateItem(item, empty);, if (empty || item == null) {, setText(null);, setGraphic(null);, } else {, setText(item.getText());, setGraphic(item.getGraphic());, }###9.067###5061###158
+6###cboPersons.setConverter(new StringConverter<Person>() {, @Override, public String toString(Person person) {, return person.getName();, }, @Override, public Person fromString(String string) {, return null;, }###waypointSymTxt.setConverter(new StringConverter<Label>() {, @Override, public String toString(Label label) {, return (label == null) ? "" : label.getText();, }, @Override, public Label fromString(String string) {, return waypointSymbolLabelForText(string);, }}###9.778###4770###120
+7###yourWebviewObject.getEngine().setUserStyleSheetLocation(###myWebView.getEngine().setUserStyleSheetLocation(###14.593###17820###36
+8###int[] idx = new int[selectedItems.size()], int[] idx = new int[selectedItems.size()], Set<PositionWrapper> s = new HashSet<>(Arrays.asList(selectedItems.toArray(new PositionWrapper[0]))), for (int i = 0; i < target.getItems().size(); i++) {, if (s.contains(target.getItems().get(i))) {, idx[p++] = i;, }###int[] idx = new int[waypoints.size()], Set<GPXWaypoint> s = new HashSet<>(waypoints), for (int i = 0; i < gpxTrackXML.getItems().size(); i++) {, if (s.contains(gpxTrackXML.getItems().get(i))) {, idx[p++] = i;, }###33.443###20537###164
+9###int start = input[0];, int end = input[0];, for (int rev : input) {, if (rev - end > 1) {, System.out.println("Range: [" + start + ", " + end + "]");, start = rev;, } end = rev; }###int start = trackIndices.get(0);, int end = trackIndices.get(0);, for (int rev : trackIndices) {, if (rev - end > 1) {, clusterMap.put(gpxWaypoints.getItems().get(end).getParent(), GPXAlgorithms.getInstance().findStationaries(gpxWaypoints.getItems().subList(start, end + 1), GPXEditorPreferences.CLUSTER_RADIUS.getAsType(Double::valueOf), GPXEditorPreferences.CLUSTER_COUNT.getAsType(Integer::valueOf), GPXEditorPreferences.CLUSTER_DURATION.getAsType(Integer::valueOf)));, start = rev; } end = rev; }, clusterMap.put(gpxWaypoints.getItems().get(end).getParent(), GPXAlgorithms.getInstance().findStationaries(gpxWaypoints.getItems().subList(start, end + 1), GPXEditorPreferences.CLUSTER_RADIUS.getAsType(Double::valueOf), GPXEditorPreferences.CLUSTER_COUNT.getAsType(Integer::valueOf), GPXEditorPreferences.CLUSTER_DURATION.getAsType(Integer::valueOf)));###39.872###17842###284
+10###frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));###connectionStatusView.dispatchEvent(new WindowEvent(connectionStatusView, WindowEvent.WINDOW_CLOSING));###33.225###462###48
+11###final Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();###final Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();###22.894###2421###40
+12###final Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();###final Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();###22.912###1820###40
+13###Optional<T> last = stream.reduce((first, second) -> second);###Optional<Event> last = preSenderEvts.getKey().reduce((first, second) -> second);###9.372###1668###49
+14###final RevFilter beforeExpTime = CommitTimeRevFilter.before(Date.from(zdt.toInstant())));###final RevFilter beforeExpTime = CommitTimeRevFilter.before(Date.from(zonedGameStart.toInstant()));###7.426###6926###55
+15###ClipData clip = ClipData.newPlainText("label", "Text to Copy");###ClipData clip = ClipData.newPlainText("label", text);###5.677###2509###43
+16###Bitmap bitmap =  Bitmap.createBitmap(1, 1, Bitmap.Config.ARGB_8888);###Bitmap bitmap = Bitmap.createBitmap(drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);###9.095###1975###60
+17###theIntrinsic.setRadius(BLUR_RADIUS);###theIntrinsic.setRadius(radius);###7.571###2509###31
+18###Matcher m = Pattern.compile("your regular expression here");###Matcher m = postReferencePattern.matcher(post.text);###5.484###1380###35
+19###OutputStreamWriter outputStreamWriter = new OutputStreamWriter(context.openFileOutput("config.txt", Context.MODE_PRIVATE));###OutputStreamWriter outputStreamWriter = new OutputStreamWriter(context.openFileOutput(escapePathSeparator(name), Context.MODE_PRIVATE));###4.45###1514###56
+20###gray = 0.299 * red + 0.587 * green + 0.114 * blue;###bc = (int)(0.299 * color.getRed() + 0.587 * color.getGreen() + 0.114 * color.getBlue());###8.869###1245###70
+21###CMSSignedData cms = new CMSSignedData(new CMSProcessableByteArray(Data_Bytes), Sig_Bytes);###CMSSignedData cms = new CMSSignedData(signedContent, contents.getBytes());###3.635###1276###56
+22###CMSSignedData signedData = new CMSSignedData(Base64.decode(envelopedData.getBytes()));###CMSSignedData signedData = new CMSSignedData(contents.getBytes());###5.637###1868###50
+23###CMSSignedData cms = new CMSSignedData(new CMSProcessableByteArray(Data_Bytes), Sig_Bytes);###CMSSignedData cms = new CMSSignedData(new CMSProcessableByteArray(buf), contents.getBytes());###6.165###2026###59
+24###double xmagic = xrad * magic;###double xmagic = r * magic;###3.419###3481###31
+25###int w = image.getWidth();int h = image.getHeight();for(int y = 0; y < h; y++) {for(int x = 0; x < w; x++) {int pixel = image.getRGB(x, y);colors.add(pixel);    }}###int w = newImage.getWidth();int h = newImage.getHeight();for(int y = 0; y < h; y++) {    for(int x = 0; x < w; x++) {        int pixel = newImage.getRGB(x, y);        colors.add(pixel);    }}###13.728###3379###137
+26###sizeProduct*=size[k];###sizeProduct*=sizeValues[i];###6.696###4128###27
+27###transformer.transform(xmlInput, xmlOutput);###transformer.transform(domSource, streamResult);###4.314###627###32
+28###double xmagic = xrad * magic;###double xmagic = r * magic;###6.255###1679###31
+29###con = new URL( url ).openConnection();###con = new URL(doiRequest).openConnection();###3.756###667###35
+30###java.awt.Image tmp = img.getScaledInstance(newW, newH, Image.SCALE_SMOOTH);###java.awt.Image tmp = img.getScaledInstance(newWidth, newHeight, Image.SCALE_SMOOTH);###3.854###384###56
+31###myControlXML###actual###2.555###799###18
+32###this.connection = DriverManager.getConnection(url1, user, password);###this.connection = DriverManager.getConnection(properties.getUrl(), properties.getUser(), properties.getPassword());###2.8###586###40
+33###final BufferedImage img = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);###final BufferedImage img = new BufferedImage(getWidth(), getHeight(), BufferedImage.TYPE_INT_ARGB);###2.512###1396###47
+34###URLDecoder.decode(pair.substring(0, idx), "UTF-8"), URLDecoder.decode(pair.substring(idx + 1), encoding)###URLDecoder.decode(pair.substring(0, idx), encoding), URLDecoder.decode(pair.substring(idx + 1), encoding)###6.469###2971###65
+35###portNr, portFree###port, free###2.372###254###22
+36###upperLimit, randomSource###limit, rand###4.287###4736###22
+37###start.toLocalDate(), end.toLocalDate()###var0.toLocalDate(), var1.toLocalDate()###3.749###1487###36
+38###title.setText(text)###view.setText(result)###3.449###715###22
+39###txtSpecialRequests, lastSpecialRequestsCursorPosition, specialRequests###editText, lastCursorPosition, currentText###3.258###1161###33
+40###tv###txtMessage###4.355###2320###17
+41###selectedUri###dirUri###5.819###9493###18
+42###Error
+43###mStringFilterList, filterList.add(mStringFilterList.get(i)), results.values=filterList###originalFileEntries, filteredFileEntries.add(originalFileEntries.get(i)), results.values=filteredFileEntries###4.679###901###54
+44###Arrays.fill(chars, ' '), Arrays.fill(bytes, (byte) 0)###Arrays.fill(chars, 0, charBuffer.limit(), ' '), Arrays.fill(bytes, 0, bytes.length, (byte) 0)###9.069###1401###61
+45###bundle.keySet()###b.keySet()###5.365###641###20
+46###mainToolbar.updateToolbarWithSelection(MainContentView.DEVICE_ACTIVITY), activity.recreate(), checker.checkToolbarTitle(MainContentView.DEVICE_ACTIVITY)###main.getActivity().updateToolbarWithSelection(MainContentView.DEVICE_ACTIVITY), main.getActivity().recreate(), main.getActivity().checkToolbarTitle(MainContentView.DEVICE_ACTIVITY)###3.678###1141###71
+47###atan2(sin(x-y), cos(x-y))###atan2(sin(radians1-radians2), cos(radians1-radians2))###3.47###4242###42
+48###new URL("http://example.com/image.jpg").openStream(), Paths.get("C:/File/To/Save/To/image.jpg")###new URL(fileURL).openStream(), Paths.get(localPath)###3.337###411###55
+49###Stream.concat(Arrays.stream(a), Arrays.stream(b))###Stream.concat(Arrays.stream(command), Arrays.stream(args)).toArray(String[]::new)###2.971###425###40
+50###list.getFirstVisiblePosition(), list.getLastVisiblePosition(), list.getItemAtPosition(i), list.getChildAt(i-start), list.getAdapter().getView(i, view, list)###listView.getFirstVisiblePosition(), listView.getLastVisiblePosition(), listView.getItemAtPosition(i), listView.getChildAt(i - start), listView.getAdapter().getView(i, view, listView)###8.775###2029###80
+51###mImageLoader.setBatchedResponseDelay(0)###imageLoader.setBatchedResponseDelay(0)###9.48###5661###35
+52###ac[j] += x[i] * x[(n + i - j) % n]###result[j] += x[i] * x[(n + i - j) % n]###4.097###1145###52
+53###bi.getColorModel()###img.getColorModel()###3.953###3021###22
+54###b.getGraphics()###result.getGraphics()###4.678###3722###22
+55###parent.addView(mLinearLayout, lvIndex, lv.getLayoutParams())###parent.addView(newLv, lvIndex, lv.getLayoutParams())###7.49###1514###38
+56###parent.addView(mLinearLayout, lvIndex, lv.getLayoutParams())###parent.addView(newLv, lvIndex, lv.getLayoutParams())###3.769###1658###38
+57###parent.addView(mLinearLayout, lvIndex, lv.getLayoutParams())###parent.addView(newLv, lvIndex, lv.getLayoutParams())###4.017###2180###38
+58###MimeTypeMap.getFileExtensionFromUrl(url)###MimeTypeMap.getFileExtensionFromUrl(urlString)###9.091###1083###31
+59###o.outHeight, o.outWidth, IMAGE_MAX_SIZE###optBounds.outHeight, optBounds.outWidth, maxWidth###3.938###3677###36
+60###list.getFirstVisiblePosition(), list.getLastVisiblePosition(), list.getItemAtPosition(i), list.getChildAt(i-start), list.getAdapter().getView(i, view, list)###getListView().getFirstVisiblePosition(), getListView().getLastVisiblePosition(), getListView().getItemAtPosition(i), getListView().getChildAt(i-getListView().getFirstVisiblePosition()), getListView().getAdapter().getView(i, view, getListView())###5.465###2797###97
+61###mImageLoader.setBatchedResponseDelay(0)###imageLoader.setBatchedResponseDelay(0)###6.096###6360###35
+62###targetClass, target###proxy.getClass(), proxy###6.853###1351###22
+63###mimeType###MimeTypeMap.getSingleton().getMimeTypeFromExtension(extension)###7.517###1083###27
+64###o.outHeight, o.outWidth, IMAGE_MAX_SIZE, o###optBounds.outHeight, optBounds.outWidth, IMAGE_MAX_SIZE, optBounds###5.691###3715###43
+65###mImageLoader.setBatchedResponseDelay(0)###imageLoader.setBatchedResponseDelay(0)###7.513###5661###35
+66###list.getFirstVisiblePosition(), list.getLastVisiblePosition(), list.getItemAtPosition(i), list.getChildAt(i-start), list.getAdapter().getView(i, view, list)###getListView().getFirstVisiblePosition(), getListView().getLastVisiblePosition(), getListView().getItemAtPosition(i), getListView().getChildAt(i-getListView().getFirstVisiblePosition()), getListView().getAdapter().getView(i, view, getListView())###6.499###2029###97
+67###canvas.drawText("Hello", xPos, yPos, textPaint)###canvas.drawText(text, xPos, yPos, mTextPaint)###7.069###884###38
+68###bmp.compress(Bitmap.CompressFormat.PNG, 100, stream)###bitmap.compress(compressFormat, 100, stream)###8.243###1999###38
+69###DisplayMetrics displayMetrics = getContext().getResources().getDisplayMetrics()###DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics()###3.97###2001###38
+70###getTheme().resolveAttribute(android.R.attr.actionBarSize, tv, true), TypedValue.complexToDimensionPixelSize(tv.data,getResources().getDisplayMetrics())###context.getTheme().resolveAttribute(android.R.attr.actionBarSize, tv, true), TypedValue.complexToDimensionPixelSize(tv.data, context.getResources().getDisplayMetrics())###8.787###748###80
+71###o.outHeight, o.outWidth, IMAGE_MAX_SIZE###optBounds.outHeight, optBounds.outWidth, maxWidth###3.944###3715###36
+72###oldUri.getQuery(), oldUri.getScheme(), oldUri.getAuthority(), oldUri.getPath(), newQuery, oldUri.getFragment()###uri.getQuery(), uri.getScheme(), uri.getAuthority(), uri.getPath(), newQuery, uri.getFragment()###5.723###4918###63
+73###objectMapper.readerForUpdating(user).readValue(request.getReader())###objectMapper.readerForUpdating(entity).readValue(jsonObject)###4.304###2023###38
+74###illegalChars, c###FileNameCleaner.ILLEGAL_CHARS, (int)c###5.39###463###29
+75###url1, user, password###properties.getUrl(), properties.getUser(), properties.getPassword()###5.705###550###29
+76###list.iterator(), String string###colors.iterator(), ColorRGB color###4.304###1237###25
+77###mapA.keySet(), mapB.keySet()###expected, actual###2.459###2901###25
+78###myMap, aMap###CLASS_TO_PREFERENCE_NODE_MAP, castedMap###3.001###2400###29
+79###contextThemeWrapper###mContext###3.023###1818###19
+80###themedContext###mContext###3.013###2100###19
+81###gameState, ed, header###bundle, editor, EXTRA_HEADER###3.322###2772###26
+82###sslContext, tmf, context###sslContext, trustAllCerts, sslContext###3.774###2331###31
+83###illegalChars, illegalChars###FileNameCleaner.ILLEGAL_CHARS, FileNameCleaner.ILLEGAL_CHARS###5.245###463###34
+84###url1, user, password###properties.getUrl(), properties.getUser(), properties.getPassword()###3.32###550###29
+85###b2###bundleOut###3.993###756###18
+86###mFragmentManager###fragmentManager###12.143###3169###18
+87###not.contentView###notification.contentView###2.977###4469###18
+88###sourceBitmap, width, height###bitmap, bitmap.getWidth(), bitmap.getHeight()###5.568###3269###28
+89###uri.getPath(), rotationInDegrees###fileName, exifToDegrees(exif.getAttributeInt(ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_NORMAL))###4.447###924###44
+90###UDPListenerService, service.handleMessage(msg)###AbstractUploaderService, service.handleIntent(msg.obj)###5.601###4477###33
+91###xmlInput, xmlOutput###domSource, streamResult###5.232###627###24
+92###gray, red, green, blue###bc, color.getRed(), color.getGreen(), color.getBlue()###3.779###1245###35
+93###x, y, pdfFile###0, 0, outputFile###3.037###1117###26
+94###image###newImage###4.499###3379###17
+95###encoding###Charset.defaultCharset()###3.181###3559###19
+96###ap###source.getScene().getWindow()###3.447###856###21
+97##is###gis###8.953###4097###17
+98###ae, sourceDirectoryChooser###event, fc###5.639###857###25
+99###string###text###3.002###857###25

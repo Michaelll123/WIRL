@@ -1,0 +1,74 @@
+<CurrentEdit>
+<prefix>		for (final ListIterator<ImageVisualizationInfo.Datum> imgVizInfoDataIter = imgVizInfoData
+				.listIterator(); imgVizInfoDataIter.hasNext();) {
+			final int id = imgVizInfoDataIter.nextIndex();
+			final ImageVisualizationInfo.Datum imgVisualizationInfoDatum = imgVizInfoDataIter.next();
+			final ImageVisualizationInfo.Datum oldVizInfo = imgVisualizationInfoDataById.put(id,
+					imgVisualizationInfoDatum);
+			assert oldVizInfo == null;
+
+			final Entry<ImageViewInfo, Image> imgViewInfoDatum = imgViewInfoFactory.apply(imgVisualizationInfoDatum);
+			final boolean wasAdded = pieceImgs.add(imgViewInfoDatum.getValue());
+			assert wasAdded;
+		}
+		imgVizInfoWriter.accept(imgVisualizationInfoDataById.entrySet().iterator());
+
+		// http://stackoverflow.com/a/1936582/1391325
+</prefix>
+<before>		final Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
+</before>
+<after></after>
+<suffix>	}
+
+	private Entry<InteractiveGameBoardPanel, ImageLoadingImageViewInfoFactory> createDebugGameBoardImgViewInfoFactory(
+			final GameplayController controller, final Function<? super Integer, ? extends Image> pieceIdImageFactory,
+			final int uniqueImageResourceCount, final Map<BoardArea, Color> boardAreaColors) {
+		final InteractiveGameBoardPanel gameBoardPanel = new InteractiveGameBoardPanel(controller.getModel(),
+				pieceIdImageFactory, controller, boardAreaColors.get(BoardArea.HIGHLIGHT), screenshotLogger,
+				backgroundJobService, true);
+		gameBoardPanel.setBackground(boardAreaColors.get(BoardArea.BACKGROUND));
+		final OpaqueTransparencyReplacementImageFilter imgFilter = new OpaqueTransparencyReplacementImageFilter(128);
+		final BiFunction<Image, Toolkit, Image> tranparencyFilterer = (img, toolkit) -> {
+			return toolkit.createImage(new FilteredImageSource(img.getSource(), imgFilter));
+		};
+		final ImageLoadingImageViewInfoFactory imgViewInfoFactory = new ImageLoadingImageViewInfoFactory(
+</suffix>
+</CurrentEdit>
+<CtxEdits>
+<Edit>
+<prefix>		for (final ListIterator<ImageVisualizationInfo.Datum> imgVizInfoDataIter = imgVizInfoData
+				.listIterator(); imgVizInfoDataIter.hasNext();) {
+			final int id = imgVizInfoDataIter.nextIndex();
+			final ImageVisualizationInfo.Datum imgVisualizationInfoDatum = imgVizInfoDataIter.next();
+			final ImageVisualizationInfo.Datum oldVizInfo = imgVisualizationInfoDataById.put(id,
+					imgVisualizationInfoDatum);
+			assert oldVizInfo == null;
+
+			final Entry<ImageViewInfo, Image> imgViewInfoDatum = imgViewInfoFactory.apply(imgVisualizationInfoDatum);
+			final boolean wasAdded = pieceImgs.add(imgViewInfoDatum.getValue());
+			assert wasAdded;
+		}
+		imgVizInfoWriter.accept(imgVisualizationInfoDataById.entrySet().iterator());
+
+		// http://stackoverflow.com/a/1936582/1391325
+</prefix>
+<before></before>
+<after>		final Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
+</after>
+<suffix>	}
+
+	private Entry<InteractiveGameBoardPanel, ImageLoadingImageViewInfoFactory> createDebugGameBoardImgViewInfoFactory(
+			final GameplayController controller, final Function<? super Integer, ? extends Image> pieceIdImageFactory,
+			final int uniqueImageResourceCount, final Map<BoardArea, Color> boardAreaColors) {
+		final InteractiveGameBoardPanel gameBoardPanel = new InteractiveGameBoardPanel(controller.getModel(),
+				pieceIdImageFactory, controller, boardAreaColors.get(BoardArea.HIGHLIGHT), screenshotLogger,
+				backgroundJobService, true);
+		gameBoardPanel.setBackground(boardAreaColors.get(BoardArea.BACKGROUND));
+		final OpaqueTransparencyReplacementImageFilter imgFilter = new OpaqueTransparencyReplacementImageFilter(128);
+		final BiFunction<Image, Toolkit, Image> tranparencyFilterer = (img, toolkit) -> {
+			return toolkit.createImage(new FilteredImageSource(img.getSource(), imgFilter));
+		};
+		final ImageLoadingImageViewInfoFactory imgViewInfoFactory = new ImageLoadingImageViewInfoFactory(
+</suffix>
+</Edit>
+</CtxEdits>

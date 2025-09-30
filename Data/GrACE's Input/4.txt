@@ -1,0 +1,74 @@
+<CurrentEdit>
+<prefix>                System.exit(-1); 
+            }
+
+            // TF, 20161103: store and read height, width of scene and divider positions of splitpane
+            Double recentWindowWidth = GPXEditorPreferences.RECENTWINDOWWIDTH.getAsType(Double::valueOf);
+            Double recentWindowHeigth = GPXEditorPreferences.RECENTWINDOWHEIGTH.getAsType(Double::valueOf);
+
+            myStage.setScene(new Scene(pane, recentWindowWidth, recentWindowHeigth));
+            myStage.setTitle("GPX Editor"); 
+            myStage.getIcons().add(new Image(GPXEditorManager.class.getResourceAsStream("/GPXEditorManager.png")));
+            myStage.getScene().getStylesheets().add(GPXEditorManager.class.getResource("/GPXEditor.css").toExternalForm());
+            if (Platform.isSupported(ConditionalFeature.UNIFIED_WINDOW)) {
+                // TFE, 20200508: not working in some environments!
+                // https://stackoverflow.com/a/58406995
+                // https://bugs.openjdk.java.net/browse/JDK-8154847
+</prefix>
+<before>                primaryStage.initStyle(StageStyle.UNIFIED);
+</before>
+<after></after>
+<suffix>            }
+       }
+    }
+    
+    @Override
+    public void stop() {
+        // TF, 20161103: store and read height, width of scene and divider positions of splitpane
+        if (myStage != null) {
+            GPXEditorPreferences.RECENTWINDOWWIDTH.put(myStage.getScene().getWidth());
+            GPXEditorPreferences.RECENTWINDOWHEIGTH.put(myStage.getScene().getHeight());
+        }
+        
+        if (controller != null) {
+            // TF, 20161103: call controller to store window values
+</suffix>
+</CurrentEdit>
+<CtxEdits>
+<Edit>
+<prefix>                System.exit(-1); 
+            }
+
+            // TF, 20161103: store and read height, width of scene and divider positions of splitpane
+            Double recentWindowWidth = GPXEditorPreferences.RECENTWINDOWWIDTH.getAsType(Double::valueOf);
+            Double recentWindowHeigth = GPXEditorPreferences.RECENTWINDOWHEIGTH.getAsType(Double::valueOf);
+
+            myStage.setScene(new Scene(pane, recentWindowWidth, recentWindowHeigth));
+            myStage.setTitle("GPX Editor"); 
+            myStage.getIcons().add(new Image(GPXEditorManager.class.getResourceAsStream("/GPXEditorManager.png")));
+            myStage.getScene().getStylesheets().add(GPXEditorManager.class.getResource("/GPXEditor.css").toExternalForm());
+            if (Platform.isSupported(ConditionalFeature.UNIFIED_WINDOW)) {
+                // TFE, 20200508: not working in some environments!
+                // https://stackoverflow.com/a/58406995
+                // https://bugs.openjdk.java.net/browse/JDK-8154847
+</prefix>
+<before></before>
+<after>                primaryStage.initStyle(StageStyle.UNIFIED);
+</after>
+<suffix>            }
+       }
+    }
+    
+    @Override
+    public void stop() {
+        // TF, 20161103: store and read height, width of scene and divider positions of splitpane
+        if (myStage != null) {
+            GPXEditorPreferences.RECENTWINDOWWIDTH.put(myStage.getScene().getWidth());
+            GPXEditorPreferences.RECENTWINDOWHEIGTH.put(myStage.getScene().getHeight());
+        }
+        
+        if (controller != null) {
+            // TF, 20161103: call controller to store window values
+</suffix>
+</Edit>
+</CtxEdits>

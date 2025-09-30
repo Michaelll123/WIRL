@@ -1,0 +1,74 @@
+<CurrentEdit>
+<prefix>                    raf.close();
+
+                    System.out.println("Signature found");
+                    System.out.println("Name:     " + sig.getName());
+                    System.out.println("Modified: " + sdf.format(sig.getSignDate().getTime()));
+                    String subFilter = sig.getSubFilter();
+                    if (subFilter != null)
+                    {
+                        if (subFilter.equals("adbe.pkcs7.detached"))
+                        {
+                            CMSProcessable signedContent = new CMSProcessableByteArray(buf);
+
+                            // inspiration:
+                            // http://stackoverflow.com/a/26702631/535646
+                            // http://stackoverflow.com/a/9261365/535646
+</prefix>
+<before>                            CMSSignedData cms = new CMSSignedData(new CMSProcessableByteArray(Data_Bytes), Sig_Bytes);
+</before>
+<after></after>
+<suffix>                            //TODO check certificate chain, revocation lists, timestamp...
+                        }
+                    }
+                }
+            }
+            catch (CMSException ex)
+            {
+                throw new IOException(ex);
+            }
+            catch (OperatorCreationException ex)
+            {
+                throw new IOException(ex);
+            }
+            finally
+</suffix>
+</CurrentEdit>
+<CtxEdits>
+<Edit>
+<prefix>                    raf.close();
+
+                    System.out.println("Signature found");
+                    System.out.println("Name:     " + sig.getName());
+                    System.out.println("Modified: " + sdf.format(sig.getSignDate().getTime()));
+                    String subFilter = sig.getSubFilter();
+                    if (subFilter != null)
+                    {
+                        if (subFilter.equals("adbe.pkcs7.detached"))
+                        {
+                            CMSProcessable signedContent = new CMSProcessableByteArray(buf);
+
+                            // inspiration:
+                            // http://stackoverflow.com/a/26702631/535646
+                            // http://stackoverflow.com/a/9261365/535646
+</prefix>
+<before></before>
+<after>                            CMSSignedData cms = new CMSSignedData(new CMSProcessableByteArray(Data_Bytes), Sig_Bytes);
+</after>
+<suffix>                            //TODO check certificate chain, revocation lists, timestamp...
+                        }
+                    }
+                }
+            }
+            catch (CMSException ex)
+            {
+                throw new IOException(ex);
+            }
+            catch (OperatorCreationException ex)
+            {
+                throw new IOException(ex);
+            }
+            finally
+</suffix>
+</Edit>
+</CtxEdits>

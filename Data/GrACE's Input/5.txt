@@ -1,0 +1,96 @@
+<CurrentEdit>
+<prefix>        waypointSymTxt.setConverter(new StringConverter<Label>() {
+            @Override
+            public String toString(Label label) {
+                return (label == null) ? "" : label.getText();
+            }
+
+            @Override
+            public Label fromString(String string) {
+                 return waypointSymbolLabelForText(string);
+            }
+        });
+        // TODO: set group labels disabled & show icons in multicolumn layout
+        // disable: https://stackoverflow.com/a/32373721 - BUT can still select with arrows
+        // multicolumn: https://stackoverflow.com/a/58286816 - BUT not for our case: mutliple items in one row
+        // https://stackoverflow.com/a/37190344 - seems to be the way to go have a gridpane as popup
+</prefix>
+<before>        box.setCellFactory(lv -> new ListCell<Integer>() {
+        @Override
+        public void updateItem(Integer item, boolean empty) {
+            super.updateItem(item, empty);
+            if (empty) {
+                setText(null);
+            } else {
+                setText(item.toString());
+                setDisable(item.intValue() != 0);
+            }
+        }
+    });
+</before>
+<after></after>
+<suffix>    }
+    private void addGroupLabel(final String name) {
+        final Label label = new Label(name);
+        label.setGraphic(null);
+        label.getStyleClass().add("groupname-label");
+        waypointSymTxt.getItems().add(label);
+    }
+
+    public void setCallback(final GPXEditor gpxEditor) {
+        myGPXEditor = gpxEditor;
+    }
+    
+    public void editWaypoint(final List<GPXWaypoint> gpxWaypoints) {
+        assert myGPXEditor != null;
+</suffix>
+</CurrentEdit>
+<CtxEdits>
+<Edit>
+<prefix>        waypointSymTxt.setConverter(new StringConverter<Label>() {
+            @Override
+            public String toString(Label label) {
+                return (label == null) ? "" : label.getText();
+            }
+
+            @Override
+            public Label fromString(String string) {
+                 return waypointSymbolLabelForText(string);
+            }
+        });
+        // TODO: set group labels disabled & show icons in multicolumn layout
+        // disable: https://stackoverflow.com/a/32373721 - BUT can still select with arrows
+        // multicolumn: https://stackoverflow.com/a/58286816 - BUT not for our case: mutliple items in one row
+        // https://stackoverflow.com/a/37190344 - seems to be the way to go have a gridpane as popup
+</prefix>
+<before></before>
+<after>        box.setCellFactory(lv -> new ListCell<Integer>() {
+        @Override
+        public void updateItem(Integer item, boolean empty) {
+            super.updateItem(item, empty);
+            if (empty) {
+                setText(null);
+            } else {
+                setText(item.toString());
+                setDisable(item.intValue() != 0);
+            }
+        }
+    });
+</after>
+<suffix>    }
+    private void addGroupLabel(final String name) {
+        final Label label = new Label(name);
+        label.setGraphic(null);
+        label.getStyleClass().add("groupname-label");
+        waypointSymTxt.getItems().add(label);
+    }
+
+    public void setCallback(final GPXEditor gpxEditor) {
+        myGPXEditor = gpxEditor;
+    }
+    
+    public void editWaypoint(final List<GPXWaypoint> gpxWaypoints) {
+        assert myGPXEditor != null;
+</suffix>
+</Edit>
+</CtxEdits>

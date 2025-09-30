@@ -1,0 +1,74 @@
+<CurrentEdit>
+<prefix>        // update label for any changes of combobox selection
+        waypointSymTxt.valueProperty().addListener((ObservableValue<? extends String> observable, String oldValue, String newValue) -> {
+            if (newValue != null && !newValue.equals(oldValue)) {
+                final String iconBase64 = MarkerManager.getInstance().getIcon(MarkerManager.getInstance().getMarkerForSymbol(newValue).getIconName());
+                final Image image = new Image(new ByteArrayInputStream(Base64.getDecoder().decode(iconBase64)), 24, 24, false, false);
+                symbolValue.setGraphic(new ImageView(image));
+            }
+        });
+        // focus dropdown on selected item - hacking needed
+        waypointSymTxt.showingProperty().addListener((obs, wasShowing, isNowShowing) -> {
+            if (isNowShowing) {
+                // set focus on selected item
+                if (waypointSymTxt.getSelectionModel().getSelectedIndex() > -1) {
+                    // https://stackoverflow.com/a/36548310
+                    // https://stackoverflow.com/a/47933342
+</prefix>
+<before>                    ListView<ComboBoxItem> lv = (ListView<ComboBoxItem>) ((ComboBoxListViewSkin<?>) combox.getSkin()).getPopupContent();
+</before>
+<after></after>
+<suffix>                }
+            }
+        });        
+    }
+
+    public void setCallback(final GPXEditor gpxEditor) {
+        myGPXEditor = gpxEditor;
+    }
+    
+    public void editWaypoint(final List<GPXWaypoint> gpxWaypoints) {
+        assert myGPXEditor != null;
+        assert !CollectionUtils.isEmpty(gpxWaypoints);
+        
+        if (getStage().isShowing()) {
+</suffix>
+</CurrentEdit>
+<CtxEdits>
+<Edit>
+<prefix>        // update label for any changes of combobox selection
+        waypointSymTxt.valueProperty().addListener((ObservableValue<? extends String> observable, String oldValue, String newValue) -> {
+            if (newValue != null && !newValue.equals(oldValue)) {
+                final String iconBase64 = MarkerManager.getInstance().getIcon(MarkerManager.getInstance().getMarkerForSymbol(newValue).getIconName());
+                final Image image = new Image(new ByteArrayInputStream(Base64.getDecoder().decode(iconBase64)), 24, 24, false, false);
+                symbolValue.setGraphic(new ImageView(image));
+            }
+        });
+        // focus dropdown on selected item - hacking needed
+        waypointSymTxt.showingProperty().addListener((obs, wasShowing, isNowShowing) -> {
+            if (isNowShowing) {
+                // set focus on selected item
+                if (waypointSymTxt.getSelectionModel().getSelectedIndex() > -1) {
+                    // https://stackoverflow.com/a/36548310
+                    // https://stackoverflow.com/a/47933342
+</prefix>
+<before></before>
+<after>                    ListView<ComboBoxItem> lv = (ListView<ComboBoxItem>) ((ComboBoxListViewSkin<?>) combox.getSkin()).getPopupContent();
+</after>
+<suffix>                }
+            }
+        });        
+    }
+
+    public void setCallback(final GPXEditor gpxEditor) {
+        myGPXEditor = gpxEditor;
+    }
+    
+    public void editWaypoint(final List<GPXWaypoint> gpxWaypoints) {
+        assert myGPXEditor != null;
+        assert !CollectionUtils.isEmpty(gpxWaypoints);
+        
+        if (getStage().isShowing()) {
+</suffix>
+</Edit>
+</CtxEdits>

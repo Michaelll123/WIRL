@@ -1,0 +1,74 @@
+<CurrentEdit>
+<prefix>
+    @Override
+    protected Bitmap processBitmap(Object data, ProcessingState processingState) {
+        return processBitmap(String.valueOf(data));
+    }
+
+    /**
+     * Get the orientation in degrees from file EXIF information. Idea and code
+     * from http://stackoverflow.com/a/11081918/527759
+     * 
+     * @param fileName
+     * @return
+     * @throws IOException
+     */
+    public static int getOrientationInDegreesForFileName(String fileName) throws IOException {
+</prefix>
+<before>        ExifInterface exif = new ExifInterface(uri.getPath());
+</before>
+<after></after>
+<suffix>        return rotationInDegrees;
+    }
+
+    /**
+     * Convert exif orientation information to degrees. Idea and code taken from
+     * http://stackoverflow.com/a/11081918/527759
+     * 
+     * @param exifOrientation
+     * @return
+     */
+    private static int exifToDegrees(int exifOrientation) {
+        if (exifOrientation == ExifInterface.ORIENTATION_ROTATE_90) {
+            return 90;
+        } else if (exifOrientation == ExifInterface.ORIENTATION_ROTATE_180) {
+</suffix>
+</CurrentEdit>
+<CtxEdits>
+<Edit>
+<prefix>
+    @Override
+    protected Bitmap processBitmap(Object data, ProcessingState processingState) {
+        return processBitmap(String.valueOf(data));
+    }
+
+    /**
+     * Get the orientation in degrees from file EXIF information. Idea and code
+     * from http://stackoverflow.com/a/11081918/527759
+     * 
+     * @param fileName
+     * @return
+     * @throws IOException
+     */
+    public static int getOrientationInDegreesForFileName(String fileName) throws IOException {
+</prefix>
+<before></before>
+<after>        ExifInterface exif = new ExifInterface(uri.getPath());
+</after>
+<suffix>        return rotationInDegrees;
+    }
+
+    /**
+     * Convert exif orientation information to degrees. Idea and code taken from
+     * http://stackoverflow.com/a/11081918/527759
+     * 
+     * @param exifOrientation
+     * @return
+     */
+    private static int exifToDegrees(int exifOrientation) {
+        if (exifOrientation == ExifInterface.ORIENTATION_ROTATE_90) {
+            return 90;
+        } else if (exifOrientation == ExifInterface.ORIENTATION_ROTATE_180) {
+</suffix>
+</Edit>
+</CtxEdits>

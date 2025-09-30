@@ -1,0 +1,56 @@
+<CurrentEdit>
+<prefix>  }
+
+  private long getCreationTime() {
+    if (creationTime==-1L) {
+      creationTime=System.currentTimeMillis();
+    }
+
+    return(creationTime);
+  }
+
+  // inspired by http://stackoverflow.com/a/14948713/115145
+
+  private void dumpBundleToLog(String msg, Bundle b) {
+    Log.d(getClass().getSimpleName(),
+        String.format("Task ID #%d", getTaskId()));
+</prefix>
+<before>    for (String key: bundle.keySet())
+    {
+      Log.d ("myApplication", key + " is a key in the bundle");
+    }
+</before>
+<after></after>
+<suffix>  }
+}
+</suffix>
+</CurrentEdit>
+<CtxEdits>
+<Edit>
+<prefix>  }
+
+  private long getCreationTime() {
+    if (creationTime==-1L) {
+      creationTime=System.currentTimeMillis();
+    }
+
+    return(creationTime);
+  }
+
+  // inspired by http://stackoverflow.com/a/14948713/115145
+
+  private void dumpBundleToLog(String msg, Bundle b) {
+    Log.d(getClass().getSimpleName(),
+        String.format("Task ID #%d", getTaskId()));
+</prefix>
+<before></before>
+<after>    for (String key: bundle.keySet())
+    {
+      Log.d ("myApplication", key + " is a key in the bundle");
+    }
+</after>
+<suffix>  }
+}
+</suffix>
+</Edit>
+</CtxEdits>

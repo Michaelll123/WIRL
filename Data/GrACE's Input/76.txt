@@ -1,0 +1,86 @@
+<CurrentEdit>
+<prefix>  /**
+   * add a color to the palette.  Does not check for duplicates.
+   * @param c
+   */
+  public void addColor(ColorRGB c) {
+    colors.add(c);
+  }
+
+  /**
+   * Removes a given color if it exists in {@link ColorPalette#colors}.
+   *
+   * @param c color to remove.
+   * See <a href="http://stackoverflow.com/a/223929">Iterating through a list, avoiding ConcurrentModificationException when removing in loop</a>
+   */
+  public void removeColor(ColorRGB c) {
+</prefix>
+<before>    for (Iterator<String> iterator = list.iterator(); iterator.hasNext();) {
+      String string = iterator.next();
+      if (string.isEmpty()) {
+        // Remove the current element from the iterator and the list.
+        iterator.remove();
+      }
+    }
+</before>
+<after></after>
+<suffix>  }
+
+
+  /**
+   * 
+   * @return the number of colors in this palette
+   */
+  public int numColors() {
+    return colors.size();
+  }
+
+
+  /**
+   * get the color at a given index.
+</suffix>
+</CurrentEdit>
+<CtxEdits>
+<Edit>
+<prefix>  /**
+   * add a color to the palette.  Does not check for duplicates.
+   * @param c
+   */
+  public void addColor(ColorRGB c) {
+    colors.add(c);
+  }
+
+  /**
+   * Removes a given color if it exists in {@link ColorPalette#colors}.
+   *
+   * @param c color to remove.
+   * See <a href="http://stackoverflow.com/a/223929">Iterating through a list, avoiding ConcurrentModificationException when removing in loop</a>
+   */
+  public void removeColor(ColorRGB c) {
+</prefix>
+<before></before>
+<after>    for (Iterator<String> iterator = list.iterator(); iterator.hasNext();) {
+      String string = iterator.next();
+      if (string.isEmpty()) {
+        // Remove the current element from the iterator and the list.
+        iterator.remove();
+      }
+    }
+</after>
+<suffix>  }
+
+
+  /**
+   * 
+   * @return the number of colors in this palette
+   */
+  public int numColors() {
+    return colors.size();
+  }
+
+
+  /**
+   * get the color at a given index.
+</suffix>
+</Edit>
+</CtxEdits>

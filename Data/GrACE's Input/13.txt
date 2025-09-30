@@ -1,0 +1,74 @@
+<CurrentEdit>
+<prefix>		} catch (final ParseException e) {
+			System.out.println(String.format("An error occured while parsing the command-line arguments: %s", e));
+			Parameter.printHelp();
+		}
+	}
+
+	private static LongStream calculateEventTimeDifferences(final Iterator<Event> evtIter,
+			final Predicate<? super Event> evtFilter) {
+		final LongStream.Builder b = LongStream.builder();
+		while (evtIter.hasNext()) {
+			final Entry<Stream<Event>, Event> preSenderEvts = Iterators.findElementsBeforeDelimiter(evtIter, evtFilter);
+			final Event senderEvt = preSenderEvts.getValue();
+			LOGGER.debug("Sender event: {}", senderEvt);
+			if (evtFilter.test(senderEvt)) {
+				// https://stackoverflow.com/a/21441634/1391325
+</prefix>
+<before>				Optional<T> last = stream.reduce((first, second) -> second);
+</before>
+<after></after>
+<suffix>			}
+		}
+		return b.build();
+	}
+
+	private static void run(final Path inpath, final Predicate<? super Event> evtFilter, final PrintWriter out)
+			throws IOException {
+		LOGGER.info("Reading event log data from \"{}\".", inpath);
+		final List<Event> events = Arrays
+				.asList(LoggedEvents.parseLoggedEvents(Files.lines(inpath)).toArray(Event[]::new));
+		LOGGER.info("Read {} event(s) from file.", events.size());
+		events.sort(EVENT_TIME_COMPARATOR);
+
+		final LongStream evtTimeDiffs = calculateEventTimeDifferences(events.iterator(), evtFilter);
+</suffix>
+</CurrentEdit>
+<CtxEdits>
+<Edit>
+<prefix>		} catch (final ParseException e) {
+			System.out.println(String.format("An error occured while parsing the command-line arguments: %s", e));
+			Parameter.printHelp();
+		}
+	}
+
+	private static LongStream calculateEventTimeDifferences(final Iterator<Event> evtIter,
+			final Predicate<? super Event> evtFilter) {
+		final LongStream.Builder b = LongStream.builder();
+		while (evtIter.hasNext()) {
+			final Entry<Stream<Event>, Event> preSenderEvts = Iterators.findElementsBeforeDelimiter(evtIter, evtFilter);
+			final Event senderEvt = preSenderEvts.getValue();
+			LOGGER.debug("Sender event: {}", senderEvt);
+			if (evtFilter.test(senderEvt)) {
+				// https://stackoverflow.com/a/21441634/1391325
+</prefix>
+<before></before>
+<after>				Optional<T> last = stream.reduce((first, second) -> second);
+</after>
+<suffix>			}
+		}
+		return b.build();
+	}
+
+	private static void run(final Path inpath, final Predicate<? super Event> evtFilter, final PrintWriter out)
+			throws IOException {
+		LOGGER.info("Reading event log data from \"{}\".", inpath);
+		final List<Event> events = Arrays
+				.asList(LoggedEvents.parseLoggedEvents(Files.lines(inpath)).toArray(Event[]::new));
+		LOGGER.info("Read {} event(s) from file.", events.size());
+		events.sort(EVENT_TIME_COMPARATOR);
+
+		final LongStream evtTimeDiffs = calculateEventTimeDifferences(events.iterator(), evtFilter);
+</suffix>
+</Edit>
+</CtxEdits>

@@ -1,0 +1,92 @@
+<CurrentEdit>
+<prefix>   * @param actual set of actual keys
+   */
+  private static void logMissingKeys(Set<String> expected, Set<String> actual) {
+    final Set<String> inANotB = getMissingKeys(expected, actual);
+    Log.error("Missing Keys: " + inANotB.toString());
+  }
+
+  /**
+   * Get any missing keys in the actual set from the expected set.
+   * @param expected set of expected keys
+   * @param actual set of actual keys
+   * @return
+   * @see <a href="http://stackoverflow.com/a/14026865">Comparing key and values of two java maps</a>
+   */
+  private static Set<String> getMissingKeys(Set<String> expected, Set<String> actual) {
+</prefix>
+<before>    Set<String> keysInA = new HashSet<String>(mapA.keySet());
+    Set<String> keysInB = new HashSet<String>(mapB.keySet());
+
+// Keys in A and not in B
+    Set<String> inANotB = new HashSet<String>(keysInA);
+    inANotB.removeAll(keysInB);
+
+// Keys common to both maps
+    Set<String> commonKeys = new HashSet<String>(keysInA);
+    commonKeys.retainAll(keysInB);
+</before>
+<after></after>
+<suffix>    return inANotB;
+  }
+
+  /**
+   * Write a set object to disk.
+   * @param set Set you want written to disk.
+   * @throws IOException
+   * @see #SET_OBJECT_FILE_NAME
+   */
+  @SuppressWarnings("unused")
+  private static void writeSetObjectToFile(Set<String> set) throws IOException {
+    try (final OutputStream fos = new FileOutputStream(SET_OBJECT_FILE_NAME);
+         final ObjectOutputStream oos = new ObjectOutputStream(fos)) {
+      oos.writeObject(set);
+</suffix>
+</CurrentEdit>
+<CtxEdits>
+<Edit>
+<prefix>   * @param actual set of actual keys
+   */
+  private static void logMissingKeys(Set<String> expected, Set<String> actual) {
+    final Set<String> inANotB = getMissingKeys(expected, actual);
+    Log.error("Missing Keys: " + inANotB.toString());
+  }
+
+  /**
+   * Get any missing keys in the actual set from the expected set.
+   * @param expected set of expected keys
+   * @param actual set of actual keys
+   * @return
+   * @see <a href="http://stackoverflow.com/a/14026865">Comparing key and values of two java maps</a>
+   */
+  private static Set<String> getMissingKeys(Set<String> expected, Set<String> actual) {
+</prefix>
+<before></before>
+<after>    Set<String> keysInA = new HashSet<String>(mapA.keySet());
+    Set<String> keysInB = new HashSet<String>(mapB.keySet());
+
+// Keys in A and not in B
+    Set<String> inANotB = new HashSet<String>(keysInA);
+    inANotB.removeAll(keysInB);
+
+// Keys common to both maps
+    Set<String> commonKeys = new HashSet<String>(keysInA);
+    commonKeys.retainAll(keysInB);
+</after>
+<suffix>    return inANotB;
+  }
+
+  /**
+   * Write a set object to disk.
+   * @param set Set you want written to disk.
+   * @throws IOException
+   * @see #SET_OBJECT_FILE_NAME
+   */
+  @SuppressWarnings("unused")
+  private static void writeSetObjectToFile(Set<String> set) throws IOException {
+    try (final OutputStream fos = new FileOutputStream(SET_OBJECT_FILE_NAME);
+         final ObjectOutputStream oos = new ObjectOutputStream(fos)) {
+      oos.writeObject(set);
+</suffix>
+</Edit>
+</CtxEdits>

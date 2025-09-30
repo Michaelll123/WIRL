@@ -1,0 +1,90 @@
+<CurrentEdit>
+<prefix>            else if (image.toLowerCase().endsWith(".tif") || image.toLowerCase().endsWith(".tiff"))
+            {
+                ximage = CCITTFactory.createFromRandomAccess(doc, new RandomAccessFile(new File(image),"r"));
+            }
+            else if (image.toLowerCase().endsWith(".gif") || 
+                    image.toLowerCase().endsWith(".bmp") || 
+                    image.toLowerCase().endsWith(".png"))
+            {
+                BufferedImage bim = ImageIO.read(new File(image));
+                ximage = LosslessFactory.createFromImage(doc, bim);
+            }
+            else
+            {
+                throw new IOException( "Image type not supported: " + image );
+            }
+</prefix>
+<before>            PDPageContentStream contentStream = new PDPageContentStream(doc, page, true, true);
+
+            //contentStream.drawImage(ximage, 20, 20 );
+            // better method inspired by http://stackoverflow.com/a/22318681/535646
+            float scale = 1f; // reduce this value if the image is too large
+            contentStream.drawXObject(ximage, x, y, ximage.getWidth()*scale, ximage.getHeight()*scale);
+
+            contentStream.close();
+            doc.save( pdfFile );
+</before>
+<after></after>
+<suffix>        }
+        finally
+        {
+            if( doc != null )
+            {
+                doc.close();
+            }
+        }
+    }
+
+    /**
+     * This will load a PDF document and add a single image on it.
+     * <br />
+     * see usage() for commandline
+</suffix>
+</CurrentEdit>
+<CtxEdits>
+<Edit>
+<prefix>            else if (image.toLowerCase().endsWith(".tif") || image.toLowerCase().endsWith(".tiff"))
+            {
+                ximage = CCITTFactory.createFromRandomAccess(doc, new RandomAccessFile(new File(image),"r"));
+            }
+            else if (image.toLowerCase().endsWith(".gif") || 
+                    image.toLowerCase().endsWith(".bmp") || 
+                    image.toLowerCase().endsWith(".png"))
+            {
+                BufferedImage bim = ImageIO.read(new File(image));
+                ximage = LosslessFactory.createFromImage(doc, bim);
+            }
+            else
+            {
+                throw new IOException( "Image type not supported: " + image );
+            }
+</prefix>
+<before></before>
+<after>            PDPageContentStream contentStream = new PDPageContentStream(doc, page, true, true);
+
+            //contentStream.drawImage(ximage, 20, 20 );
+            // better method inspired by http://stackoverflow.com/a/22318681/535646
+            float scale = 1f; // reduce this value if the image is too large
+            contentStream.drawXObject(ximage, x, y, ximage.getWidth()*scale, ximage.getHeight()*scale);
+
+            contentStream.close();
+            doc.save( pdfFile );
+</after>
+<suffix>        }
+        finally
+        {
+            if( doc != null )
+            {
+                doc.close();
+            }
+        }
+    }
+
+    /**
+     * This will load a PDF document and add a single image on it.
+     * <br />
+     * see usage() for commandline
+</suffix>
+</Edit>
+</CtxEdits>

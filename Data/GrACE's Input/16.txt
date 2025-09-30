@@ -1,0 +1,62 @@
+<CurrentEdit>
+<prefix>    }
+
+    public static void startWebmActivity(Context context, String url) {
+        Intent intent = new Intent(Intent.ACTION_VIEW).setDataAndType(Uri.parse(url), "video/webm");
+        if(intent.resolveActivity(context.getPackageManager()) != null)
+            context.startActivity(intent);
+        else
+            Util.showToast(context, R.string.no_app);
+    }
+
+    // http://stackoverflow.com/a/10600736/283607
+    public static Bitmap drawableToBitmap (Drawable drawable) {
+        if (drawable instanceof BitmapDrawable) {
+            return ((BitmapDrawable)drawable).getBitmap();
+        }
+</prefix>
+<before>        Bitmap bitmap =  Bitmap.createBitmap(1, 1, Bitmap.Config.ARGB_8888);
+</before>
+<after></after>
+<suffix>        return bitmap;
+    }
+
+    // http://stackoverflow.com/a/23683075/283607
+    public static Bitmap copy(Bitmap b) {
+        return b.copy(b.getConfig(), true);
+    }
+}
+</suffix>
+</CurrentEdit>
+<CtxEdits>
+<Edit>
+<prefix>    }
+
+    public static void startWebmActivity(Context context, String url) {
+        Intent intent = new Intent(Intent.ACTION_VIEW).setDataAndType(Uri.parse(url), "video/webm");
+        if(intent.resolveActivity(context.getPackageManager()) != null)
+            context.startActivity(intent);
+        else
+            Util.showToast(context, R.string.no_app);
+    }
+
+    // http://stackoverflow.com/a/10600736/283607
+    public static Bitmap drawableToBitmap (Drawable drawable) {
+        if (drawable instanceof BitmapDrawable) {
+            return ((BitmapDrawable)drawable).getBitmap();
+        }
+</prefix>
+<before></before>
+<after>        Bitmap bitmap =  Bitmap.createBitmap(1, 1, Bitmap.Config.ARGB_8888);
+</after>
+<suffix>        return bitmap;
+    }
+
+    // http://stackoverflow.com/a/23683075/283607
+    public static Bitmap copy(Bitmap b) {
+        return b.copy(b.getConfig(), true);
+    }
+}
+</suffix>
+</Edit>
+</CtxEdits>

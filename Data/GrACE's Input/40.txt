@@ -1,0 +1,92 @@
+<CurrentEdit>
+<prefix>         * チャット状のフキダシ表示をする
+         * TextViewのautoLink設定については，<a href="http://stackoverflow.com/a/8654237">参考リンク</a>に従った。
+         * @param v
+         */
+        public ChatLikeViewHolder(View v) {
+            super(v);
+            numberOfTheMessage = (TextView) v.findViewById(R.id.txtInfoNumber);
+            txtMessage = (TextView) v.findViewById(R.id.txtMessage);
+            content = (LinearLayout) v.findViewById(R.id.content);
+            contentWithBG = (LinearLayout) v.findViewById(R.id.contentWithBackground);
+            txtInfo = (TextView) v.findViewById(R.id.txtInfo);
+            citationResource = (AppCompatTextView) v.findViewById(R.id.message_source);
+            pagesMark = (TextView) v.findViewById(R.id.message_source_pages_mark);
+            pages = (TextView) v.findViewById(R.id.message_source_pages);
+            citationResourceContainer = (LinearLayout) v.findViewById(R.id.citation_resource_container);
+</prefix>
+<before>            tv.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    ClassroomLog.log(TAG, "Textview Click listener ");
+                    if (tv.getSelectionStart() == -1 && tv.getSelectionEnd() == -1) {
+                        //This condition will satisfy only when it is not an autolinked text
+                        //Fired only when you touch the part of the text that is not hyperlinked
+                    }
+                }
+            });
+</before>
+<after></after>
+<suffix>        }
+
+        public void setMemoText(Memo memo) {
+            txtMessage.setText(memo.getMemo());
+        }
+
+        public void setRemoved(boolean isRemoved) {
+            this.content.setVisibility(isRemoved ? View.GONE : View.VISIBLE);
+        }
+    }
+
+
+    public class UrlPreviewViewHolder extends ChatLikeViewHolder {
+
+</suffix>
+</CurrentEdit>
+<CtxEdits>
+<Edit>
+<prefix>         * チャット状のフキダシ表示をする
+         * TextViewのautoLink設定については，<a href="http://stackoverflow.com/a/8654237">参考リンク</a>に従った。
+         * @param v
+         */
+        public ChatLikeViewHolder(View v) {
+            super(v);
+            numberOfTheMessage = (TextView) v.findViewById(R.id.txtInfoNumber);
+            txtMessage = (TextView) v.findViewById(R.id.txtMessage);
+            content = (LinearLayout) v.findViewById(R.id.content);
+            contentWithBG = (LinearLayout) v.findViewById(R.id.contentWithBackground);
+            txtInfo = (TextView) v.findViewById(R.id.txtInfo);
+            citationResource = (AppCompatTextView) v.findViewById(R.id.message_source);
+            pagesMark = (TextView) v.findViewById(R.id.message_source_pages_mark);
+            pages = (TextView) v.findViewById(R.id.message_source_pages);
+            citationResourceContainer = (LinearLayout) v.findViewById(R.id.citation_resource_container);
+</prefix>
+<before></before>
+<after>            tv.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    ClassroomLog.log(TAG, "Textview Click listener ");
+                    if (tv.getSelectionStart() == -1 && tv.getSelectionEnd() == -1) {
+                        //This condition will satisfy only when it is not an autolinked text
+                        //Fired only when you touch the part of the text that is not hyperlinked
+                    }
+                }
+            });
+</after>
+<suffix>        }
+
+        public void setMemoText(Memo memo) {
+            txtMessage.setText(memo.getMemo());
+        }
+
+        public void setRemoved(boolean isRemoved) {
+            this.content.setVisibility(isRemoved ? View.GONE : View.VISIBLE);
+        }
+    }
+
+
+    public class UrlPreviewViewHolder extends ChatLikeViewHolder {
+
+</suffix>
+</Edit>
+</CtxEdits>

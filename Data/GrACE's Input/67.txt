@@ -1,0 +1,74 @@
+<CurrentEdit>
+<prefix>            if (mImageAction instanceof ExternalGifImageAction) {
+                mTextPaint.setTextSize((float) (getResource().getBounds().width() * 0.2));
+                drawTextCentered("▶", canvas);
+            }
+            if (mImageAction instanceof EmbeddedFilteredImageAction) {
+                mTextPaint.setTextSize((float) (getResource().getBounds().width() * 0.1));
+                drawTextCentered("spoilered", canvas);
+            }
+        }
+    }
+
+    private void drawTextCentered(String text, Canvas target) {
+        /* http://stackoverflow.com/a/11121873/1726690 */
+        int xPos = (getResource().getBounds().width() / 2);
+        int yPos = (int) ((getResource().getBounds().height() / 2) - ((mTextPaint.descent() + mTextPaint.ascent()) / 2));
+</prefix>
+<before>        canvas.drawText("Hello", xPos, yPos, textPaint);
+</before>
+<after></after>
+<suffix>    }
+
+    @Override
+    protected void setDrawableInHolder(View drawableHolder, int[] widthHeight) {
+        getDrawableHolder().setText(getDrawableHolder().getText());
+        getDrawableHolder().requestLayout();
+    }
+
+    @Override
+    public void invalidateDrawable(Drawable who) {
+        if (getCallback() != null) {
+            getCallback().invalidateDrawable(who);
+        } else {
+            getDrawableHolder().invalidate();
+</suffix>
+</CurrentEdit>
+<CtxEdits>
+<Edit>
+<prefix>            if (mImageAction instanceof ExternalGifImageAction) {
+                mTextPaint.setTextSize((float) (getResource().getBounds().width() * 0.2));
+                drawTextCentered("▶", canvas);
+            }
+            if (mImageAction instanceof EmbeddedFilteredImageAction) {
+                mTextPaint.setTextSize((float) (getResource().getBounds().width() * 0.1));
+                drawTextCentered("spoilered", canvas);
+            }
+        }
+    }
+
+    private void drawTextCentered(String text, Canvas target) {
+        /* http://stackoverflow.com/a/11121873/1726690 */
+        int xPos = (getResource().getBounds().width() / 2);
+        int yPos = (int) ((getResource().getBounds().height() / 2) - ((mTextPaint.descent() + mTextPaint.ascent()) / 2));
+</prefix>
+<before></before>
+<after>        canvas.drawText("Hello", xPos, yPos, textPaint);
+</after>
+<suffix>    }
+
+    @Override
+    protected void setDrawableInHolder(View drawableHolder, int[] widthHeight) {
+        getDrawableHolder().setText(getDrawableHolder().getText());
+        getDrawableHolder().requestLayout();
+    }
+
+    @Override
+    public void invalidateDrawable(Drawable who) {
+        if (getCallback() != null) {
+            getCallback().invalidateDrawable(who);
+        } else {
+            getDrawableHolder().invalidate();
+</suffix>
+</Edit>
+</CtxEdits>

@@ -1,0 +1,50 @@
+<CurrentEdit>
+<prefix>    }
+
+    static float getLineWidth(PDAnnotationWidget widget)
+    {
+        PDBorderStyleDictionary bs = widget.getBorderStyle();
+        if (bs != null)
+        {
+            return bs.getWidth();
+        }
+        return 1;
+    }
+
+    static void drawCircle(PDAppearanceContentStream cs, float x, float y, float r) throws IOException
+    {
+        // http://stackoverflow.com/a/2007782/535646
+</prefix>
+<before>        double xmagic = xrad * magic;
+</before>
+<after></after>
+<suffix>    }
+}
+</suffix>
+</CurrentEdit>
+<CtxEdits>
+<Edit>
+<prefix>    }
+
+    static float getLineWidth(PDAnnotationWidget widget)
+    {
+        PDBorderStyleDictionary bs = widget.getBorderStyle();
+        if (bs != null)
+        {
+            return bs.getWidth();
+        }
+        return 1;
+    }
+
+    static void drawCircle(PDAppearanceContentStream cs, float x, float y, float r) throws IOException
+    {
+        // http://stackoverflow.com/a/2007782/535646
+</prefix>
+<before></before>
+<after>        double xmagic = xrad * magic;
+</after>
+<suffix>    }
+}
+</suffix>
+</Edit>
+</CtxEdits>

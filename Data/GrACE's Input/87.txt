@@ -1,0 +1,74 @@
+<CurrentEdit>
+<prefix>        RemoteViews contentView = new RemoteViews(getPackageName(), R.layout.notification_upload);
+        contentView.setImageViewResource(R.id.image, icon);
+        contentView.setTextViewText(R.id.title, contentMessageTitle);
+        contentView.setProgressBar(R.id.progress, 100, 0, true);
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
+        if (contentIntent != null) {
+            builder.setContentIntent(contentIntent);
+        }
+        Notification notification = builder.setTicker(tickerText).setWhen(when).setSmallIcon(icon)
+                .setContent(contentView).build();
+        CommonUtils.debug(TAG, "Is notification content view null: "
+                + (notification.contentView == null));
+        // need to explicitly set contentView again because of bug in compat
+        // library. Solution found here
+        // http://stackoverflow.com/a/12574534/527759
+</prefix>
+<before>        not.contentView = contentView;
+</before>
+<after></after>
+<suffix>
+        return notification;
+    }
+
+    protected void updateUploadNotification(final Notification notification, int progress, int max) {
+        if (progress < max) {
+            long now = System.currentTimeMillis();
+            if (now - mNotificationLastUpdateTime < 500) {
+                return;
+            }
+            mNotificationLastUpdateTime = now;
+
+            notification.contentView.setProgressBar(R.id.progress, max, progress, false);
+        } else {
+</suffix>
+</CurrentEdit>
+<CtxEdits>
+<Edit>
+<prefix>        RemoteViews contentView = new RemoteViews(getPackageName(), R.layout.notification_upload);
+        contentView.setImageViewResource(R.id.image, icon);
+        contentView.setTextViewText(R.id.title, contentMessageTitle);
+        contentView.setProgressBar(R.id.progress, 100, 0, true);
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
+        if (contentIntent != null) {
+            builder.setContentIntent(contentIntent);
+        }
+        Notification notification = builder.setTicker(tickerText).setWhen(when).setSmallIcon(icon)
+                .setContent(contentView).build();
+        CommonUtils.debug(TAG, "Is notification content view null: "
+                + (notification.contentView == null));
+        // need to explicitly set contentView again because of bug in compat
+        // library. Solution found here
+        // http://stackoverflow.com/a/12574534/527759
+</prefix>
+<before></before>
+<after>        not.contentView = contentView;
+</after>
+<suffix>
+        return notification;
+    }
+
+    protected void updateUploadNotification(final Notification notification, int progress, int max) {
+        if (progress < max) {
+            long now = System.currentTimeMillis();
+            if (now - mNotificationLastUpdateTime < 500) {
+                return;
+            }
+            mNotificationLastUpdateTime = now;
+
+            notification.contentView.setProgressBar(R.id.progress, max, progress, false);
+        } else {
+</suffix>
+</Edit>
+</CtxEdits>

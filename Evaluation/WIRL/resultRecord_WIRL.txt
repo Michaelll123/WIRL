@@ -1,0 +1,100 @@
+GPXEditor###MarkerManager.java###Paths.get(path):myPath ###3535.0###2186###69###2255
+GPXEditor###EditGPXWaypoint.java###combox:waypointSymTxt ###3750.0###3333###85###3418
+GPXEditor###MarkerManager.java###Paths.get(dirName):myPath ###3341.0###1768###58###1826
+GPXEditor###HeightChart.java###event:e event:e lineChart:this lineChart:this ###6915.0###4872###144###5016
+GPXEditor###GPXEditorManager.java###primaryStage:myStage ###3717.0###2683###83###2766
+GPXEditor###EditGPXWaypoint.java###box:waypointSymTxt ###3858.0###2850###86###2936
+GPXEditor###EditGPXWaypoint.java###cboPersons:waypointSymTxt ###3360.0###2500###70###2570
+GPXEditor###TrackMap.java###yourWebviewObject:myWebView ###4193.0###4733###83###4816
+GPXEditor###GPXEditor.java###selectedItems:waypoints selectedItems:waypoints target:gpxTrackXML target:gpxTrackXML target:gpxTrackXML ###10065.0###6668###229###6897
+GPXEditor###GPXEditor.java###input:trackIndices input:trackIndices input:trackIndices ###5240.0###3286###123###3409
+tangrams-restricted###SuccessfulConnectionHook.java###frame:connectionStatusView frame:connectionStatusView ###4467.0###1604###97###1701
+tangrams-restricted###GameGUI.java###java.awt.Toolkit.getDefaultToolkit():toolkit ###3455.0###2470###62###2532
+tangrams-restricted###GameGUI.java###java.awt.Toolkit.getDefaultToolkit():toolkit ###3421.0###2471###60###2532
+tangrams-restricted###LoggedEventTimeLatencySummaryWriter.java###stream:preSenderEvts.getKey() ###3063.0###1859###51###1910
+tangrams-restricted###SessionGameHistoryTabularDataWriter.java###zdt:zonedGameStart ###3567.0###1782###80###1862
+chanobol###Util.java###"label":text "Text to Copy":text ###3683.0###1649###85###1734
+chanobol###Util.java###1:drawable.getIntrinsicWidth() 1:drawable.getIntrinsicHeight() ###3673.0###1558###82###1640
+chanobol###Util.java###BLUR_RADIUS:radius ###3897.0###1732###90###1822
+chanobol###Thread.java###"your regular expression here":postReferencePattern ###4306.0###1687###83###1770
+chanobol###PersistentData.java###"config.txt":name ###4146.0###1595###101###1696
+pdfbox###SoftMask.java###gray:color red:color.getRed() green:color.getGreen() blue:color.getGreen() ###14906.0###7721###313###8034
+pdfbox###TestCreateSignature.java###new CMSProcessableByteArray(Data_Bytes):buf Sig_Bytes:contents.getBytes() ###4627.0###2134###123###2257
+pdfbox###TestCreateSignature.java###Base64.decode(envelopedData.getBytes()):contents.getBytes() ###3334.0###2078###69###2147
+pdfbox###TestCreateSignature.java###new CMSProcessableByteArray(Data_Bytes):buf Sig_Bytes:contents.getBytes() ###3447.0###2130###123###2253
+pdfbox###PDAbstractAppearanceHandler.java###xrad:x magic:r ###7015.0###3526###113###3639
+pdfbox###TestImageIOUtils.java###image:newImage image:newImage image:newImage ###3928.0###1657###76###1733
+pdfbox###PDFunctionType0.java###size:sizeValues k:i ###4493.0###1897###114###2011
+pdfbox###MetaUtil.java###xmlInput:domSource xmlOutput:streamResult ###7287.0###4432###146###4578
+pdfbox###CreateRadioButtons.java###xrad:x magic:r ###7015.0###3526###113###3639
+jabref###ApsFetcher.java###url:doiRequest ###4564.0###1901###96###1997
+jabref###PdfDocumentPageViewModel.java###newW:newWidth newH:newHeight newW:newWidth newH:newHeight ###7246.0###3784###151###3935
+jabref###MSBibExportFormatTestFiles.java###myControlXML:actual ###4191.0###2133###88###2221
+jabref###DBMSConnection.java###url1:properties.getUrl() user:properties.getUser() password:properties.getPassword() ###9922.0###5531###205###5736
+cobbzilla-utils###TextImageInsertion.java###height:txt.height width:txt.width ###3481.0###2010###68###2078
+cobbzilla-utils###HttpUtil.java###"UTF-8":encoding "UTF-8":encoding ###4164.0###1989###71###2060
+cobbzilla-utils###PortPicker.java###portNr:port portFree:free portFree:free portFree:free ###6792.0###3286###132###3418
+cobbzilla-utils###ZillaRuntime.java###upperLimit:limit randomSource:rand upperLimit:limit ###9306.0###3232###251###3483
+ProConApp###TimeUtils.java###start:var0 end:var1 ###7182.0###3789###158###3947
+ProConApp###TextViewUtils.java###title:view ###3447.0###2093###79###2172
+ProConApp###EditTextUtils.java###txtSpecialRequests:editText txtSpecialRequests:editText txtSpecialRequests:editText txtSpecialRequests:editText txtSpecialRequests:editText txtSpecialRequests:editText txtSpecialRequests:editText txtSpecialRequests:editText ###4740.0###1995###94###2089
+ProConApp###ChatLikeListAdapter.java###tv:txtMessage tv:txtMessage tv:txtMessage ###3441.0###2139###70###2209
+ProConApp###MainActivity.java###selectedUri:dirUri ###4920.0###2356###83###2439
+BestBoard###Modify.java###10:spaces ###3308.0###1584###56###1640
+BestBoard###FileEntryAdapter.java###mStringFilterList:originalFileEntries mStringFilterList:originalFileEntries mStringFilterList:originalFileEntries mStringFilterList:originalFileEntries mStringFilterList:originalFileEntries ###4002.0###1801###83###1884
+cw-omnibus###RxPassphrase.java###chars:chars bytes:bytes ###3293.0###1773###65###1838
+cw-omnibus###MainActivity.java###bundle:b ###4671.0###1382###127###1509
+cw-omnibus###IntentTests.java###activity:main ###3220.0###1234###69###1303
+haxademic###MathUtil.java###x:radians1 y:radians2 x:radians1 y:radians2 ###6372.0###2786###128###2914
+haxademic###FileDownloader.java###"http://example.com/image.jpg":fileURL "C:/File/To/Save/To/image.jpg":localPath ###3409.0###1735###74###1809
+haxademic###ScriptRunner.java###a:command b:args ###6427.0###3372###127###3499
+WordPress-Android###NotificationsDetailListFragment.java###list:listView list:listView target:mCommentListPosition list:listView list:listView list:listView list:listView ###6804.0###3864###119###3983
+WordPress-Android###WordPress.java###mimageLoader:imageLoader ###3492.0###2186###70###2256
+adams-base###AutoCorrelation.java###ac:result ###2630.0###1803###41###1844
+adams-base###BufferedImageHelper.java###bi:img ###4710.0###1955###124###2079
+adams-base###BufferedImageHelper.java###b:result b:result ###4602.0###1613###122###1735
+open-keychain###AccountsListFragment.java###mLinearLayout:newLv ###2903.0###2095###47###2142
+open-keychain###SelectSignKeyIdListFragment.java###mLinearLayout:newLv ###3510.0###2058###70###2128
+open-keychain###AppSettingsAllowedKeysListFragment.java###mLinearLayout:newLv ###3838.0###2059###83###2142
+test_import###UrlUtils.java###url:urlString ###3743.0###1844###85###1929
+test_import###ImageUtils.java###o:optBounds IMAGE_MAX_SIZE:maxWidth o:optBounds IMAGE_MAX_SIZE:maxWidth IMAGE_MAX_SIZE:maxWidth o:optBounds o:optBounds ###8237.0###5239###165###5404
+test_import###NotificationsDetailListFragment.java###list:listView list:listView target:mCommentListPosition list:listView list:listView list:listView list:listView ###6003.0###4276###99###4375
+test_import###WordPress.java###mImageLoader:imageLoader ###6524.0###2520###97###2617
+coala-binder###ReflectUtil.java###targetClass:proxy.getClass() targetClass:proxy.getClass() target:proxy ###5922.0###4128###106###4234
+MyApp_Android###UrlUtils.java###url:urlString ###3981.0###1431###80###1511
+MyApp_Android###ImageUtils.java###o:optBounds IMAGE_MAX_SIZE:maxWidth o:optBounds IMAGE_MAX_SIZE:maxWidth IMAGE_MAX_SIZE:maxWidth o:optBounds o:optBounds ###6513.0###5101###124###5225
+MyApp_Android###WordPress.java###mImageLoader:imageLoader ###4644.0###2171###55###2226
+MyApp_Android###NotificationsDetailListFragment.java###list:listView list:listView target:mCommentListPosition list:listView list:listView list:listView list:listView ###6177.0###4075###124###4199
+Derpibooru###ImageActionDrawableWrapper.java###canvas:target textPaint:mTextPaint ###9174.0###3675###224###3899
+appcommons###PicUtil.java###bmp:bitmap ###3591.0###1911###78###1989
+appcommons###PicUtil.java###getContext():context ###3703.0###1803###85###1888
+CitizenReporter###DisplayUtils.java###getTheme():getTheme() getResources():getResources() ###7812.0###3908###178###4086
+CitizenReporter###ImageUtils.java###o:optBounds IMAGE_MAX_SIZE:maxWidth o:optBounds IMAGE_MAX_SIZE:maxWidth IMAGE_MAX_SIZE:maxWidth o:optBounds o:optBounds ###7517.0###5363###169###5532
+shogun2###GeoServerInterceptorService.java###oldUri:uri oldUri:uri oldUri:uri oldUri:uri oldUri:uri ###2812.0###1936###46###1982
+shogun2###AbstractCrudService.java###request.getReader():jsonObject user:entity ###3664.0###1686###89###1775
+JabRef###FileNameCleaner.java###illegalChars:ILLEGAL_CHARS ###3141.0###1686###60###1746
+JabRef###DBMSConnection.java###url1:properties.getUrl() user:properties.getUser() password:properties.getPassword() ###11006.0###6007###246###6253
+Makelangelo###ColorPalette.java###list:colors ###4129.0###1741###84###1825
+Makelangelo-software###MarginallyCleverTranslationXmlFileHelper.java###mapA:expected mapB:actual ###7673.0###4507###183###4690
+Makelangelo-software###PreferencesHelper.java###aMap:castedMap ###8437.0###6393###182###6575
+android_maplibui###StyledDialogFragment.java###contextThemeWrapper:mContext yourLayout:mDialogLayout ###6719.0###4712###126###4838
+android_maplibui###StyledDialogFragment.java###listItemBackground:android.R.attr.background themedContext:mContext ###6195.0###5225###115###5340
+android_maplibui###WalkEditService.java###gameState:bundle ed:editor header:bundle ed:editor header:bundle ed:editor header:bundle ed:editor header:bundle ed:editor header:bundle header:bundle ed:editor ###9238.0###6979###168###7147
+DC-UFSCar-ES2-201701-Grupo595136###URLDownload.java###tmf.getTrustManagers():trustAllCerts ###3793.0###2539###83###2622
+DC-UFSCar-ES2-201701-Grupo595136###FileNameCleaner.java###illegalChars:ILLEGAL_CHARS ###2468.0###1661###43###1704
+DC-UFSCar-ES2-201701-Grupo595136###DBMSConnection.java###url1:properties.getUrl() user:properties.getUser() password:properties.getPassword() ###9553.0###5951###193###6144
+AntennaPod###DownloadRequestTest.java###b2:bundleOut ###3575.0###2286###70###2356
+mobile-android###NavigationHandlerFragment.java###mFragmentManager:fragmentManager ###3062.0###1994###52###2046
+mobile-android###AbstractUploaderService.java###contentView:contentView not:notification ###6586.0###4434###109###4543
+mobile-android###ImageResizer.java###sourceBitmap:bitmap width:bitmap.getWidth() height:bitmap.getHeight() ###9031.0###5214###171###5385
+mobile-android###ImageFileSystemFetcher.java###uri.getPath():fileName ###3473.0###1580###74###1654
+mobile-android###AbstractUploaderService.java###msg:msg ###3093.0###1609###65###1674
+pdflearn###MetaUtil.java###xmlInput:domSource xmlOutput:streamResult ###7945.0###4729###177###4906
+pdflearn###SoftMask.java###gray:color.getRed() red:color.getRed() green:color.getGreen() blue:color.getBlue() ###13613.0###8500###295###8795
+pdflearn###AddImageToPDF.java###pdfFile:outputFile ###2926.0###2429###47###2476
+pdflearn###TestImageIOUtils.java###image:newImage image:newImage image:newImage ###3749.0###1907###85###1992
+txtshuffle###TxtShuffle.java###encoding:Charset.defaultCharset() ###4178.0###2280###98###2378
+txtshuffle###FXMLController.java###ap:source ###4210.0###2617###96###2713
+txtshuffle###FXMLController.java###is:gis is:gis ###4725.0###4683###96###4779
+txtshuffle###FXMLController.java###ae:event sourceDirectoryChooser:fc ###5932.0###4222###92###4314
+txtshuffle###FXMLController.java###string:text ###3588.0###1791###76###1867

@@ -1,0 +1,82 @@
+<CurrentEdit>
+<prefix>            filePath = filePath.replace("file://", "");
+        }
+
+        // get just the image bounds
+        BitmapFactory.Options optBounds = new BitmapFactory.Options();
+
+        try {
+            BitmapFactory.decodeFile(filePath, optBounds);
+        } catch (OutOfMemoryError e) {
+            AppLog.e(AppLog.T.UTILS, "OutOfMemoryError Error in setting image: " + e);
+            return null;
+        }
+
+        // determine correct scale value (should be power of 2)
+        // http://stackoverflow.com/questions/477572/android-strange-out-of-memory-issue/3549021#3549021
+</prefix>
+<before>        int scale = 1;
+        if (o.outHeight > IMAGE_MAX_SIZE || o.outWidth > IMAGE_MAX_SIZE) {
+            scale = (int)Math.pow(2, (int) Math.ceil(Math.log(IMAGE_MAX_SIZE /
+                    (double) Math.max(o.outHeight, o.outWidth)) / Math.log(0.5)));
+        }
+</before>
+<after></after>
+<suffix>    }
+
+    public static Bitmap getCircularBitmap(final Bitmap bitmap) {
+        if (bitmap==null)
+            return null;
+
+        final Bitmap output = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), Bitmap.Config.ARGB_8888);
+        final Canvas canvas = new Canvas(output);
+        final Paint paint = new Paint();
+        final Rect rect = new Rect(0, 0, bitmap.getWidth(), bitmap.getHeight());
+        final RectF rectF = new RectF(rect);
+
+        paint.setAntiAlias(true);
+        canvas.drawARGB(0, 0, 0, 0);
+</suffix>
+</CurrentEdit>
+<CtxEdits>
+<Edit>
+<prefix>            filePath = filePath.replace("file://", "");
+        }
+
+        // get just the image bounds
+        BitmapFactory.Options optBounds = new BitmapFactory.Options();
+
+        try {
+            BitmapFactory.decodeFile(filePath, optBounds);
+        } catch (OutOfMemoryError e) {
+            AppLog.e(AppLog.T.UTILS, "OutOfMemoryError Error in setting image: " + e);
+            return null;
+        }
+
+        // determine correct scale value (should be power of 2)
+        // http://stackoverflow.com/questions/477572/android-strange-out-of-memory-issue/3549021#3549021
+</prefix>
+<before></before>
+<after>        int scale = 1;
+        if (o.outHeight > IMAGE_MAX_SIZE || o.outWidth > IMAGE_MAX_SIZE) {
+            scale = (int)Math.pow(2, (int) Math.ceil(Math.log(IMAGE_MAX_SIZE /
+                    (double) Math.max(o.outHeight, o.outWidth)) / Math.log(0.5)));
+        }
+</after>
+<suffix>    }
+
+    public static Bitmap getCircularBitmap(final Bitmap bitmap) {
+        if (bitmap==null)
+            return null;
+
+        final Bitmap output = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), Bitmap.Config.ARGB_8888);
+        final Canvas canvas = new Canvas(output);
+        final Paint paint = new Paint();
+        final Rect rect = new Rect(0, 0, bitmap.getWidth(), bitmap.getHeight());
+        final RectF rectF = new RectF(rect);
+
+        paint.setAntiAlias(true);
+        canvas.drawARGB(0, 0, 0, 0);
+</suffix>
+</Edit>
+</CtxEdits>

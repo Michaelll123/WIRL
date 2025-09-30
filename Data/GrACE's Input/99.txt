@@ -1,0 +1,74 @@
+<CurrentEdit>
+<prefix>            this.strs = strsArg;
+        }
+
+        @Override
+        public String[] get() {
+            return this.strs;
+        }
+    }
+
+
+    @FXML
+    private void handleEntDsButtonAction(ActionEvent event) {
+        System.out.println("[handleEntDsButtonAction has been called]");
+
+        final String text = this.edsTextArea.getText();
+</prefix>
+<before>        final String[] split = string.split("\\r?\\n"); // https://stackoverflow.com/a/454913
+</before>
+<after></after>
+<suffix>    }
+
+    @FXML
+    private void handleEntMsgButtonAction(ActionEvent event) throws IOException {
+
+        // TODO save message somewhere somehow
+
+                    // TODO move this to its own method
+                    {
+                        final Node source = (Node) event.getSource();
+                        final Window window = source.getScene().getWindow();
+
+                        final Stage stage = (Stage) window; // ugly cast following https://stackoverflow.com/a/31686775
+
+</suffix>
+</CurrentEdit>
+<CtxEdits>
+<Edit>
+<prefix>            this.strs = strsArg;
+        }
+
+        @Override
+        public String[] get() {
+            return this.strs;
+        }
+    }
+
+
+    @FXML
+    private void handleEntDsButtonAction(ActionEvent event) {
+        System.out.println("[handleEntDsButtonAction has been called]");
+
+        final String text = this.edsTextArea.getText();
+</prefix>
+<before></before>
+<after>        final String[] split = string.split("\\r?\\n"); // https://stackoverflow.com/a/454913
+</after>
+<suffix>    }
+
+    @FXML
+    private void handleEntMsgButtonAction(ActionEvent event) throws IOException {
+
+        // TODO save message somewhere somehow
+
+                    // TODO move this to its own method
+                    {
+                        final Node source = (Node) event.getSource();
+                        final Window window = source.getScene().getWindow();
+
+                        final Stage stage = (Stage) window; // ugly cast following https://stackoverflow.com/a/31686775
+
+</suffix>
+</Edit>
+</CtxEdits>

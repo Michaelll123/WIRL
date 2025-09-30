@@ -1,0 +1,76 @@
+<CurrentEdit>
+<prefix>            public void checkClientTrusted(X509Certificate[] chain, String authType) {
+            }
+
+            @Override
+            public void checkServerTrusted(X509Certificate[] chain, String authType) {
+            }
+
+            @Override
+            public X509Certificate[] getAcceptedIssuers() {
+                return new X509Certificate[0];
+            }
+        }};
+
+        // Install the all-trusting trust manager
+        try {
+</prefix>
+<before>            SSLContext sslContext = SSLContext.getInstance("TLS");
+            sslContext.init(null, tmf.getTrustManagers(), null);
+</before>
+<after></after>
+<suffix>        } catch (Exception e) {
+            LOGGER.error("A problem occurred when bypassing SSL verification", e);
+        }
+    }
+
+    public URL getSource() {
+        return source;
+    }
+
+    public String getMimeType() throws IOException {
+        Unirest.setDefaultHeader("User-Agent", "Mozilla/5.0 (Windows; U; WindowsNT 5.1; en-US; rv1.8.1.6) Gecko/20070725 Firefox/2.0.0.6");
+
+        String contentType;
+        // Try to use HEAD request to avoid downloading the whole file
+</suffix>
+</CurrentEdit>
+<CtxEdits>
+<Edit>
+<prefix>            public void checkClientTrusted(X509Certificate[] chain, String authType) {
+            }
+
+            @Override
+            public void checkServerTrusted(X509Certificate[] chain, String authType) {
+            }
+
+            @Override
+            public X509Certificate[] getAcceptedIssuers() {
+                return new X509Certificate[0];
+            }
+        }};
+
+        // Install the all-trusting trust manager
+        try {
+</prefix>
+<before></before>
+<after>            SSLContext sslContext = SSLContext.getInstance("TLS");
+            sslContext.init(null, tmf.getTrustManagers(), null);
+</after>
+<suffix>        } catch (Exception e) {
+            LOGGER.error("A problem occurred when bypassing SSL verification", e);
+        }
+    }
+
+    public URL getSource() {
+        return source;
+    }
+
+    public String getMimeType() throws IOException {
+        Unirest.setDefaultHeader("User-Agent", "Mozilla/5.0 (Windows; U; WindowsNT 5.1; en-US; rv1.8.1.6) Gecko/20070725 Firefox/2.0.0.6");
+
+        String contentType;
+        // Try to use HEAD request to avoid downloading the whole file
+</suffix>
+</Edit>
+</CtxEdits>

@@ -1,0 +1,80 @@
+<CurrentEdit>
+<prefix>
+    public static Integer safeInt(String val, Integer ifNull) { return empty(val) ? ifNull : Integer.valueOf(val); }
+    public static Integer safeInt(String val) { return safeInt(val, null); }
+
+    public static Long safeLong(String val, Long ifNull) { return empty(val) ? ifNull : Long.valueOf(val); }
+    public static Long safeLong(String val) { return safeLong(val, null); }
+
+    public static BigInteger bigint(long val) { return new BigInteger(String.valueOf(val)); }
+    public static BigInteger bigint(int val) { return new BigInteger(String.valueOf(val)); }
+    public static BigInteger bigint(byte val) { return new BigInteger(String.valueOf(val)); }
+
+    public static BigInteger random_bigint(BigInteger limit) { return random_bigint(limit, RANDOM); }
+
+    // adapted from https://stackoverflow.com/a/2290089/1251543
+    public static BigInteger random_bigint(BigInteger limit, SecureRandom rand) {
+</prefix>
+<before>        BigInteger randomNumber;
+        do {
+            randomNumber = new BigInteger(upperLimit.bitLength(), randomSource);
+        } while (randomNumber.compareTo(upperLimit) >= 0);
+</before>
+<after></after>
+<suffix>        return randomNumber;
+    }
+
+    public static BigDecimal big(String val) { return new BigDecimal(val); }
+    public static BigDecimal big(double val) { return new BigDecimal(String.valueOf(val)); }
+    public static BigDecimal big(float val) { return new BigDecimal(String.valueOf(val)); }
+    public static BigDecimal big(long val) { return new BigDecimal(String.valueOf(val)); }
+    public static BigDecimal big(int val) { return new BigDecimal(String.valueOf(val)); }
+    public static BigDecimal big(byte val) { return new BigDecimal(String.valueOf(val)); }
+
+    public static int percent(int value, double pct) { return percent(value, pct, RoundingMode.HALF_UP); }
+
+    public static int percent(int value, double pct, RoundingMode rounding) {
+        return big(value).multiply(big(pct)).setScale(0, rounding).intValue();
+</suffix>
+</CurrentEdit>
+<CtxEdits>
+<Edit>
+<prefix>
+    public static Integer safeInt(String val, Integer ifNull) { return empty(val) ? ifNull : Integer.valueOf(val); }
+    public static Integer safeInt(String val) { return safeInt(val, null); }
+
+    public static Long safeLong(String val, Long ifNull) { return empty(val) ? ifNull : Long.valueOf(val); }
+    public static Long safeLong(String val) { return safeLong(val, null); }
+
+    public static BigInteger bigint(long val) { return new BigInteger(String.valueOf(val)); }
+    public static BigInteger bigint(int val) { return new BigInteger(String.valueOf(val)); }
+    public static BigInteger bigint(byte val) { return new BigInteger(String.valueOf(val)); }
+
+    public static BigInteger random_bigint(BigInteger limit) { return random_bigint(limit, RANDOM); }
+
+    // adapted from https://stackoverflow.com/a/2290089/1251543
+    public static BigInteger random_bigint(BigInteger limit, SecureRandom rand) {
+</prefix>
+<before></before>
+<after>        BigInteger randomNumber;
+        do {
+            randomNumber = new BigInteger(upperLimit.bitLength(), randomSource);
+        } while (randomNumber.compareTo(upperLimit) >= 0);
+</after>
+<suffix>        return randomNumber;
+    }
+
+    public static BigDecimal big(String val) { return new BigDecimal(val); }
+    public static BigDecimal big(double val) { return new BigDecimal(String.valueOf(val)); }
+    public static BigDecimal big(float val) { return new BigDecimal(String.valueOf(val)); }
+    public static BigDecimal big(long val) { return new BigDecimal(String.valueOf(val)); }
+    public static BigDecimal big(int val) { return new BigDecimal(String.valueOf(val)); }
+    public static BigDecimal big(byte val) { return new BigDecimal(String.valueOf(val)); }
+
+    public static int percent(int value, double pct) { return percent(value, pct, RoundingMode.HALF_UP); }
+
+    public static int percent(int value, double pct, RoundingMode rounding) {
+        return big(value).multiply(big(pct)).setScale(0, rounding).intValue();
+</suffix>
+</Edit>
+</CtxEdits>

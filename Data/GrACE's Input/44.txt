@@ -1,0 +1,58 @@
+<CurrentEdit>
+<prefix>    ByteBuffer byteBuffer=Charset.forName("UTF-8").encode(charBuffer);
+    byte[] bytes=Arrays.copyOfRange(byteBuffer.array(), byteBuffer.position(),
+      byteBuffer.limit());
+
+//    Arrays.fill(charBuffer.array(), '\u0000'); // clear the cleartext
+    Arrays.fill(byteBuffer.array(), (byte) 0); // clear the ciphertext
+
+    return bytes;
+  }
+
+  static char[] toChars(byte[] bytes) {
+    Charset charset=Charset.forName("UTF-8");
+    ByteBuffer byteBuffer=ByteBuffer.wrap(bytes);
+    CharBuffer charBuffer=charset.decode(byteBuffer);
+    char[] chars=Arrays.copyOf(charBuffer.array(), charBuffer.limit());
+</prefix>
+<before>    Arrays.fill(chars, '\u0000'); // clear sensitive data
+    Arrays.fill(bytes, (byte) 0); // clear sensitive data
+</before>
+<after></after>
+<suffix>
+    return chars;
+  }
+}
+
+</suffix>
+</CurrentEdit>
+<CtxEdits>
+<Edit>
+<prefix>    ByteBuffer byteBuffer=Charset.forName("UTF-8").encode(charBuffer);
+    byte[] bytes=Arrays.copyOfRange(byteBuffer.array(), byteBuffer.position(),
+      byteBuffer.limit());
+
+//    Arrays.fill(charBuffer.array(), '\u0000'); // clear the cleartext
+    Arrays.fill(byteBuffer.array(), (byte) 0); // clear the ciphertext
+
+    return bytes;
+  }
+
+  static char[] toChars(byte[] bytes) {
+    Charset charset=Charset.forName("UTF-8");
+    ByteBuffer byteBuffer=ByteBuffer.wrap(bytes);
+    CharBuffer charBuffer=charset.decode(byteBuffer);
+    char[] chars=Arrays.copyOf(charBuffer.array(), charBuffer.limit());
+</prefix>
+<before></before>
+<after>    Arrays.fill(chars, '\u0000'); // clear sensitive data
+    Arrays.fill(bytes, (byte) 0); // clear sensitive data
+</after>
+<suffix>
+    return chars;
+  }
+}
+
+</suffix>
+</Edit>
+</CtxEdits>

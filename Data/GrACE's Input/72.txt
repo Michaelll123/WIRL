@@ -1,0 +1,90 @@
+<CurrentEdit>
+<prefix>
+        return requestHeaderList.toArray(new Header[0]);
+    }
+
+    /**
+     * Returns a new URI with the passed queryString (e.g. foo=bar&amp;baz=123) appended to the passed URI. Adjusted from
+     * http://stackoverflow.com/a/26177982.
+     *
+     * @param uri
+     * @param appendQuery
+     */
+    public static URI appendQueryString(URI uri, String appendQuery) {
+        if (uri == null || appendQuery == null || appendQuery.isEmpty()) {
+            return uri;
+        }
+</prefix>
+<before>        String newQuery = oldUri.getQuery();
+        if (newQuery == null) {
+            newQuery = appendQuery;
+        } else {
+            newQuery += "&" + appendQuery;
+        }
+
+        return new URI(oldUri.getScheme(), oldUri.getAuthority(),
+            oldUri.getPath(), newQuery, oldUri.getFragment());
+</before>
+<after></after>
+<suffix>    }
+
+    /**
+     * @return
+     * @throws UnsupportedEncodingException
+     */
+    private static HttpHeaders getResponseHeadersToForward(HttpHeaders headers)
+        throws UnsupportedEncodingException {
+
+        HttpHeaders responseHeaders = new HttpHeaders();
+
+        if (headers == null) {
+            LOG.debug("No headers found to forward!");
+            return responseHeaders;
+</suffix>
+</CurrentEdit>
+<CtxEdits>
+<Edit>
+<prefix>
+        return requestHeaderList.toArray(new Header[0]);
+    }
+
+    /**
+     * Returns a new URI with the passed queryString (e.g. foo=bar&amp;baz=123) appended to the passed URI. Adjusted from
+     * http://stackoverflow.com/a/26177982.
+     *
+     * @param uri
+     * @param appendQuery
+     */
+    public static URI appendQueryString(URI uri, String appendQuery) {
+        if (uri == null || appendQuery == null || appendQuery.isEmpty()) {
+            return uri;
+        }
+</prefix>
+<before></before>
+<after>        String newQuery = oldUri.getQuery();
+        if (newQuery == null) {
+            newQuery = appendQuery;
+        } else {
+            newQuery += "&" + appendQuery;
+        }
+
+        return new URI(oldUri.getScheme(), oldUri.getAuthority(),
+            oldUri.getPath(), newQuery, oldUri.getFragment());
+</after>
+<suffix>    }
+
+    /**
+     * @return
+     * @throws UnsupportedEncodingException
+     */
+    private static HttpHeaders getResponseHeadersToForward(HttpHeaders headers)
+        throws UnsupportedEncodingException {
+
+        HttpHeaders responseHeaders = new HttpHeaders();
+
+        if (headers == null) {
+            LOG.debug("No headers found to forward!");
+            return responseHeaders;
+</suffix>
+</Edit>
+</CtxEdits>

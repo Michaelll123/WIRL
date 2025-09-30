@@ -1,0 +1,74 @@
+<CurrentEdit>
+<prefix>                savedInstanceState);
+        ListView lv = (ListView) layout.findViewById(android.R.id.list);
+        ViewGroup parent = (ViewGroup) lv.getParent();
+
+        /*
+         * http://stackoverflow.com/a/15880684
+         * Remove ListView and add FixedListView in its place.
+         * This is done here programatically to be still able to use the progressBar of ListFragment.
+         *
+         * We want FixedListView to be able to put this ListFragment inside a ScrollView
+         */
+        int lvIndex = parent.indexOfChild(lv);
+        parent.removeViewAt(lvIndex);
+        FixedListView newLv = new FixedListView(getActivity());
+        newLv.setId(android.R.id.list);
+</prefix>
+<before>        parent.addView(mLinearLayout, lvIndex, lv.getLayoutParams());
+</before>
+<after></after>
+<suffix>        return layout;
+    }
+
+    /**
+     * Define Adapter and Loader on create of Activity
+     */
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+        mDataUri = getArguments().getParcelable(ARG_DATA_URI);
+
+        getListView().setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
+
+</suffix>
+</CurrentEdit>
+<CtxEdits>
+<Edit>
+<prefix>                savedInstanceState);
+        ListView lv = (ListView) layout.findViewById(android.R.id.list);
+        ViewGroup parent = (ViewGroup) lv.getParent();
+
+        /*
+         * http://stackoverflow.com/a/15880684
+         * Remove ListView and add FixedListView in its place.
+         * This is done here programatically to be still able to use the progressBar of ListFragment.
+         *
+         * We want FixedListView to be able to put this ListFragment inside a ScrollView
+         */
+        int lvIndex = parent.indexOfChild(lv);
+        parent.removeViewAt(lvIndex);
+        FixedListView newLv = new FixedListView(getActivity());
+        newLv.setId(android.R.id.list);
+</prefix>
+<before></before>
+<after>        parent.addView(mLinearLayout, lvIndex, lv.getLayoutParams());
+</after>
+<suffix>        return layout;
+    }
+
+    /**
+     * Define Adapter and Loader on create of Activity
+     */
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+        mDataUri = getArguments().getParcelable(ARG_DATA_URI);
+
+        getListView().setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
+
+</suffix>
+</Edit>
+</CtxEdits>

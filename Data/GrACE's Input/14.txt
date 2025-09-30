@@ -1,0 +1,74 @@
+<CurrentEdit>
+<prefix>		final File gitDir = builder.getGitDir();
+		LOGGER.info("Using \"{}\" as git repository.", gitDir);
+		final Repository repository = builder.build();
+		// Get the central git object from the repository
+		return new Git(repository);
+	}
+
+	private static LogCommand createLatestCommitLogCommand(final ZonedDateTime zonedGameStart,
+			final Git gitCommandFactory)
+			throws RevisionSyntaxException, AmbiguousObjectException, IncorrectObjectTypeException, IOException {
+		final LogCommand result = gitCommandFactory.log();
+		final ObjectId head = gitCommandFactory.getRepository().resolve(Constants.HEAD);
+		result.add(head);
+		// https://stackoverflow.com/a/45588376/1391325
+		// https://stackoverflow.com/a/23885950/1391325
+</prefix>
+<before>		final RevFilter beforeExpTime = CommitTimeRevFilter.before(Date.from(zdt.toInstant())));
+</before>
+<after></after>
+<suffix>		return result;
+	}
+
+	private static Optional<RevCommit> findLatestCommit(final ZonedDateTime zonedGameStart, final Git gitCommandFactory)
+			throws NoHeadException, GitAPIException, RevisionSyntaxException, AmbiguousObjectException,
+			IncorrectObjectTypeException, IOException {
+		final LogCommand logCommand = createLatestCommitLogCommand(zonedGameStart, gitCommandFactory);
+		return StreamSupport.stream(logCommand.call().spliterator(), false).max(REV_TIME_COMPARATOR);
+	}
+
+	private static OptionalInt findMoveSubmissionWaitTime(final RevCommit commit, final Git gitCommandFactory)
+			throws IncorrectObjectTypeException, IOException {
+		final IntSet waitTimesMills = new IntOpenHashSet(1);
+
+</suffix>
+</CurrentEdit>
+<CtxEdits>
+<Edit>
+<prefix>		final File gitDir = builder.getGitDir();
+		LOGGER.info("Using \"{}\" as git repository.", gitDir);
+		final Repository repository = builder.build();
+		// Get the central git object from the repository
+		return new Git(repository);
+	}
+
+	private static LogCommand createLatestCommitLogCommand(final ZonedDateTime zonedGameStart,
+			final Git gitCommandFactory)
+			throws RevisionSyntaxException, AmbiguousObjectException, IncorrectObjectTypeException, IOException {
+		final LogCommand result = gitCommandFactory.log();
+		final ObjectId head = gitCommandFactory.getRepository().resolve(Constants.HEAD);
+		result.add(head);
+		// https://stackoverflow.com/a/45588376/1391325
+		// https://stackoverflow.com/a/23885950/1391325
+</prefix>
+<before></before>
+<after>		final RevFilter beforeExpTime = CommitTimeRevFilter.before(Date.from(zdt.toInstant())));
+</after>
+<suffix>		return result;
+	}
+
+	private static Optional<RevCommit> findLatestCommit(final ZonedDateTime zonedGameStart, final Git gitCommandFactory)
+			throws NoHeadException, GitAPIException, RevisionSyntaxException, AmbiguousObjectException,
+			IncorrectObjectTypeException, IOException {
+		final LogCommand logCommand = createLatestCommitLogCommand(zonedGameStart, gitCommandFactory);
+		return StreamSupport.stream(logCommand.call().spliterator(), false).max(REV_TIME_COMPARATOR);
+	}
+
+	private static OptionalInt findMoveSubmissionWaitTime(final RevCommit commit, final Git gitCommandFactory)
+			throws IncorrectObjectTypeException, IOException {
+		final IntSet waitTimesMills = new IntOpenHashSet(1);
+
+</suffix>
+</Edit>
+</CtxEdits>

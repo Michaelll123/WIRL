@@ -1,0 +1,86 @@
+<CurrentEdit>
+<prefix>        final Tooltip toolTip = new Tooltip();
+        toolTip.getStyleClass().add("track-popup");
+        Tooltip.install(this, toolTip);
+        
+        final Region plotArea = (Region) lookup(".chart-plot-background");
+        final Pane chartContent = (Pane) lookup(".chart-content");
+        final Line line = new Line();
+        line.setVisible(true);
+        chartContent.getChildren().add(line);
+
+        setOnMouseMoved(e -> {
+            double eX = e.getScreenX();
+            double eY = e.getScreenY();
+
+            // https://stackoverflow.com/questions/31375922/javafx-how-to-correctly-implement-getvaluefordisplay-on-y-axis-of-a-xy-line/31382802#31382802
+</prefix>
+<before>            Point2D pointInScene = new Point2D(event.getSceneX(), event.getSceneY());
+            Axis<Number> xAxis = lineChart.getXAxis();
+            Axis<Number> yAxis = lineChart.getYAxis();
+            double xPosInAxis = xAxis.sceneToLocal(new Point2D(pointInScene.getX(), 0)).getX();
+            double yPosInAxis = yAxis.sceneToLocal(new Point2D(0, pointInScene.getY())).getY();
+            double x = xAxis.getValueForDisplay(xPosInAxis).doubleValue();
+            double y = yAxis.getValueForDisplay(yPosInAxis).doubleValue();
+</before>
+<after></after>
+<suffix>    }
+    
+    public static HeightChart getInstance() {
+        return INSTANCE;
+    }
+    
+    public void setCallback(final GPXEditor gpxEditor) {
+        myGPXEditor = gpxEditor;
+    }
+    
+    public void setEnable(final boolean enabled) {
+        setDisable(!enabled);
+        setVisible(enabled);
+    }
+</suffix>
+</CurrentEdit>
+<CtxEdits>
+<Edit>
+<prefix>        final Tooltip toolTip = new Tooltip();
+        toolTip.getStyleClass().add("track-popup");
+        Tooltip.install(this, toolTip);
+        
+        final Region plotArea = (Region) lookup(".chart-plot-background");
+        final Pane chartContent = (Pane) lookup(".chart-content");
+        final Line line = new Line();
+        line.setVisible(true);
+        chartContent.getChildren().add(line);
+
+        setOnMouseMoved(e -> {
+            double eX = e.getScreenX();
+            double eY = e.getScreenY();
+
+            // https://stackoverflow.com/questions/31375922/javafx-how-to-correctly-implement-getvaluefordisplay-on-y-axis-of-a-xy-line/31382802#31382802
+</prefix>
+<before></before>
+<after>            Point2D pointInScene = new Point2D(event.getSceneX(), event.getSceneY());
+            Axis<Number> xAxis = lineChart.getXAxis();
+            Axis<Number> yAxis = lineChart.getYAxis();
+            double xPosInAxis = xAxis.sceneToLocal(new Point2D(pointInScene.getX(), 0)).getX();
+            double yPosInAxis = yAxis.sceneToLocal(new Point2D(0, pointInScene.getY())).getY();
+            double x = xAxis.getValueForDisplay(xPosInAxis).doubleValue();
+            double y = yAxis.getValueForDisplay(yPosInAxis).doubleValue();
+</after>
+<suffix>    }
+    
+    public static HeightChart getInstance() {
+        return INSTANCE;
+    }
+    
+    public void setCallback(final GPXEditor gpxEditor) {
+        myGPXEditor = gpxEditor;
+    }
+    
+    public void setEnable(final boolean enabled) {
+        setDisable(!enabled);
+        setVisible(enabled);
+    }
+</suffix>
+</Edit>
+</CtxEdits>

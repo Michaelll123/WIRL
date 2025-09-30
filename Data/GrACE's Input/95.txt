@@ -1,0 +1,74 @@
+<CurrentEdit>
+<prefix>			int ret = s1.compareTo(s2);
+			return ret;
+		}
+
+	}
+
+	// All this ISV business is analogous to matrix product with a permutation matrix,
+	// but that wouldn't buy us anything in implementation
+
+
+
+
+	public static String[] readFileIntoStringArr(final String path) throws IOException
+	{
+		// inspired by https://stackoverflow.com/a/326440
+</prefix>
+<before>		final List<String> lines = Files.readAllLines(Paths.get(path), encoding);
+</before>
+<after></after>
+<suffix>//		StringBuilder sb = new StringBuilder();
+
+//		final int linesCount = lines.size();
+//
+//		for (int i = 0; i != linesCount; ++i)
+//		{
+//			sb.append(lines.get(i));
+//		}
+//
+//		String ret = sb.toString();
+
+		// surprisingly hard to get a String[] out of a List<String>
+//		final Object[] retObjs = lines.toArray(); // yes, yet another avoidable copy
+//		final String[] ret = (String[])retObjs;
+</suffix>
+</CurrentEdit>
+<CtxEdits>
+<Edit>
+<prefix>			int ret = s1.compareTo(s2);
+			return ret;
+		}
+
+	}
+
+	// All this ISV business is analogous to matrix product with a permutation matrix,
+	// but that wouldn't buy us anything in implementation
+
+
+
+
+	public static String[] readFileIntoStringArr(final String path) throws IOException
+	{
+		// inspired by https://stackoverflow.com/a/326440
+</prefix>
+<before></before>
+<after>		final List<String> lines = Files.readAllLines(Paths.get(path), encoding);
+</after>
+<suffix>//		StringBuilder sb = new StringBuilder();
+
+//		final int linesCount = lines.size();
+//
+//		for (int i = 0; i != linesCount; ++i)
+//		{
+//			sb.append(lines.get(i));
+//		}
+//
+//		String ret = sb.toString();
+
+		// surprisingly hard to get a String[] out of a List<String>
+//		final Object[] retObjs = lines.toArray(); // yes, yet another avoidable copy
+//		final String[] ret = (String[])retObjs;
+</suffix>
+</Edit>
+</CtxEdits>

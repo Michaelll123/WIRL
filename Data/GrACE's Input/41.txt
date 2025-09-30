@@ -1,0 +1,96 @@
+<CurrentEdit>
+<prefix>        Intent mainIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+        List<ResolveInfo> resolveInfos = getPackageManager().queryIntentActivities(mainIntent, PackageManager.MATCH_ALL);
+        if (resolveInfos.size() == 0) {
+            Toast.makeText(this, "ブラウザアプリがインストールされていません。", Toast.LENGTH_LONG).show();
+            LogUtils.e("browser activity cannot found.");
+        } else {
+            startActivity(mainIntent);
+        }
+    }
+
+    /**
+     * ファイルマネージャを選択させて表示します．<br>
+     * @see <a href="http://stackoverflow.com/a/26651827">参考リンク</a>
+     * */
+    public void launchExternalFileManager(Uri dirUri) {
+</prefix>
+<before>        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setDataAndType(selectedUri, "resource/folder");
+
+        if (intent.resolveActivityInfo(getPackageManager(), 0) != null)
+        {
+            startActivity(intent);
+        }
+        else
+        {
+            // if you reach this place, it means there is no any file
+            // explorer app installed on your device
+        }
+</before>
+<after></after>
+<suffix>    }
+
+    private void showCamera() {
+        // カメラ起動のIntent作成 */
+        File pathFilesDir = new File(
+                StringUtils.build(
+                        Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).getAbsolutePath(), File.separator,
+                        self.getPackageName(), File.separator,
+                        "Images"
+                ));
+        pathFilesDir.mkdirs();
+
+        String filename =  StringUtils.build(
+                StringUtils.padZeros(chatTheme.getId(), 8),
+</suffix>
+</CurrentEdit>
+<CtxEdits>
+<Edit>
+<prefix>        Intent mainIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+        List<ResolveInfo> resolveInfos = getPackageManager().queryIntentActivities(mainIntent, PackageManager.MATCH_ALL);
+        if (resolveInfos.size() == 0) {
+            Toast.makeText(this, "ブラウザアプリがインストールされていません。", Toast.LENGTH_LONG).show();
+            LogUtils.e("browser activity cannot found.");
+        } else {
+            startActivity(mainIntent);
+        }
+    }
+
+    /**
+     * ファイルマネージャを選択させて表示します．<br>
+     * @see <a href="http://stackoverflow.com/a/26651827">参考リンク</a>
+     * */
+    public void launchExternalFileManager(Uri dirUri) {
+</prefix>
+<before></before>
+<after>        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setDataAndType(selectedUri, "resource/folder");
+
+        if (intent.resolveActivityInfo(getPackageManager(), 0) != null)
+        {
+            startActivity(intent);
+        }
+        else
+        {
+            // if you reach this place, it means there is no any file
+            // explorer app installed on your device
+        }
+</after>
+<suffix>    }
+
+    private void showCamera() {
+        // カメラ起動のIntent作成 */
+        File pathFilesDir = new File(
+                StringUtils.build(
+                        Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).getAbsolutePath(), File.separator,
+                        self.getPackageName(), File.separator,
+                        "Images"
+                ));
+        pathFilesDir.mkdirs();
+
+        String filename =  StringUtils.build(
+                StringUtils.padZeros(chatTheme.getId(), 8),
+</suffix>
+</Edit>
+</CtxEdits>

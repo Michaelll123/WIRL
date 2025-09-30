@@ -1,0 +1,100 @@
+0###path###myPath###2.222###2842###17
+1###combox###waypointSymTxt###2.634###4749###20
+2###dirName###RESOURCE_PATH###3.177###2569###18
+3###event###e###3.36###3749###16
+4###primaryStage###myStage###4.041###1337###18
+5###box###waypointSymTxt###3.4###5061###19
+6###cboPersons###waypointSymTxt###4.451###4770###21
+7###yourWebviewObject###myWebView###5.508###17820###20
+8###selectedItems###gpxTrackXML.getSelectionModel().getSelectedItems()###6.134###20537###26
+9###selectedItems###gpxFileList.getSelectionModel().getSelectedItems()###10.696###17842###26
+10###frame###connectionStatusView###6.845###462###18
+11###java.awt.Toolkit.getDefaultToolkit()###Toolkit.getDefaultToolkit()###7.324###2421###24
+12###java.awt.Toolkit.getDefaultToolkit()###Toolkit.getDefaultToolkit()###5.473###1820###24
+13###stream###events.stream()###5.607###1668###18
+14###zdt###zonedGameStart###14.052###6926###20
+15###ClipData clip = ClipData.newPlainText("label", "Text to Copy")###ClipData clip = ClipData.newPlainText("label", text)###4.686###2509###43
+16###Bitmap bitmap =  Bitmap.createBitmap(1, 1, Bitmap.Config.ARGB_8888)###Bitmap bitmap = Bitmap.createBitmap(drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight(), Bitmap.Config.ARGB_8888)###3.413###1975###60
+17###theIntrinsic.setRadius(BLUR_RADIUS)###theIntrinsic.setRadius(radius)###3.643###2509###31
+18###Matcher m = Pattern.compile("your regular expression here")###Matcher m = postReferencePattern.matcher(post.text)###3.662###1380###35
+19###OutputStreamWriter outputStreamWriter = new OutputStreamWriter(context.openFileOutput("config.txt", Context.MODE_PRIVATE))###OutputStreamWriter outputStreamWriter = new OutputStreamWriter(context.openFileOutput(name, Context.MODE_PRIVATE))###2.994###1514###52
+20###gray = 0.299 * red + 0.587 * green + 0.114 * blue###gray[0] = (int)(0.299 * pixelOutput[0] + 0.587 * pixelOutput[1] + 0.114 * pixelOutput[2])###3.087###1245###75
+21###CMSSignedData cms = new CMSSignedData(new CMSProcessableByteArray(Data_Bytes), Sig_Bytes)###CMSSignedData cms = new CMSSignedData(new CMSProcessableByteArray(buf), contents.getBytes())###2.767###1276###59
+22###CMSSignedData signedData = new CMSSignedData(Base64.decode(envelopedData.getBytes()))###CMSSignedData signedData = new CMSSignedData(new CMSProcessableByteArray(contents.getBytes()))###3.254###1868###55
+23###CMSSignedData cms = new CMSSignedData(new CMSProcessableByteArray(Data_Bytes), Sig_Bytes)###CMSSignedData cms = new CMSSignedData(new CMSProcessableByteArray(buf), contents.getBytes())###3.277###2026###59
+24###double xmagic = xrad * magic###double xmagic = x * r###3.095###3481###29
+25###int w = image.getWidth(), h = image.getHeight(); for(int y = 0; y < h; y++) { for(int x = 0; x < w; x++) { int pixel = image.getRGB(x, y); colors.add(pixel); } }###int w = newImage.getWidth(), h = newImage.getHeight(); for(int y = 0; y < h; y++) { for(int x = 0; x < w; x++) { int pixel = newImage.getRGB(x, y); colors.add(pixel); } }###3.826###3379###127
+26###sizeProduct*=size[k];###sizeProduct*=sizes.getInt(i);###3.459###4128###27
+27###transformer.transform(xmlInput, xmlOutput);###transformer.transform(domSource, streamResult);###3.547###627###32
+28###double xmagic = xrad * magic;###double xmagic = x + r * Math.cos(Math.toRadians(45));###4.344###1679###39
+29###con = new URL( url ).openConnection();###con = new URL(doiRequest).openConnection();###3.941###667###35
+30###java.awt.Image tmp = img.getScaledInstance(newW, newH, Image.SCALE_SMOOTH);###java.awt.Image tmp = img.getScaledInstance(newWidth, newHeight, BufferedImage.SCALE_SMOOTH);###3.451###384###56
+31###assertThat(myControlXML, isSimilarTo(expected)###assertThat(actual, isSimilarTo(expected)###2.353###799###34
+32###this.connection = DriverManager.getConnection(url1, user, password);###this.connection = DriverManager.getConnection(properties.getUrl(), properties.getUser(), properties.getPassword());###2.496###586###40
+33###final BufferedImage img = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);###final BufferedImage img = new BufferedImage(getWidth(), getHeight(), BufferedImage.TYPE_INT_ARGB);###1.944###1356###47
+34###query_pairs.put(URLDecoder.decode(pair.substring(0, idx), "UTF-8"), URLDecoder.decode(pair.substring(idx + 1), "UTF-8"));###query_pairs.put(URLDecoder.decode(pair.substring(0, idx), encoding), URLDecoder.decode(pair.substring(idx + 1), encoding));###3.107###2974###74
+35###var ignored = new ServerSocket(portNr), portFree = true;###var ignored = new ServerSocket(port), free = true;###2.645###254###40
+36###BigInteger randomNumber, new BigInteger(upperLimit.bitLength(), randomSource);###BigInteger randomNumber, new BigInteger(limit.bitLength(), rand);###4.284###4736###39
+37###Days.daysBetween(start.toLocalDate(), end.toLocalDate()).getDays()###Days.daysBetween(var0.toLocalDate(), var1.toLocalDate()).getDays()###3.961###1487###48
+38###title.setText(text);###view.setText(result);###3.134###715###22
+39###txtSpecialRequests.addTextChangedListener(new TextWatcher() {###editText.addTextChangedListener(new TextWatcher() {###3.055###1177###35
+40###tv.setOnClickListener(new View.OnClickListener() {###citationResource.setOnClickListener(new View.OnClickListener() {###3.075###2320###29
+41###selectedUri, resource/folder###dirUri, "resource/folder"###3.604###9493###28
+42###Error
+43###mStringFilterList###originalFileEntries###3.828###901###21
+44###chars, bytes###chars, bytes###4.177###1401###20
+45###bundle###b###3.306###641###16
+46###activity###main.getActivity()###2.156###1117###18
+47###x, y###x1, y1###3.087###4242###22
+48###in, Paths.get("C:/File/To/Save/To/image.jpg")###in, Paths.get(localPath)###2.428###411###38
+49###a, b###command, args###2.955###425###20
+50###list, target###getListView(), mNoteBlockArray.get(mCommentListPosition)###3.087###2029###30
+51###mImageLoader###imageLoader###3.864###5661###19
+52###ac, result###result, result###3.172###1145###20
+53###bi###img###3.388###3021###16
+54###b###result###3.487###3715###16
+55###mLinearLayout###newLv###4.463###1514###18
+56###mLinearLayout###newLv###2.919###1658###18
+57###mLinearLayout###newLv###3.824###2180###18
+58###url###urlString###2.953###1083###17
+59###o###optBounds###2.98###3672###17
+60###list###getListView()###3.341###2797###18
+61###mImageLoader###imageLoader###3.951###6360###19
+62###targetClass,method,target,args###proxy.getClass(),method,proxy,args###4.737###1351###27
+63###url###urlString###15.235###1079###17
+64###o###optBounds###3.208###3700###17
+65###mImageLoader###imageLoader###3.838###5661###19
+66###list,target###getListView(),mNoteBlockArray.get(mCommentListPosition)###3.093###2029###29
+67###canvas,textPaint###target,mTextPaint###4.168###884###21
+68###bmp###bitmap###3.855###1999###16
+69###getContext()###context###4.728###2001###17
+70###getTheme(),actionBarHeight,getResources()###context.getTheme(),actionBarHeight,context.getResources()###3.527###748###34
+71###o,IMAGE_MAX_SIZE###optBounds,2048###3.078###3710###24
+72###oldUri###uri###4.003###4918###17
+73###user,request###entity,jsonObject###3.479###2023###19
+74###illegalChars###ILLEGAL_CHARS###3.445###463###19
+75###url1,user,password###properties.getUrl(), properties.getUser(), properties.getPassword()###3.616###550###27
+76###list###colors###1.653###1237###16
+77###mapA,mapB###expected,actual###7.237###2901###21
+78###aMap###initialMap###3.209###2405###18
+79###contextThemeWrapper###mContext###2.993###1818###19
+80###themedContext###mContext###3.117###2102###19
+81###gameState, ed, header###bundle, editor, EXTRA_HEADER###3.307###2772###26
+82###tmf###trustAllCerts###3.475###2317###20
+83###illegalChars###ILLEGAL_CHARS###3.368###463###19
+84###url1, user, password###properties.getUrl(), properties.getUser(), properties.getPassword()###3.312###550###29
+85###b2###bundleOut###2.53###756###18
+86###mFragmentManager###fragmentManager###2.976###3169###18
+87###not###notification###3.859###4469###16
+88###sourceBitmap, width, height###bitmap, bitmap.getWidth(), bitmap.getHeight()###3.861###3269###28
+89###uri###fileName###3.807###924###16
+90###UDPListenerService###AbstractUploaderService###3.447###4477###20
+91###xmlInput, xmlOutput###domSource, streamResult###4.29###627###24
+92###gray, red, green, blue###gray[0], pixelOutput[0], pixelOutput[1], pixelOutput[2]###4.209###1245###40
+93###x, y, pdfFile###20, 20, outputFile###3.216###1117###26
+94###image###newImage###4.592###3379###17
+95###encoding###Charset.defaultCharset()###3.562###3559###19
+96###ap###event.getSource()###2.635###856###18
+97###is###gis###5.223###4097###17
+98###ae, sourceDirectoryChooser###event, fc###2.971###857###19
+99###string###text###2.848###857###19

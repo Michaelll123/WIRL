@@ -1,0 +1,74 @@
+<CurrentEdit>
+<prefix>        sUpdateWordPressComBlogList.runIfNotLimited();
+    }
+
+    // Configure Simperium and start buckets if we are signed in to WP.com
+    private void configureSimperium() {
+        if (!TextUtils.isEmpty(getWPComAuthToken(this))) {
+            SimperiumUtils.configureSimperium(this, getWPComAuthToken(this));
+        }
+    }
+
+    public static void setupVolleyQueue() {
+        requestQueue = Volley.newRequestQueue(mContext, VolleyUtils.getHTTPClientStack(mContext));
+        imageLoader = new ImageLoader(requestQueue, getBitmapCache());
+        VolleyLog.setTag(AppLog.TAG);
+        // http://stackoverflow.com/a/17035814
+</prefix>
+<before>        mImageLoader.setBatchedResponseDelay(0);
+</before>
+<after></after>
+<suffix>    }
+
+    private void initWpDb() {
+        if (!createAndVerifyWpDb()) {
+            AppLog.e(T.DB, "Invalid database, sign out user and delete database");
+            SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(this).edit();
+            currentBlog = null;
+            editor.remove(WordPress.WPCOM_USERNAME_PREFERENCE);
+            editor.remove(WordPress.WPCOM_PASSWORD_PREFERENCE);
+            editor.remove(WordPress.ACCESS_TOKEN_PREFERENCE);
+            editor.commit();
+            if (wpDB != null) {
+                wpDB.updateLastBlogId(-1);
+                wpDB.deleteDatabase(this);
+</suffix>
+</CurrentEdit>
+<CtxEdits>
+<Edit>
+<prefix>        sUpdateWordPressComBlogList.runIfNotLimited();
+    }
+
+    // Configure Simperium and start buckets if we are signed in to WP.com
+    private void configureSimperium() {
+        if (!TextUtils.isEmpty(getWPComAuthToken(this))) {
+            SimperiumUtils.configureSimperium(this, getWPComAuthToken(this));
+        }
+    }
+
+    public static void setupVolleyQueue() {
+        requestQueue = Volley.newRequestQueue(mContext, VolleyUtils.getHTTPClientStack(mContext));
+        imageLoader = new ImageLoader(requestQueue, getBitmapCache());
+        VolleyLog.setTag(AppLog.TAG);
+        // http://stackoverflow.com/a/17035814
+</prefix>
+<before></before>
+<after>        mImageLoader.setBatchedResponseDelay(0);
+</after>
+<suffix>    }
+
+    private void initWpDb() {
+        if (!createAndVerifyWpDb()) {
+            AppLog.e(T.DB, "Invalid database, sign out user and delete database");
+            SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(this).edit();
+            currentBlog = null;
+            editor.remove(WordPress.WPCOM_USERNAME_PREFERENCE);
+            editor.remove(WordPress.WPCOM_PASSWORD_PREFERENCE);
+            editor.remove(WordPress.ACCESS_TOKEN_PREFERENCE);
+            editor.commit();
+            if (wpDB != null) {
+                wpDB.updateLastBlogId(-1);
+                wpDB.deleteDatabase(this);
+</suffix>
+</Edit>
+</CtxEdits>

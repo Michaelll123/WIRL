@@ -1,0 +1,88 @@
+<CurrentEdit>
+<prefix>            // https://github.com/CliffCloud/Leaflet.EasyButton
+            addStyleFromPath(LEAFLET_PATH + "/easybutton/easy-button" + MIN_EXT + ".css");
+            addScriptFromPath(LEAFLET_PATH + "/easybutton/easy-button" + MIN_EXT + ".js");
+            addScriptFromPath(LEAFLET_PATH + "/ChartsPaneButton" + MIN_EXT + ".js");
+            // TFE, 20200313: support for heat map
+            addScriptFromPath(LEAFLET_PATH + "/HeatMapButton" + MIN_EXT + ".js");
+            
+            // support to re-center
+            addStyleFromPath(LEAFLET_PATH + "/CenterButton" + MIN_EXT + ".css");
+            addScriptFromPath(LEAFLET_PATH + "/CenterButton" + MIN_EXT + ".js");
+
+            // geolocation not working in webview
+//            // support for locate
+//            // url command in css not working
+//            // https://stackoverflow.com/a/50602814
+</prefix>
+<before>            yourWebviewObject.getEngine().setUserStyleSheetLocation(
+                    "data:,@font-face{font-family:'FontAwesome';src:url('"+
+                            getClass().getResource("path/to/fontawesome-webfont.eot").toExternalForm()+"');src:url('"+
+                            getClass().getResource("path/to/fontawesome-webfont.eot").toExternalForm()+"') format('embedded-opentype'),url('"+
+                            getClass().getResource("path/to/fontawesome-webfont.woff2").toExternalForm()+"') format('woff2'),url('"+
+                            getClass().getResource("path/to/fontawesome-webfont.woff").toExternalForm()+"') format('woff'),url('"+
+                            getClass().getResource("path/to/fontawesome-webfont.ttf").toExternalForm()+"') format('truetype'),url('"+
+                            getClass().getResource("path/to/fontawesome-webfont.svg").toExternalForm()+"?v=4.7.0#fontawesomeregular') format('svg');}");
+</before>
+<after></after>
+<suffix>    }
+    
+    public void addPNGIcon(final String iconName, final String iconSize, final String base64data) {
+//        System.out.println("Adding icon " + iconName + ", " + base64data);
+        
+        final String scriptCmd = 
+            "var url = \"data:image/png;base64," + base64data + "\";" + 
+            "var " + iconName + "= new CustomIcon" + iconSize + "({iconUrl: url});";
+
+//        System.out.println(scriptCmd);
+        execScript(scriptCmd);
+//        System.out.println(iconName + " created");
+    }
+    
+</suffix>
+</CurrentEdit>
+<CtxEdits>
+<Edit>
+<prefix>            // https://github.com/CliffCloud/Leaflet.EasyButton
+            addStyleFromPath(LEAFLET_PATH + "/easybutton/easy-button" + MIN_EXT + ".css");
+            addScriptFromPath(LEAFLET_PATH + "/easybutton/easy-button" + MIN_EXT + ".js");
+            addScriptFromPath(LEAFLET_PATH + "/ChartsPaneButton" + MIN_EXT + ".js");
+            // TFE, 20200313: support for heat map
+            addScriptFromPath(LEAFLET_PATH + "/HeatMapButton" + MIN_EXT + ".js");
+            
+            // support to re-center
+            addStyleFromPath(LEAFLET_PATH + "/CenterButton" + MIN_EXT + ".css");
+            addScriptFromPath(LEAFLET_PATH + "/CenterButton" + MIN_EXT + ".js");
+
+            // geolocation not working in webview
+//            // support for locate
+//            // url command in css not working
+//            // https://stackoverflow.com/a/50602814
+</prefix>
+<before></before>
+<after>            yourWebviewObject.getEngine().setUserStyleSheetLocation(
+                    "data:,@font-face{font-family:'FontAwesome';src:url('"+
+                            getClass().getResource("path/to/fontawesome-webfont.eot").toExternalForm()+"');src:url('"+
+                            getClass().getResource("path/to/fontawesome-webfont.eot").toExternalForm()+"') format('embedded-opentype'),url('"+
+                            getClass().getResource("path/to/fontawesome-webfont.woff2").toExternalForm()+"') format('woff2'),url('"+
+                            getClass().getResource("path/to/fontawesome-webfont.woff").toExternalForm()+"') format('woff'),url('"+
+                            getClass().getResource("path/to/fontawesome-webfont.ttf").toExternalForm()+"') format('truetype'),url('"+
+                            getClass().getResource("path/to/fontawesome-webfont.svg").toExternalForm()+"?v=4.7.0#fontawesomeregular') format('svg');}");
+</after>
+<suffix>    }
+    
+    public void addPNGIcon(final String iconName, final String iconSize, final String base64data) {
+//        System.out.println("Adding icon " + iconName + ", " + base64data);
+        
+        final String scriptCmd = 
+            "var url = \"data:image/png;base64," + base64data + "\";" + 
+            "var " + iconName + "= new CustomIcon" + iconSize + "({iconUrl: url});";
+
+//        System.out.println(scriptCmd);
+        execScript(scriptCmd);
+//        System.out.println(iconName + " created");
+    }
+    
+</suffix>
+</Edit>
+</CtxEdits>

@@ -1,0 +1,74 @@
+<CurrentEdit>
+<prefix>                    .build();
+
+            toParcel = new ArrayList<>();
+            toParcel.add(request1);
+            toParcel.add(request2);
+        }
+
+        // parcel the download requests
+        Bundle bundleIn = new Bundle();
+        bundleIn.putParcelableArrayList("r", toParcel);
+
+        Parcel parcel = Parcel.obtain();
+        bundleIn.writeToParcel(parcel, 0);
+
+        Bundle bundleOut = new Bundle();
+</prefix>
+<before>        b2.setClassLoader(Question.class.getClassLoader());
+</before>
+<after></after>
+<suffix>
+    }
+
+    private static String toString(Bundle b) {
+        StringBuilder sb = new StringBuilder();
+        sb.append("{");
+        for (String key: b.keySet()) {
+            Object val = b.get(key);
+            sb.append("(").append(key).append(":").append(val).append(") ");
+        }
+        sb.append("}");
+        return sb.toString();
+    }
+
+</suffix>
+</CurrentEdit>
+<CtxEdits>
+<Edit>
+<prefix>                    .build();
+
+            toParcel = new ArrayList<>();
+            toParcel.add(request1);
+            toParcel.add(request2);
+        }
+
+        // parcel the download requests
+        Bundle bundleIn = new Bundle();
+        bundleIn.putParcelableArrayList("r", toParcel);
+
+        Parcel parcel = Parcel.obtain();
+        bundleIn.writeToParcel(parcel, 0);
+
+        Bundle bundleOut = new Bundle();
+</prefix>
+<before></before>
+<after>        b2.setClassLoader(Question.class.getClassLoader());
+</after>
+<suffix>
+    }
+
+    private static String toString(Bundle b) {
+        StringBuilder sb = new StringBuilder();
+        sb.append("{");
+        for (String key: b.keySet()) {
+            Object val = b.get(key);
+            sb.append("(").append(key).append(":").append(val).append(") ");
+        }
+        sb.append("}");
+        return sb.toString();
+    }
+
+</suffix>
+</Edit>
+</CtxEdits>

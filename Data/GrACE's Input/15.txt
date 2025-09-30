@@ -1,0 +1,52 @@
+<CurrentEdit>
+<prefix>
+    // http://stackoverflow.com/a/23683075/283607
+    public static Bitmap copy(Bitmap b) {
+        return b.copy(b.getConfig(), true);
+    }
+
+    // From Clover
+    public static void runOnUiThread(Runnable runnable) {
+        new Handler(Looper.getMainLooper()).post(runnable);
+    }
+
+    // From Clover and http://stackoverflow.com/a/10965541/283607
+    public static void copyToClipboard(Context context, String text) {
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.HONEYCOMB) {
+            ClipboardManager clipboard = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+</prefix>
+<before>            ClipData clip = ClipData.newPlainText("label", "Text to Copy");
+</before>
+<after></after>
+<suffix>        }
+    }
+}
+</suffix>
+</CurrentEdit>
+<CtxEdits>
+<Edit>
+<prefix>
+    // http://stackoverflow.com/a/23683075/283607
+    public static Bitmap copy(Bitmap b) {
+        return b.copy(b.getConfig(), true);
+    }
+
+    // From Clover
+    public static void runOnUiThread(Runnable runnable) {
+        new Handler(Looper.getMainLooper()).post(runnable);
+    }
+
+    // From Clover and http://stackoverflow.com/a/10965541/283607
+    public static void copyToClipboard(Context context, String text) {
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.HONEYCOMB) {
+            ClipboardManager clipboard = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+</prefix>
+<before></before>
+<after>            ClipData clip = ClipData.newPlainText("label", "Text to Copy");
+</after>
+<suffix>        }
+    }
+}
+</suffix>
+</Edit>
+</CtxEdits>

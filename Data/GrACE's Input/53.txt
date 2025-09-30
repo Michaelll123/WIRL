@@ -1,0 +1,74 @@
+<CurrentEdit>
+<prefix>public class BufferedImageHelper {
+
+  /**
+   * Returns a copy of a BufferedImage object.
+   * <p/>
+   * Taken from
+   * <a href="http://stackoverflow.com/questions/3514158/how-do-you-clone-a-bufferedimage/3514297#3514297" target="_blank">here</a>
+   * (CC BY-SA 3.0).
+   *
+   * @param img		the image to copy
+   */
+  public static BufferedImage deepCopy(BufferedImage img) {
+    ColorModel 		cm;
+    boolean 		isAlphaPremultiplied;
+    WritableRaster 	raster;
+</prefix>
+<before>    cm =  bi.getColorModel();
+</before>
+<after></after>
+<suffix>    return new BufferedImage(cm, raster, isAlphaPremultiplied, null);
+  }
+
+  /**
+   * Returns all the pixels of the image as an int array (row-wise).
+   *
+   * @param img		the image to get the pixels from
+   * @return		the pixel array
+   * @see		BufferedImage#getRGB(int, int)
+   */
+  public static int[] getPixels(BufferedImage img) {
+    int[]	result;
+    int		y;
+    int		x;
+</suffix>
+</CurrentEdit>
+<CtxEdits>
+<Edit>
+<prefix>public class BufferedImageHelper {
+
+  /**
+   * Returns a copy of a BufferedImage object.
+   * <p/>
+   * Taken from
+   * <a href="http://stackoverflow.com/questions/3514158/how-do-you-clone-a-bufferedimage/3514297#3514297" target="_blank">here</a>
+   * (CC BY-SA 3.0).
+   *
+   * @param img		the image to copy
+   */
+  public static BufferedImage deepCopy(BufferedImage img) {
+    ColorModel 		cm;
+    boolean 		isAlphaPremultiplied;
+    WritableRaster 	raster;
+</prefix>
+<before></before>
+<after>    cm =  bi.getColorModel();
+</after>
+<suffix>    return new BufferedImage(cm, raster, isAlphaPremultiplied, null);
+  }
+
+  /**
+   * Returns all the pixels of the image as an int array (row-wise).
+   *
+   * @param img		the image to get the pixels from
+   * @return		the pixel array
+   * @see		BufferedImage#getRGB(int, int)
+   */
+  public static int[] getPixels(BufferedImage img) {
+    int[]	result;
+    int		y;
+    int		x;
+</suffix>
+</Edit>
+</CtxEdits>

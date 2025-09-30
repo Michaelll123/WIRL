@@ -1,0 +1,74 @@
+<CurrentEdit>
+<prefix>                        mediaPointers.add(new MediaPointer(p, p.mediaId, p.mediaExtension, p.mediaWidth, p.mediaHeight));
+                        mediaMap.put(p.number, mediaIndex);
+                        mediaIndex++;
+                    }
+                }
+                lastUpdate = System.currentTimeMillis();
+                onResultCallback.onSuccess();
+            }
+        });
+    }
+
+    final static Pattern postReferencePattern = Pattern.compile("#p(\\d+)");
+    // http://stackoverflow.com/a/6020436/283607
+    private LinkedHashSet<String> referencedPosts(Post post) {
+        LinkedHashSet<String> refs = new LinkedHashSet<>();
+</prefix>
+<before>        Matcher m = Pattern.compile("your regular expression here");
+</before>
+<after></after>
+<suffix>        return refs;
+    }
+
+    long lastUpdate;
+    static final long updateInterval = 60_000;
+    boolean pauseUpdating = false;
+    @Transient transient ScheduledThreadPoolExecutor executor;
+
+    public void initBackgroundUpdater(final Prefs prefs, final Runnable onUpdateCallback) {
+        if (executor == null) {
+            executor = new ScheduledThreadPoolExecutor(1);
+            executor.scheduleWithFixedDelay(new Runnable() {
+                @Override
+                public void run() {
+</suffix>
+</CurrentEdit>
+<CtxEdits>
+<Edit>
+<prefix>                        mediaPointers.add(new MediaPointer(p, p.mediaId, p.mediaExtension, p.mediaWidth, p.mediaHeight));
+                        mediaMap.put(p.number, mediaIndex);
+                        mediaIndex++;
+                    }
+                }
+                lastUpdate = System.currentTimeMillis();
+                onResultCallback.onSuccess();
+            }
+        });
+    }
+
+    final static Pattern postReferencePattern = Pattern.compile("#p(\\d+)");
+    // http://stackoverflow.com/a/6020436/283607
+    private LinkedHashSet<String> referencedPosts(Post post) {
+        LinkedHashSet<String> refs = new LinkedHashSet<>();
+</prefix>
+<before></before>
+<after>        Matcher m = Pattern.compile("your regular expression here");
+</after>
+<suffix>        return refs;
+    }
+
+    long lastUpdate;
+    static final long updateInterval = 60_000;
+    boolean pauseUpdating = false;
+    @Transient transient ScheduledThreadPoolExecutor executor;
+
+    public void initBackgroundUpdater(final Prefs prefs, final Runnable onUpdateCallback) {
+        if (executor == null) {
+            executor = new ScheduledThreadPoolExecutor(1);
+            executor.scheduleWithFixedDelay(new Runnable() {
+                @Override
+                public void run() {
+</suffix>
+</Edit>
+</CtxEdits>

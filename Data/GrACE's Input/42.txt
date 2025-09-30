@@ -1,0 +1,62 @@
+<CurrentEdit>
+<prefix>        boolean changed;
+
+        if ( ignoreSpace )
+            {
+            spaces = softBoardData.softBoardListener.deleteSpacesBeforeCursor();
+            }
+
+        if ( reverse )
+            changed = changeBack();
+        else
+            changed = change();
+
+        if ( spaces >0 )
+            {
+            // http://stackoverflow.com/a/2807731
+</prefix>
+<before>            softBoardData.softBoardListener.sendString(new String(new char[10]).replace('\0', ' '), 0 );
+</before>
+<after></after>
+<suffix>            }
+        return changed;
+        }
+
+
+    protected abstract boolean change();
+    protected abstract boolean changeBack();
+    }
+</suffix>
+</CurrentEdit>
+<CtxEdits>
+<Edit>
+<prefix>        boolean changed;
+
+        if ( ignoreSpace )
+            {
+            spaces = softBoardData.softBoardListener.deleteSpacesBeforeCursor();
+            }
+
+        if ( reverse )
+            changed = changeBack();
+        else
+            changed = change();
+
+        if ( spaces >0 )
+            {
+            // http://stackoverflow.com/a/2807731
+</prefix>
+<before></before>
+<after>            softBoardData.softBoardListener.sendString(new String(new char[10]).replace('\0', ' '), 0 );
+</after>
+<suffix>            }
+        return changed;
+        }
+
+
+    protected abstract boolean change();
+    protected abstract boolean changeBack();
+    }
+</suffix>
+</Edit>
+</CtxEdits>

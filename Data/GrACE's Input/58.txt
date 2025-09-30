@@ -1,0 +1,74 @@
+<CurrentEdit>
+<prefix>     */
+    public static String makeHttps(final String urlString) {
+        if (urlString == null || !urlString.startsWith("http:")) {
+            return urlString;
+        }
+        return "https:" + urlString.substring(5, urlString.length());
+    }
+
+    /**
+     * see http://stackoverflow.com/a/8591230/1673548
+     */
+    public static String getUrlMimeType(final String urlString) {
+        if (urlString == null) {
+            return null;
+        }
+</prefix>
+<before>        String extension = MimeTypeMap.getFileExtensionFromUrl(url);
+</before>
+<after></after>
+<suffix>        return null;
+    }
+
+    /**
+     * returns false if the url is not valid or if the url host is null, else true
+     */
+    public static boolean isValidUrlAndHostNotNull(String url) {
+        try {
+            URI uri = URI.create(url);
+            if (uri.getHost() == null) {
+                return false;
+            }
+        } catch (IllegalArgumentException e) {
+            return false;
+</suffix>
+</CurrentEdit>
+<CtxEdits>
+<Edit>
+<prefix>     */
+    public static String makeHttps(final String urlString) {
+        if (urlString == null || !urlString.startsWith("http:")) {
+            return urlString;
+        }
+        return "https:" + urlString.substring(5, urlString.length());
+    }
+
+    /**
+     * see http://stackoverflow.com/a/8591230/1673548
+     */
+    public static String getUrlMimeType(final String urlString) {
+        if (urlString == null) {
+            return null;
+        }
+</prefix>
+<before></before>
+<after>        String extension = MimeTypeMap.getFileExtensionFromUrl(url);
+</after>
+<suffix>        return null;
+    }
+
+    /**
+     * returns false if the url is not valid or if the url host is null, else true
+     */
+    public static boolean isValidUrlAndHostNotNull(String url) {
+        try {
+            URI uri = URI.create(url);
+            if (uri.getHost() == null) {
+                return false;
+            }
+        } catch (IllegalArgumentException e) {
+            return false;
+</suffix>
+</Edit>
+</CtxEdits>

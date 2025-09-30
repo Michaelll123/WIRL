@@ -1,0 +1,70 @@
+<CurrentEdit>
+<prefix>            return;
+        }
+
+        // see http://docs.oracle.com/javase/7/docs/api/javax/imageio/
+        //     metadata/doc-files/standard_metadata.html
+        IIOMetadataNode root = (IIOMetadataNode) metadata.getAsTree(format);
+        try
+        {
+            StringWriter xmlStringWriter = new StringWriter();
+            StreamResult streamResult = new StreamResult(xmlStringWriter);
+            Transformer transformer = TransformerFactory.newInstance().newTransformer();
+            // see http://stackoverflow.com/a/1264872/535646
+            transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+            transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "2");
+            DOMSource domSource = new DOMSource(root);
+</prefix>
+<before>            transformer.transform(xmlInput, xmlOutput);
+</before>
+<after></after>
+<suffix>        }
+        catch (IllegalArgumentException ex)
+        {
+            LOG.error(ex, ex);
+        }
+        catch (TransformerException ex)
+        {
+            LOG.error(ex, ex);
+        }
+    }
+
+}
+</suffix>
+</CurrentEdit>
+<CtxEdits>
+<Edit>
+<prefix>            return;
+        }
+
+        // see http://docs.oracle.com/javase/7/docs/api/javax/imageio/
+        //     metadata/doc-files/standard_metadata.html
+        IIOMetadataNode root = (IIOMetadataNode) metadata.getAsTree(format);
+        try
+        {
+            StringWriter xmlStringWriter = new StringWriter();
+            StreamResult streamResult = new StreamResult(xmlStringWriter);
+            Transformer transformer = TransformerFactory.newInstance().newTransformer();
+            // see http://stackoverflow.com/a/1264872/535646
+            transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+            transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "2");
+            DOMSource domSource = new DOMSource(root);
+</prefix>
+<before></before>
+<after>            transformer.transform(xmlInput, xmlOutput);
+</after>
+<suffix>        }
+        catch (IllegalArgumentException ex)
+        {
+            LOG.error(ex, ex);
+        }
+        catch (TransformerException ex)
+        {
+            LOG.error(ex, ex);
+        }
+    }
+
+}
+</suffix>
+</Edit>
+</CtxEdits>

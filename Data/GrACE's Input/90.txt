@@ -1,0 +1,88 @@
+<CurrentEdit>
+<prefix>    protected boolean mCheckPhotoExistingOnServer = false;
+
+    BroadcastReceiver mUploadRemovedReceiver;
+
+    /**
+     * Now it is static and uses weak reference
+     * http://stackoverflow.com/a/11408340/527759
+     */
+    private static final class ServiceHandler extends Handler {
+        private final WeakReference<AbstractUploaderService> mService;
+
+        public ServiceHandler(Looper looper, AbstractUploaderService service) {
+            super(looper);
+            mService = new WeakReference<AbstractUploaderService>(service);
+        }
+</prefix>
+<before>        @Override
+        public void handleMessage(Message msg)
+        {
+            UDPListenerService service = mService.get();
+            if (service != null) {
+                service.handleMessage(msg);
+            }
+        }
+</before>
+<after></after>
+<suffix>
+    @Override
+    public void onCreate() {
+        super.onCreate();
+
+        mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+
+        HandlerThread thread = new HandlerThread(TAG);
+        thread.start();
+        mServiceLooper = thread.getLooper();
+        mServiceHandler = new ServiceHandler(mServiceLooper, this);
+
+        mApi = CommonConfigurationUtils.getApi();
+        setUpConnectivityWatcher();
+</suffix>
+</CurrentEdit>
+<CtxEdits>
+<Edit>
+<prefix>    protected boolean mCheckPhotoExistingOnServer = false;
+
+    BroadcastReceiver mUploadRemovedReceiver;
+
+    /**
+     * Now it is static and uses weak reference
+     * http://stackoverflow.com/a/11408340/527759
+     */
+    private static final class ServiceHandler extends Handler {
+        private final WeakReference<AbstractUploaderService> mService;
+
+        public ServiceHandler(Looper looper, AbstractUploaderService service) {
+            super(looper);
+            mService = new WeakReference<AbstractUploaderService>(service);
+        }
+</prefix>
+<before></before>
+<after>        @Override
+        public void handleMessage(Message msg)
+        {
+            UDPListenerService service = mService.get();
+            if (service != null) {
+                service.handleMessage(msg);
+            }
+        }
+</after>
+<suffix>
+    @Override
+    public void onCreate() {
+        super.onCreate();
+
+        mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+
+        HandlerThread thread = new HandlerThread(TAG);
+        thread.start();
+        mServiceLooper = thread.getLooper();
+        mServiceHandler = new ServiceHandler(mServiceLooper, this);
+
+        mApi = CommonConfigurationUtils.getApi();
+        setUpConnectivityWatcher();
+</suffix>
+</Edit>
+</CtxEdits>

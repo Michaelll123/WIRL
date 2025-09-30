@@ -1,0 +1,54 @@
+<CurrentEdit>
+<prefix>                COSString contents = (COSString) sig.getDictionaryObject(COSName.CONTENTS);
+                COSArray byteRange = (COSArray) sig.getDictionaryObject(COSName.BYTERANGE);
+                
+                RandomAccessFile raf = new RandomAccessFile(file, "r");
+                
+                byte[] buf = new byte[byteRange.getInt(1) + byteRange.getInt(3)];
+                raf.seek(byteRange.getInt(0));
+                raf.readFully(buf, 0, byteRange.getInt(1));
+                raf.seek(byteRange.getInt(2));
+                raf.readFully(buf, byteRange.getInt(1), byteRange.getInt(3));
+                raf.close();
+                
+                // inspiration:
+                // http://stackoverflow.com/a/26702631/535646
+                // http://stackoverflow.com/a/9261365/535646
+</prefix>
+<before>                CMSSignedData cms = new CMSSignedData(new CMSProcessableByteArray(Data_Bytes), Sig_Bytes);
+</before>
+<after></after>
+<suffix>            }
+        }
+    }
+}
+</suffix>
+</CurrentEdit>
+<CtxEdits>
+<Edit>
+<prefix>                COSString contents = (COSString) sig.getDictionaryObject(COSName.CONTENTS);
+                COSArray byteRange = (COSArray) sig.getDictionaryObject(COSName.BYTERANGE);
+                
+                RandomAccessFile raf = new RandomAccessFile(file, "r");
+                
+                byte[] buf = new byte[byteRange.getInt(1) + byteRange.getInt(3)];
+                raf.seek(byteRange.getInt(0));
+                raf.readFully(buf, 0, byteRange.getInt(1));
+                raf.seek(byteRange.getInt(2));
+                raf.readFully(buf, byteRange.getInt(1), byteRange.getInt(3));
+                raf.close();
+                
+                // inspiration:
+                // http://stackoverflow.com/a/26702631/535646
+                // http://stackoverflow.com/a/9261365/535646
+</prefix>
+<before></before>
+<after>                CMSSignedData cms = new CMSSignedData(new CMSProcessableByteArray(Data_Bytes), Sig_Bytes);
+</after>
+<suffix>            }
+        }
+    }
+}
+</suffix>
+</Edit>
+</CtxEdits>

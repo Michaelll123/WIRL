@@ -1,0 +1,80 @@
+<CurrentEdit>
+<prefix>            92,
+            124
+    };
+    // @formatter:on
+
+    private FileNameCleaner() {
+    }
+
+
+    /**
+     * Replaces illegal characters in given fileName by '_'
+     *
+     * @param badFileName the fileName to clean
+     * @return a clean filename
+     */
+</prefix>
+<before>    public static String cleanFileName(String badFileName) {
+        StringBuilder cleanName = new StringBuilder();
+        for (int i = 0; i < badFileName.length(); i++) {
+            int c = (int)badFileName.charAt(i);
+            if (Arrays.binarySearch(illegalChars, c) < 0) {
+                cleanName.append((char)c);
+            }
+        }
+        return cleanName.toString();
+    }
+</before>
+<after></after>
+<suffix>
+}
+
+
+private static boolean isCharLegal(char c) {
+        return Arrays.binarySearch(FileNameCleaner.ILLEGAL_CHARS, c) < 0;
+    }
+}
+</suffix>
+</CurrentEdit>
+<CtxEdits>
+<Edit>
+<prefix>            92,
+            124
+    };
+    // @formatter:on
+
+    private FileNameCleaner() {
+    }
+
+
+    /**
+     * Replaces illegal characters in given fileName by '_'
+     *
+     * @param badFileName the fileName to clean
+     * @return a clean filename
+     */
+</prefix>
+<before></before>
+<after>    public static String cleanFileName(String badFileName) {
+        StringBuilder cleanName = new StringBuilder();
+        for (int i = 0; i < badFileName.length(); i++) {
+            int c = (int)badFileName.charAt(i);
+            if (Arrays.binarySearch(illegalChars, c) < 0) {
+                cleanName.append((char)c);
+            }
+        }
+        return cleanName.toString();
+    }
+</after>
+<suffix>
+}
+
+
+private static boolean isCharLegal(char c) {
+        return Arrays.binarySearch(FileNameCleaner.ILLEGAL_CHARS, c) < 0;
+    }
+}
+</suffix>
+</Edit>
+</CtxEdits>

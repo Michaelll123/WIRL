@@ -1,0 +1,74 @@
+<CurrentEdit>
+<prefix>     * multiple dimensions.
+     *
+     * @param vector with coordinates
+     * @return index in flat array
+     */
+    private int calcSampleIndex(int[] vector)
+    {
+        // inspiration: http://stackoverflow.com/a/12113479/535646
+        // but used in reverse
+        float[] sizeValues = getSize().toFloatArray();
+        int index = 0;
+        int sizeProduct = 1;
+        int dimension = vector.length;
+        for (int i = dimension - 2; i >= 0; --i)
+        {
+</prefix>
+<before>            sizeProduct*=size[k];
+</before>
+<after></after>
+<suffix>        }
+        return index;
+    }
+
+    /**
+     * Inner class do to an interpolation in the Nth dimension by comparing the
+     * content size of N-1 dimensional objects. This is done with the help of
+     * recursive calls. To understand the algorithm without recursion, here is a
+     * <a
+     * href="http://harmoniccode.blogspot.de/2011/04/bilinear-color-interpolation.html">bilinear
+     * interpolation</a> and here's a <a
+     * href="https://en.wikipedia.org/wiki/Trilinear_interpolation">trilinear
+     * interpolation</a> (external links).
+     */
+</suffix>
+</CurrentEdit>
+<CtxEdits>
+<Edit>
+<prefix>     * multiple dimensions.
+     *
+     * @param vector with coordinates
+     * @return index in flat array
+     */
+    private int calcSampleIndex(int[] vector)
+    {
+        // inspiration: http://stackoverflow.com/a/12113479/535646
+        // but used in reverse
+        float[] sizeValues = getSize().toFloatArray();
+        int index = 0;
+        int sizeProduct = 1;
+        int dimension = vector.length;
+        for (int i = dimension - 2; i >= 0; --i)
+        {
+</prefix>
+<before></before>
+<after>            sizeProduct*=size[k];
+</after>
+<suffix>        }
+        return index;
+    }
+
+    /**
+     * Inner class do to an interpolation in the Nth dimension by comparing the
+     * content size of N-1 dimensional objects. This is done with the help of
+     * recursive calls. To understand the algorithm without recursion, here is a
+     * <a
+     * href="http://harmoniccode.blogspot.de/2011/04/bilinear-color-interpolation.html">bilinear
+     * interpolation</a> and here's a <a
+     * href="https://en.wikipedia.org/wiki/Trilinear_interpolation">trilinear
+     * interpolation</a> (external links).
+     */
+</suffix>
+</Edit>
+</CtxEdits>

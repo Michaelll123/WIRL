@@ -1,0 +1,78 @@
+<CurrentEdit>
+<prefix>    public void selectGPXWaypoints(final List<GPXWaypoint> waypoints, final Boolean highlightIfHidden, final Boolean useLineMarker) {
+//        System.out.println("selectGPXWaypoints: " + waypoints.size());
+
+        // disable listener for checked changes since it fires for each waypoint...
+        // TODO: use something fancy like LibFX ListenerHandle...
+        gpxTrackXML.getSelectionModel().getSelectedItems().removeListener(listenergpxTrackXMLSelection);
+            
+        gpxTrackXML.getSelectionModel().clearSelection();
+        
+        // TFE, 20191124: select by value is very slow...
+        // see https://stackoverflow.com/a/27445277
+//        for (GPXWaypoint waypoint : waypoints) {
+//            gpxTrackXML.getSelectionModel().select(waypoint);
+//        }
+        // Allocating an array to store indexes
+</prefix>
+<before>        int[] idx = new int[selectedItems.size()];
+        int p = 0;
+        // Performance tuning to move selected items into a set
+        // (faster contains calls)
+        Set<PositionWrapper> s = new HashSet<>(Arrays.asList(
+                selectedItems.toArray(new PositionWrapper[0])));
+
+        // Iterating over items in target list (but only once!)
+        for (int i = 0; i < target.getItems().size(); i++) {
+            if (s.contains(target.getItems().get(i))) {
+                // and adding to the list of indexes when selected
+                idx[p++] = i;
+            }
+        }
+        // Calling the more effective index-based selection setter
+        target.getSelectionModel().selectIndices(-1, idx);
+</before>
+<after></after>
+<suffix>}
+</suffix>
+</CurrentEdit>
+<CtxEdits>
+<Edit>
+<prefix>    public void selectGPXWaypoints(final List<GPXWaypoint> waypoints, final Boolean highlightIfHidden, final Boolean useLineMarker) {
+//        System.out.println("selectGPXWaypoints: " + waypoints.size());
+
+        // disable listener for checked changes since it fires for each waypoint...
+        // TODO: use something fancy like LibFX ListenerHandle...
+        gpxTrackXML.getSelectionModel().getSelectedItems().removeListener(listenergpxTrackXMLSelection);
+            
+        gpxTrackXML.getSelectionModel().clearSelection();
+        
+        // TFE, 20191124: select by value is very slow...
+        // see https://stackoverflow.com/a/27445277
+//        for (GPXWaypoint waypoint : waypoints) {
+//            gpxTrackXML.getSelectionModel().select(waypoint);
+//        }
+        // Allocating an array to store indexes
+</prefix>
+<before></before>
+<after>        int[] idx = new int[selectedItems.size()];
+        int p = 0;
+        // Performance tuning to move selected items into a set
+        // (faster contains calls)
+        Set<PositionWrapper> s = new HashSet<>(Arrays.asList(
+                selectedItems.toArray(new PositionWrapper[0])));
+
+        // Iterating over items in target list (but only once!)
+        for (int i = 0; i < target.getItems().size(); i++) {
+            if (s.contains(target.getItems().get(i))) {
+                // and adding to the list of indexes when selected
+                idx[p++] = i;
+            }
+        }
+        // Calling the more effective index-based selection setter
+        target.getSelectionModel().selectIndices(-1, idx);
+</after>
+<suffix>}
+</suffix>
+</Edit>
+</CtxEdits>

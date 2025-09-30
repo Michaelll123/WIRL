@@ -1,0 +1,74 @@
+<CurrentEdit>
+<prefix>     * @param bboxDevice bbox of the soft mask in the underlying Graphics2D device space
+     * @param backdropColor the color to be used outside the transparency group’s bounding box; if
+     * null, black will be used.
+     */
+    SoftMask(Paint paint, BufferedImage mask, Rectangle2D bboxDevice, PDColor backdropColor)
+    {
+        this.paint = paint;
+        this.mask = mask;
+        this.bboxDevice = bboxDevice;        
+        if (backdropColor != null)
+        {
+            try
+            {
+                Color color = new Color(backdropColor.toRGB());
+                // http://stackoverflow.com/a/25463098/535646
+</prefix>
+<before>                gray = 0.299 * red + 0.587 * green + 0.114 * blue;
+</before>
+<after></after>
+<suffix>            }
+            catch (IOException ex)
+            {
+                // keep default
+            }
+        }
+    }
+
+    @Override
+    public PaintContext createContext(ColorModel cm, Rectangle deviceBounds,
+                                      Rectangle2D userBounds, AffineTransform xform,
+                                      RenderingHints hints)
+    {
+        PaintContext ctx = paint.createContext(cm, deviceBounds, userBounds, xform, hints);
+</suffix>
+</CurrentEdit>
+<CtxEdits>
+<Edit>
+<prefix>     * @param bboxDevice bbox of the soft mask in the underlying Graphics2D device space
+     * @param backdropColor the color to be used outside the transparency group’s bounding box; if
+     * null, black will be used.
+     */
+    SoftMask(Paint paint, BufferedImage mask, Rectangle2D bboxDevice, PDColor backdropColor)
+    {
+        this.paint = paint;
+        this.mask = mask;
+        this.bboxDevice = bboxDevice;        
+        if (backdropColor != null)
+        {
+            try
+            {
+                Color color = new Color(backdropColor.toRGB());
+                // http://stackoverflow.com/a/25463098/535646
+</prefix>
+<before></before>
+<after>                gray = 0.299 * red + 0.587 * green + 0.114 * blue;
+</after>
+<suffix>            }
+            catch (IOException ex)
+            {
+                // keep default
+            }
+        }
+    }
+
+    @Override
+    public PaintContext createContext(ColorModel cm, Rectangle deviceBounds,
+                                      Rectangle2D userBounds, AffineTransform xform,
+                                      RenderingHints hints)
+    {
+        PaintContext ctx = paint.createContext(cm, deviceBounds, userBounds, xform, hints);
+</suffix>
+</Edit>
+</CtxEdits>

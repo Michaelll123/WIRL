@@ -1,0 +1,128 @@
+<CurrentEdit>
+<prefix>
+        return rowView;
+        }
+
+    // http://stackoverflow.com/a/13514663
+    public Filter getFilter()
+        {
+        if (fileEntryFilter == null)
+            fileEntryFilter = new FileEntryFilter();
+
+        return fileEntryFilter;
+        }
+
+    private class FileEntryFilter extends Filter
+        {
+</prefix>
+<before>            protected FilterResults performFiltering(CharSequence constraint) {
+
+                FilterResults results=new FilterResults();
+
+                if(constraint!=null && constraint.length()>0){
+
+                    ArrayList<String> filterList=new ArrayList<String>();
+
+                    for(int i=0;i<mStringFilterList.size();i++){
+
+                        if(mStringFilterList.get(i).contains(constraint)) {
+
+                            filterList.add(mStringFilterList.get(i));
+
+                        }
+                    }
+
+
+                    results.count=filterList.size();
+
+                    results.values=filterList;
+
+                }else{
+
+                    results.count=mStringFilterList.size();
+
+                    results.values=mStringFilterList;
+
+                }
+
+                return results;
+            }
+</before>
+<after></after>
+<suffix>
+        // http://stackoverflow.com/a/262416
+        @SuppressWarnings("unchecked")
+        protected void publishResults(CharSequence constraint, FilterResults filterResults)
+            {
+            filteredFileEntries = (List<FileEntry>) filterResults.values;
+            notifyDataSetChanged();
+            }
+        }
+    }
+</suffix>
+</CurrentEdit>
+<CtxEdits>
+<Edit>
+<prefix>
+        return rowView;
+        }
+
+    // http://stackoverflow.com/a/13514663
+    public Filter getFilter()
+        {
+        if (fileEntryFilter == null)
+            fileEntryFilter = new FileEntryFilter();
+
+        return fileEntryFilter;
+        }
+
+    private class FileEntryFilter extends Filter
+        {
+</prefix>
+<before></before>
+<after>            protected FilterResults performFiltering(CharSequence constraint) {
+
+                FilterResults results=new FilterResults();
+
+                if(constraint!=null && constraint.length()>0){
+
+                    ArrayList<String> filterList=new ArrayList<String>();
+
+                    for(int i=0;i<mStringFilterList.size();i++){
+
+                        if(mStringFilterList.get(i).contains(constraint)) {
+
+                            filterList.add(mStringFilterList.get(i));
+
+                        }
+                    }
+
+
+                    results.count=filterList.size();
+
+                    results.values=filterList;
+
+                }else{
+
+                    results.count=mStringFilterList.size();
+
+                    results.values=mStringFilterList;
+
+                }
+
+                return results;
+            }
+</after>
+<suffix>
+        // http://stackoverflow.com/a/262416
+        @SuppressWarnings("unchecked")
+        protected void publishResults(CharSequence constraint, FilterResults filterResults)
+            {
+            filteredFileEntries = (List<FileEntry>) filterResults.values;
+            notifyDataSetChanged();
+            }
+        }
+    }
+</suffix>
+</Edit>
+</CtxEdits>

@@ -1,0 +1,76 @@
+<CurrentEdit>
+<prefix>import com.haxademic.core.file.FileUtil;
+
+public class FileDownloader {
+	
+	public static boolean downloadFile(String fileURL, String localPath, boolean overwrite) {
+		// tell servers that we're a cool web browser & prevent 403 forbidden errors
+		System.setProperty("http.agent", "Chrome");
+		
+		// remove file & replace if one already exists
+		if(overwrite && FileUtil.fileExists(localPath)) {
+			FileUtil.deleteFile(localPath);
+		}
+		
+		// modern file downloader
+		// from: https://stackoverflow.com/a/32472138/352456
+</prefix>
+<before>		try(InputStream in = new URL("http://example.com/image.jpg").openStream()){
+		    Files.copy(in, Paths.get("C:/File/To/Save/To/image.jpg"));
+</before>
+<after></after>
+<suffix>		    return true;
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+			return false;
+		} catch (IOException e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+	
+	public static boolean downloadFiles(String[] fileURLs, String[] localPaths, boolean overwrite) {
+		boolean allDownloaded = true;
+		
+		for (int i = 0; i < fileURLs.length; i++) {
+</suffix>
+</CurrentEdit>
+<CtxEdits>
+<Edit>
+<prefix>import com.haxademic.core.file.FileUtil;
+
+public class FileDownloader {
+	
+	public static boolean downloadFile(String fileURL, String localPath, boolean overwrite) {
+		// tell servers that we're a cool web browser & prevent 403 forbidden errors
+		System.setProperty("http.agent", "Chrome");
+		
+		// remove file & replace if one already exists
+		if(overwrite && FileUtil.fileExists(localPath)) {
+			FileUtil.deleteFile(localPath);
+		}
+		
+		// modern file downloader
+		// from: https://stackoverflow.com/a/32472138/352456
+</prefix>
+<before></before>
+<after>		try(InputStream in = new URL("http://example.com/image.jpg").openStream()){
+		    Files.copy(in, Paths.get("C:/File/To/Save/To/image.jpg"));
+</after>
+<suffix>		    return true;
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+			return false;
+		} catch (IOException e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+	
+	public static boolean downloadFiles(String[] fileURLs, String[] localPaths, boolean overwrite) {
+		boolean allDownloaded = true;
+		
+		for (int i = 0; i < fileURLs.length; i++) {
+</suffix>
+</Edit>
+</CtxEdits>

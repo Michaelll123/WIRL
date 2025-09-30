@@ -1,0 +1,100 @@
+0###Paths.get(path)###myPath###2.463###2842###20
+1###ListView<ComboBoxItem>, combox###ListView<String>, waypointSymTxt###5.921###4749###27
+2###Paths.get(dirName), .xml###myPath, .png###7.951###2569###26
+3###event.getSceneX(), event.getSceneY(), lineChart###e.getSceneX(), e.getSceneY(), this###12.989###3749###37
+4###primaryStage###myStage###15.106###1337###18
+5###box###waypointSymTxt###15.956###5061###19
+6###cboPersons, Person###waypointSymTxt, Label###20.565###4770###25
+7###yourWebviewObject, path/to/fontawesome-webfont.eot, path/to/fontawesome-webfont.woff2, path/to/fontawesome-webfont.woff, path/to/fontawesome-webfont.ttf, path/to/fontawesome-webfont.svg###myWebView, leaflet/easybutton/fonts/easy-button.eot, leaflet/easybutton/fonts/easy-button.woff2, leaflet/easybutton/fonts/easy-button.woff, leaflet/easybutton/fonts/easy-button.ttf, leaflet/easybutton/fonts/easy-button.svg###53.051###17820###118
+8###Error
+9###Error
+10###Error
+11###Error
+12###Error
+13###Error
+14###Error
+15###Error
+16###Error
+17###Error
+18###Pattern.compile("your regular expression here")###postReferencePattern.matcher(post.text)###25.989###1380###29
+19###"config.txt"###escapePathSeparator(name)###22.299###1514###23
+20###gray,red,green,blue###bc,color.getRed(),color.getGreen(),color.getBlue()###19.244###1245###34
+21###Data_Bytes,Sig_Bytes###signedContent.getContent(),contents.getBytes()###7.397###1276###28
+22###Base64.decode(envelopedData.getBytes())###contents.getBytes()###5.622###1868###26
+23###Data_Bytes,Sig_Bytes###buf,contents.getBytes()###6.088###2026###26
+24###xrad,magic###r,0.551784###7.666###3481###24
+25###image,w,h###newImage,newImage.getWidth(),newImage.getHeight()###10.005###3379###27
+26###size[k]###sizeValues[i]###13.142###4128###21
+27###xmlInput,xmlOutput###domSource,streamResult###11.443###627###24
+28###xrad,magic###r,0.551784###10.943###1679###24
+29###url###doiRequest###7.691###667###17
+30###newW,newH###newWidth,newHeight###5.89###384###22
+31###myControlXML###actual###2.842###799###18
+32###url1,user,password###properties.getUrl(),properties.getUser(),properties.getPassword()###5.206###586###27
+33###width,height###getWidth(),getHeight()###3.493###1396###20
+34###encoding###StringUtil.UTF8###4.164###2971###18
+35###portNr,portFree,portFree,portFree###port,free,free,free###4.299###254###29
+36###upperLimit,randomSource###limit,rand###7.649###4736###22
+37###start,end###var0,var1###8.46###1487###20
+38###title,text###view,result###7.606###715###18
+39###txtSpecialRequests,specialRequests,lastSpecialRequestsCursorPosition###editText,s.toString(),editText.getSelectionStart()###5.675###1161###34
+40###tv,TAG###txtMessage,ChatLikeListAdapter.class.getSimpleName()###8.093###2320###26
+41###selectedUri###dirUri###13.491###9493###18
+42###10###spaces###12.306###418###16
+43###mStringFilterList###originalFileEntries###13.029###901###21
+44###chars,bytes###charBuffer.array(),byteBuffer.array()###14.164###1401###25
+45###bundle###b###11.13###641###16
+46###mainToolbar,MainContentView.DEVICE_ACTIVITY,activity,checker###main.getActivity(),RotationBundleDemo.DEVICE_ACTIVITY,main.getActivity(),onView(withId(R.id.view))###7.002###1141###46
+47###x,y###radians1,radians2###6.173###4242###22
+48###http://example.com/image.jpg,C:/File/To/Save/To/image.jpg###fileURL,localPath###6.367###411###36
+49###a,b###Arrays.stream(command),Arrays.stream(args)###5.049###425###24
+50###list,target###listView,mCommentListPosition###6.526###2029###22
+51###mImageLoader###imageLoader###10.784###5661###19
+52###ac###result###6.708###1145###16
+53###bi###img###9.416###3021###16
+54###b###result###14.053###3722###16
+55###mLinearLayout###newLv###12.187###1514###18
+56###mLinearLayout###newLv###8.371###1658###18
+57###mLinearLayout###newLv###10.447###2180###18
+58###url###urlString###7.706###1083###17
+59###o,IMAGE_MAX_SIZE###optBounds,maxWidth###8.464###3677###23
+60###list,target###listView,mNote###8.89###2797###20
+61###mImageLoader###imageLoader###15.527###6360###19
+62###targetClass,target###method.getDeclaringClass(),proxy###14.792###1351###24
+63###url,mimeType###urlString,MimeTypeMap.getSingleton().getMimeTypeFromExtension(extension)###15.335###1083###31
+64###o,IMAGE_MAX_SIZE,stream###optBounds,maxWidth,new ByteArrayOutputStream()###15.581###3715###28
+65###mImageLoader###imageLoader###18.904###5661###19
+66###list,target###listView,mNoteBlockArray.get(mCommentListPosition)###11.893###2029###28
+67###canvas,textPaint,Hello###target,mTextPaint,text###29.776###884###24
+68###bmp,Bitmap.CompressFormat.PNG###bitmap,compressFormat###13.571###1999###25
+69###getContext()###context###10.811###2001###17
+70###getTheme(),actionBarHeight,getResources()###context.getTheme(),TypedValue.complexToDimensionPixelSize(tv.data,context.getResources().getDisplayMetrics()),context.getResources()###7.388###748###47
+71###o,IMAGE_MAX_SIZE###optBounds,maxWidth###7.472###3715###23
+72###oldUri###uri###12.375###4918###17
+73###user,request###entity,jsonObject###11.764###2023###19
+74###illegalChars###ILLEGAL_CHARS###9.965###463###19
+75###url1,user,password###properties.getUrl(),properties.getUser(),properties.getPassword()###10.085###550###27
+76###list,string###colors,c###3.804###1237###18
+77###mapA,mapB###expected,actual###4.746###2901###21
+78###myMap,aMap###CLASS_TO_PREFERENCE_NODE_MAP,castedMap###5.909###2400###28
+79###contextThemeWrapper,yourLayout###mContext,R.layout.sdf_layout###7.431###1818###27
+80###themedContext###mContext###8.219###2100###19
+81###gameState,ed,header###bundle,editor,EXTRA_HEADER###7.951###2772###27
+82###tmf,context###trustAllCerts,sslContext###10.698###2331###25
+83###illegalChars###ILLEGAL_CHARS###7.7###463###19
+84###url1,user,password###properties.getUrl(),properties.getUser(),properties.getPassword()###6.057###550###27
+85###b2,Question###bundleOut,DownloadRequest###5.54###756###23
+86###mFragmentManager###fragmentManager###5.732###3169###18
+87###not###notification###7.414###4469###16
+88###sourceBitmap,width,height###bitmap,bitmap.getWidth(),bitmap.getHeight()###10.718###3269###26
+89###uri,rotationInDegrees###fileName,exifToDegrees(exif.getAttributeInt(ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_NORMAL))###12.038###924###43
+90###UDPListenerService,handleMessage###AbstractUploaderService,handleIntent###15.77###4477###26
+91###xmlInput,xmlOutput###domSource,streamResult###11.603###627###24
+92###red,green,blue,gray###color.getRed(),color.getGreen(),color.getBlue(),bc###8.02###1245###34
+93###x,y,pdfFile###20,20,outputFile###6.714###1117###24
+94###image,w,h###newImage,newImage.getWidth(),newImage.getHeight()###9.163###3379###27
+95###encoding###Charset.defaultCharset()###8.016###3559###19
+96###ap###source###6.333###856###16
+97###is###gis###18.208###4097###17
+98###ae, sourceDirectoryChooser###event, fc###6.042###857###19
+99###string###text###4.146###857###19

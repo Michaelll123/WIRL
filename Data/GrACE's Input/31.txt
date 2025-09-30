@@ -1,0 +1,56 @@
+<CurrentEdit>
+<prefix>        Path expectedFile = resourceDir.resolve(xmlFileName);
+        Path importFile = resourceDir.resolve(filename);
+
+        List<BibEntry> entries = testImporter.importDatabase(importFile, StandardCharsets.UTF_8)
+                                             .getDatabase()
+                                             .getEntries();
+
+        exporter.export(databaseContext, exportedFile, charset, entries);
+
+        String expected = String.join("\n", Files.readAllLines(expectedFile));
+        String actual = String.join("\n", Files.readAllLines(exportedFile));
+
+        // The order of elements changes from Windows to Travis environment somehow
+        // The order does not really matter, so we ignore it.
+        // Source: https://stackoverflow.com/a/16540679/873282
+</prefix>
+<before>        assertThat(myControlXML, isSimilarTo(expected)
+                .ignoreWhitespace()
+                .normalizeWhitespace()
+                .withNodeMatcher(new DefaultNodeMatcher(ElementSelectors.byNameAndText)));
+</before>
+<after></after>
+<suffix>    }
+}
+</suffix>
+</CurrentEdit>
+<CtxEdits>
+<Edit>
+<prefix>        Path expectedFile = resourceDir.resolve(xmlFileName);
+        Path importFile = resourceDir.resolve(filename);
+
+        List<BibEntry> entries = testImporter.importDatabase(importFile, StandardCharsets.UTF_8)
+                                             .getDatabase()
+                                             .getEntries();
+
+        exporter.export(databaseContext, exportedFile, charset, entries);
+
+        String expected = String.join("\n", Files.readAllLines(expectedFile));
+        String actual = String.join("\n", Files.readAllLines(exportedFile));
+
+        // The order of elements changes from Windows to Travis environment somehow
+        // The order does not really matter, so we ignore it.
+        // Source: https://stackoverflow.com/a/16540679/873282
+</prefix>
+<before></before>
+<after>        assertThat(myControlXML, isSimilarTo(expected)
+                .ignoreWhitespace()
+                .normalizeWhitespace()
+                .withNodeMatcher(new DefaultNodeMatcher(ElementSelectors.byNameAndText)));
+</after>
+<suffix>    }
+}
+</suffix>
+</Edit>
+</CtxEdits>

@@ -1,0 +1,80 @@
+<CurrentEdit>
+<prefix>        // parse icons directory - working for both IDE and jar
+        final URI uri;
+        try {
+            uri = MarkerManager.class.getResource(RESOURCE_PATH).toURI();
+
+            Path myPath;
+            if (uri.getScheme().equals(JAR_EXT)) {
+                FileSystem fileSystem = FileSystems.newFileSystem(uri, Collections.<String, Object>emptyMap());
+                myPath = fileSystem.getPath(RESOURCE_PATH);
+            } else {
+                myPath = Paths.get(uri);
+            }
+            
+            // use sorting since order is different in UI or JAR...
+            // https://stackoverflow.com/a/7199929
+</prefix>
+<before>            Files.list(Paths.get(dirName))
+                    .filter(s -> s.toString().endsWith(".xml"))
+                    .sorted()
+                    .forEach(System.out::println);
+</before>
+<after></after>
+<suffix>        } catch (URISyntaxException | IOException ex) {
+            Logger.getLogger(MarkerManager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    private static String jsCompatibleIconName(final String iconName) {
+        // don't crash on null input...
+        String result = Objects.requireNonNullElse(iconName, "");
+        
+        //TFE, 20191122: name can contain invalid characters for a js variable name - needs to be sanitized or quoted
+        // simple version: replace all " ", ",", "(", ")", "-" with "_"
+        return JSVARNAME_PREFIX + result.replaceAll(JSVARNAME_PATTERN, "_");
+    }
+    
+</suffix>
+</CurrentEdit>
+<CtxEdits>
+<Edit>
+<prefix>        // parse icons directory - working for both IDE and jar
+        final URI uri;
+        try {
+            uri = MarkerManager.class.getResource(RESOURCE_PATH).toURI();
+
+            Path myPath;
+            if (uri.getScheme().equals(JAR_EXT)) {
+                FileSystem fileSystem = FileSystems.newFileSystem(uri, Collections.<String, Object>emptyMap());
+                myPath = fileSystem.getPath(RESOURCE_PATH);
+            } else {
+                myPath = Paths.get(uri);
+            }
+            
+            // use sorting since order is different in UI or JAR...
+            // https://stackoverflow.com/a/7199929
+</prefix>
+<before></before>
+<after>            Files.list(Paths.get(dirName))
+                    .filter(s -> s.toString().endsWith(".xml"))
+                    .sorted()
+                    .forEach(System.out::println);
+</after>
+<suffix>        } catch (URISyntaxException | IOException ex) {
+            Logger.getLogger(MarkerManager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    private static String jsCompatibleIconName(final String iconName) {
+        // don't crash on null input...
+        String result = Objects.requireNonNullElse(iconName, "");
+        
+        //TFE, 20191122: name can contain invalid characters for a js variable name - needs to be sanitized or quoted
+        // simple version: replace all " ", ",", "(", ")", "-" with "_"
+        return JSVARNAME_PREFIX + result.replaceAll(JSVARNAME_PATTERN, "_");
+    }
+    
+</suffix>
+</Edit>
+</CtxEdits>

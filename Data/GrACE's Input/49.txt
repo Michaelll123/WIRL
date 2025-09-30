@@ -1,0 +1,56 @@
+<CurrentEdit>
+<prefix>		try {
+			runScript(argz);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+			P.out("Script failed (InterruptedException)");
+		}		
+	}
+	
+	protected void runScript(String[] args) throws InterruptedException {
+		String scriptPath = FileUtil.getScript(scriptName);
+		String[] command;
+		if(SystemUtil.isOSX()) { 
+			command = new String[]{"/bin/sh", "-c", scriptPath + " " + String.join(" ", args)};				// spaces in between args
+		} else {
+			command = new String[]{"cmd.exe", "/C", scriptPath};
+</prefix>
+<before>			command =  Stream.concat(Arrays.stream(a), Arrays.stream(b));	// concat arrays via https://stackoverflow.com/a/23188881
+</before>
+<after></after>
+<suffix>
+		}
+	}
+
+}
+</suffix>
+</CurrentEdit>
+<CtxEdits>
+<Edit>
+<prefix>		try {
+			runScript(argz);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+			P.out("Script failed (InterruptedException)");
+		}		
+	}
+	
+	protected void runScript(String[] args) throws InterruptedException {
+		String scriptPath = FileUtil.getScript(scriptName);
+		String[] command;
+		if(SystemUtil.isOSX()) { 
+			command = new String[]{"/bin/sh", "-c", scriptPath + " " + String.join(" ", args)};				// spaces in between args
+		} else {
+			command = new String[]{"cmd.exe", "/C", scriptPath};
+</prefix>
+<before></before>
+<after>			command =  Stream.concat(Arrays.stream(a), Arrays.stream(b));	// concat arrays via https://stackoverflow.com/a/23188881
+</after>
+<suffix>
+		}
+	}
+
+}
+</suffix>
+</Edit>
+</CtxEdits>

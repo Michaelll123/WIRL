@@ -1,0 +1,82 @@
+<CurrentEdit>
+<prefix>
+                    final java.math.BigInteger bi =
+                            engineer.maxbarraclough.txtshuffle.backend.TxtShuffle.retrieveNumberFromData(encodedDS);
+
+                    final byte[] uncompressedBytes = bi.toByteArray();
+                    byte[] bytes;
+
+                    if (encodedDS.length >= 100)
+                    {
+                        final java.io.ByteArrayInputStream bais = new java.io.ByteArrayInputStream(uncompressedBytes);
+                        final java.util.zip.GZIPInputStream gis = new java.util.zip.GZIPInputStream(bais, uncompressedBytes.length);
+
+                        // InputStream#readAllBytes is Java 9 only - https://stackoverflow.com/a/37681322
+
+                        // based on https://stackoverflow.com/a/17861016
+</prefix>
+<before>                        ByteArrayOutputStream os = new ByteArrayOutputStream();
+                        byte[] buffer = new byte[0xFFFF];
+                        for (int len = is.read(buffer); len != -1; len = is.read(buffer)) {
+                            os.write(buffer, 0, len);
+                        }
+</before>
+<after></after>
+<suffix>                    }
+
+                }
+
+            } catch (IOException ex) {
+                Logger.getLogger(FXMLController.class.getName()).log(Level.SEVERE, null, ex);
+                final Alert alert = new Alert(
+                        Alert.AlertType.NONE,
+                        "Error writing to file",
+                        ButtonType.OK
+                );
+                alert.showAndWait(); // TODO go async: use 'show' and a listener
+            } catch (TxtShuffle.NumberTooGreatException ex) {
+                Logger.getLogger(FXMLController.class.getName()).log(Level.SEVERE, null, ex);
+</suffix>
+</CurrentEdit>
+<CtxEdits>
+<Edit>
+<prefix>
+                    final java.math.BigInteger bi =
+                            engineer.maxbarraclough.txtshuffle.backend.TxtShuffle.retrieveNumberFromData(encodedDS);
+
+                    final byte[] uncompressedBytes = bi.toByteArray();
+                    byte[] bytes;
+
+                    if (encodedDS.length >= 100)
+                    {
+                        final java.io.ByteArrayInputStream bais = new java.io.ByteArrayInputStream(uncompressedBytes);
+                        final java.util.zip.GZIPInputStream gis = new java.util.zip.GZIPInputStream(bais, uncompressedBytes.length);
+
+                        // InputStream#readAllBytes is Java 9 only - https://stackoverflow.com/a/37681322
+
+                        // based on https://stackoverflow.com/a/17861016
+</prefix>
+<before></before>
+<after>                        ByteArrayOutputStream os = new ByteArrayOutputStream();
+                        byte[] buffer = new byte[0xFFFF];
+                        for (int len = is.read(buffer); len != -1; len = is.read(buffer)) {
+                            os.write(buffer, 0, len);
+                        }
+</after>
+<suffix>                    }
+
+                }
+
+            } catch (IOException ex) {
+                Logger.getLogger(FXMLController.class.getName()).log(Level.SEVERE, null, ex);
+                final Alert alert = new Alert(
+                        Alert.AlertType.NONE,
+                        "Error writing to file",
+                        ButtonType.OK
+                );
+                alert.showAndWait(); // TODO go async: use 'show' and a listener
+            } catch (TxtShuffle.NumberTooGreatException ex) {
+                Logger.getLogger(FXMLController.class.getName()).log(Level.SEVERE, null, ex);
+</suffix>
+</Edit>
+</CtxEdits>

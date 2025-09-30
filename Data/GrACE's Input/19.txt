@@ -1,0 +1,74 @@
+<CurrentEdit>
+<prefix>    }
+
+    public static interface WatchlistCallback {
+        public void onChanged(Set<WatchlistEntry> newWatchlist);
+    }
+
+
+    // http://stackoverflow.com/a/14377185/283607
+
+    private String escapePathSeparator(String path) {
+        return path.replace("/", "_");
+    }
+
+    private void writeToInternalFile(String name, String data) {
+        try {
+</prefix>
+<before>            OutputStreamWriter outputStreamWriter = new OutputStreamWriter(context.openFileOutput("config.txt", Context.MODE_PRIVATE));
+</before>
+<after></after>
+<suffix>        }
+        catch (IOException e) {
+            Log.e("Exception", "File write failed: " + e.toString());
+        }
+    }
+
+    private String readFromInternalFile(String name) {
+        String ret = "";
+        try {
+            InputStream inputStream = context.openFileInput(escapePathSeparator(name));
+            if ( inputStream != null ) {
+                InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+                BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+                String receiveString;
+</suffix>
+</CurrentEdit>
+<CtxEdits>
+<Edit>
+<prefix>    }
+
+    public static interface WatchlistCallback {
+        public void onChanged(Set<WatchlistEntry> newWatchlist);
+    }
+
+
+    // http://stackoverflow.com/a/14377185/283607
+
+    private String escapePathSeparator(String path) {
+        return path.replace("/", "_");
+    }
+
+    private void writeToInternalFile(String name, String data) {
+        try {
+</prefix>
+<before></before>
+<after>            OutputStreamWriter outputStreamWriter = new OutputStreamWriter(context.openFileOutput("config.txt", Context.MODE_PRIVATE));
+</after>
+<suffix>        }
+        catch (IOException e) {
+            Log.e("Exception", "File write failed: " + e.toString());
+        }
+    }
+
+    private String readFromInternalFile(String name) {
+        String ret = "";
+        try {
+            InputStream inputStream = context.openFileInput(escapePathSeparator(name));
+            if ( inputStream != null ) {
+                InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+                BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+                String receiveString;
+</suffix>
+</Edit>
+</CtxEdits>

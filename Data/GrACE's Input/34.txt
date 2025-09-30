@@ -1,0 +1,74 @@
+<CurrentEdit>
+<prefix>public class HttpUtil {
+
+    public static final String DEFAULT_CERT_NAME = "ssl-https";
+
+    public static Map<String, String> queryParams(URL url) throws UnsupportedEncodingException {
+        return queryParams(url, StringUtil.UTF8);
+    }
+
+    // from: http://stackoverflow.com/a/13592567
+    public static Map<String, String> queryParams(URL url, String encoding) throws UnsupportedEncodingException {
+        final Map<String, String> query_pairs = new LinkedHashMap<>();
+        final String query = url.getQuery();
+        final String[] pairs = query.split("&");
+        for (String pair : pairs) {
+            final int idx = pair.indexOf("=");
+</prefix>
+<before>            query_pairs.put(URLDecoder.decode(pair.substring(0, idx), "UTF-8"), URLDecoder.decode(pair.substring(idx + 1), "UTF-8"));
+</before>
+<after></after>
+<suffix>        }
+        return query_pairs;
+    }
+
+    public static InputStream get (String urlString) throws IOException { return get(urlString, null); }
+
+    public static InputStream get (String urlString, Map<String, String> headers) throws IOException {
+        final URL url = new URL(urlString);
+        final HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+        if (headers != null) {
+            for (Map.Entry<String, String> h : headers.entrySet()) {
+                urlConnection.setRequestProperty(h.getKey(), h.getValue());
+            }
+        }
+</suffix>
+</CurrentEdit>
+<CtxEdits>
+<Edit>
+<prefix>public class HttpUtil {
+
+    public static final String DEFAULT_CERT_NAME = "ssl-https";
+
+    public static Map<String, String> queryParams(URL url) throws UnsupportedEncodingException {
+        return queryParams(url, StringUtil.UTF8);
+    }
+
+    // from: http://stackoverflow.com/a/13592567
+    public static Map<String, String> queryParams(URL url, String encoding) throws UnsupportedEncodingException {
+        final Map<String, String> query_pairs = new LinkedHashMap<>();
+        final String query = url.getQuery();
+        final String[] pairs = query.split("&");
+        for (String pair : pairs) {
+            final int idx = pair.indexOf("=");
+</prefix>
+<before></before>
+<after>            query_pairs.put(URLDecoder.decode(pair.substring(0, idx), "UTF-8"), URLDecoder.decode(pair.substring(idx + 1), "UTF-8"));
+</after>
+<suffix>        }
+        return query_pairs;
+    }
+
+    public static InputStream get (String urlString) throws IOException { return get(urlString, null); }
+
+    public static InputStream get (String urlString, Map<String, String> headers) throws IOException {
+        final URL url = new URL(urlString);
+        final HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+        if (headers != null) {
+            for (Map.Entry<String, String> h : headers.entrySet()) {
+                urlConnection.setRequestProperty(h.getKey(), h.getValue());
+            }
+        }
+</suffix>
+</Edit>
+</CtxEdits>

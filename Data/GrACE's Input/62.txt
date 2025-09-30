@@ -1,0 +1,82 @@
+<CurrentEdit>
+<prefix>	 * "https://rmannibucau.wordpress.com/2014/03/27/java-8-default-interface-methods-and-jdk-dynamic-proxies/#comment-1333">
+	 * </a>
+	 * 
+	 * @param proxy
+	 * @param method
+	 * @param args
+	 * @return
+	 * @throws Throwable
+	 * @see InvocationHandler#invoke(Object, Method, Object[])
+	 * @see org.aeonbits.owner.util.Java8SupportImpl#invokeDefaultMethod(Object,
+	 *      Method, Object[])
+	 */
+	public static Object invokeDefaultMethod( final Object proxy,
+		final Method method, final Object[] args ) throws Throwable
+	{
+</prefix>
+<before>		return MethodHandles.lookup()
+				.in(targetClass)
+				.unreflectSpecial(method, targetClass)
+				.bindTo(target)
+				.invokeWithArguments();
+</before>
+<after></after>
+<suffix>	}
+
+	private static class Lookup
+	{
+		private static final Constructor<MethodHandles.Lookup> LOOKUP_CONSTRUCTOR = lookupConstructor();
+
+		private static Constructor<MethodHandles.Lookup> lookupConstructor()
+		{
+			try
+			{
+				Constructor<MethodHandles.Lookup> ctor = MethodHandles.Lookup.class
+						.getDeclaredConstructor( Class.class, int.class );
+				ctor.setAccessible( true );
+				return ctor;
+</suffix>
+</CurrentEdit>
+<CtxEdits>
+<Edit>
+<prefix>	 * "https://rmannibucau.wordpress.com/2014/03/27/java-8-default-interface-methods-and-jdk-dynamic-proxies/#comment-1333">
+	 * </a>
+	 * 
+	 * @param proxy
+	 * @param method
+	 * @param args
+	 * @return
+	 * @throws Throwable
+	 * @see InvocationHandler#invoke(Object, Method, Object[])
+	 * @see org.aeonbits.owner.util.Java8SupportImpl#invokeDefaultMethod(Object,
+	 *      Method, Object[])
+	 */
+	public static Object invokeDefaultMethod( final Object proxy,
+		final Method method, final Object[] args ) throws Throwable
+	{
+</prefix>
+<before></before>
+<after>		return MethodHandles.lookup()
+				.in(targetClass)
+				.unreflectSpecial(method, targetClass)
+				.bindTo(target)
+				.invokeWithArguments();
+</after>
+<suffix>	}
+
+	private static class Lookup
+	{
+		private static final Constructor<MethodHandles.Lookup> LOOKUP_CONSTRUCTOR = lookupConstructor();
+
+		private static Constructor<MethodHandles.Lookup> lookupConstructor()
+		{
+			try
+			{
+				Constructor<MethodHandles.Lookup> ctor = MethodHandles.Lookup.class
+						.getDeclaredConstructor( Class.class, int.class );
+				ctor.setAccessible( true );
+				return ctor;
+</suffix>
+</Edit>
+</CtxEdits>

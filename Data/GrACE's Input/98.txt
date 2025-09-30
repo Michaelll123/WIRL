@@ -1,0 +1,80 @@
+<CurrentEdit>
+<prefix>        else
+        {
+            final boolean b1 = (tog == sdsFromManualRadio);
+            final boolean b2 = (tog == sdsFromFileRadio);
+
+            assert(b1 != b2);
+
+            if (b1) {
+                System.out.println("[manual case]");
+            }
+            else {
+                FileChooser fc = new FileChooser();
+                fc.setTitle("Select file");
+
+                // https://stackoverflow.com/a/33933973
+</prefix>
+<before>                Node source = (Node) ae.getSource();
+                Window theStage = source.getScene().getWindow();
+
+                sourceDirectoryChooser.showDialog(theStage);
+</before>
+<after></after>
+<suffix>            }
+        }
+
+    }
+
+
+
+
+    // JavaFX doesn't mind the 'private' modifier
+    @FXML
+    private void handleEncodeButtonAction(ActionEvent event) throws IOException {
+
+                final Parent sdssParent = FXMLLoader.load(this.getClass().getResource("/fxml/SelectDataSource.fxml"));
+                final Scene sdsScene = new Scene(sdssParent);
+</suffix>
+</CurrentEdit>
+<CtxEdits>
+<Edit>
+<prefix>        else
+        {
+            final boolean b1 = (tog == sdsFromManualRadio);
+            final boolean b2 = (tog == sdsFromFileRadio);
+
+            assert(b1 != b2);
+
+            if (b1) {
+                System.out.println("[manual case]");
+            }
+            else {
+                FileChooser fc = new FileChooser();
+                fc.setTitle("Select file");
+
+                // https://stackoverflow.com/a/33933973
+</prefix>
+<before></before>
+<after>                Node source = (Node) ae.getSource();
+                Window theStage = source.getScene().getWindow();
+
+                sourceDirectoryChooser.showDialog(theStage);
+</after>
+<suffix>            }
+        }
+
+    }
+
+
+
+
+    // JavaFX doesn't mind the 'private' modifier
+    @FXML
+    private void handleEncodeButtonAction(ActionEvent event) throws IOException {
+
+                final Parent sdssParent = FXMLLoader.load(this.getClass().getResource("/fxml/SelectDataSource.fxml"));
+                final Scene sdsScene = new Scene(sdssParent);
+</suffix>
+</Edit>
+</CtxEdits>

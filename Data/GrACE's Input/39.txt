@@ -1,0 +1,102 @@
+<CurrentEdit>
+<prefix>                    return "";
+                }
+            }
+        };
+        return new InputFilter[] { inputFilter };
+    }
+
+    /**
+     * キーボード入力可能な最大行数を指定する。ただし、EditTextが狭すぎて複数行になってしまう場合にも制限されてしまう。
+     * @param editText
+     * @param linesCountLimit
+     * @return
+     * @see <a href="http://stackoverflow.com/a/30703723">参考リンク</a>
+     */
+    public static EditText addNoEnterKeyListener(final EditText editText, final int linesCountLimit) {
+</prefix>
+<before>        txtSpecialRequests.addTextChangedListener(new TextWatcher() {
+			int lastSpecialRequestsCursorPosition = 0;
+            String specialRequests = "";
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                lastSpecialRequestsCursorPosition = txtSpecialRequests.getSelectionStart();
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                txtSpecialRequests.removeTextChangedListener(this);
+
+                if (txtSpecialRequests.getLineCount() > 3) {
+                    txtSpecialRequests.setText(specialRequests);
+                    txtSpecialRequests.setSelection(lastSpecialRequestsCursorPosition);
+                }
+                else
+                    specialRequests = txtSpecialRequests.getText().toString();
+
+                txtSpecialRequests.addTextChangedListener(this);
+            }
+        });
+</before>
+<after></after>
+<suffix>    }
+}
+</suffix>
+</CurrentEdit>
+<CtxEdits>
+<Edit>
+<prefix>                    return "";
+                }
+            }
+        };
+        return new InputFilter[] { inputFilter };
+    }
+
+    /**
+     * キーボード入力可能な最大行数を指定する。ただし、EditTextが狭すぎて複数行になってしまう場合にも制限されてしまう。
+     * @param editText
+     * @param linesCountLimit
+     * @return
+     * @see <a href="http://stackoverflow.com/a/30703723">参考リンク</a>
+     */
+    public static EditText addNoEnterKeyListener(final EditText editText, final int linesCountLimit) {
+</prefix>
+<before></before>
+<after>        txtSpecialRequests.addTextChangedListener(new TextWatcher() {
+			int lastSpecialRequestsCursorPosition = 0;
+            String specialRequests = "";
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                lastSpecialRequestsCursorPosition = txtSpecialRequests.getSelectionStart();
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                txtSpecialRequests.removeTextChangedListener(this);
+
+                if (txtSpecialRequests.getLineCount() > 3) {
+                    txtSpecialRequests.setText(specialRequests);
+                    txtSpecialRequests.setSelection(lastSpecialRequestsCursorPosition);
+                }
+                else
+                    specialRequests = txtSpecialRequests.getText().toString();
+
+                txtSpecialRequests.addTextChangedListener(this);
+            }
+        });
+</after>
+<suffix>    }
+}
+</suffix>
+</Edit>
+</CtxEdits>

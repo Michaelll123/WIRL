@@ -1,0 +1,82 @@
+<CurrentEdit>
+<prefix>        }
+        if (null != mMessageText) {
+            setMessageView();
+            mMessage.setText(mMessageText);
+        }
+
+        if (null != mView) {
+            mDialogLayout.setVisibility(View.VISIBLE);
+            mDialogLayout.addView(mView);
+        }
+
+
+        if (getShowsDialog()) {
+
+            // http://stackoverflow.com/a/9409391
+</prefix>
+<before>            int[] attrs = new int[] { R.attr.listItemBackground /* index 0 */};
+            TypedArray ta = themedContext.obtainStyledAttributes(attrs); Drawable drawableFromTheme = ta.getDrawable(0 /* index */);
+
+// Finally, free the resources used by TypedArray
+            ta.recycle();
+</before>
+<after></after>
+<suffix>
+        return view;
+    }
+	}
+
+    @Override
+    public void onDestroyView()
+    {
+        if (getDialog() != null && getRetainInstance()) {
+            getDialog().setOnDismissListener(null);
+        }
+
+        mDialogLayout.removeAllViews();
+
+</suffix>
+</CurrentEdit>
+<CtxEdits>
+<Edit>
+<prefix>        }
+        if (null != mMessageText) {
+            setMessageView();
+            mMessage.setText(mMessageText);
+        }
+
+        if (null != mView) {
+            mDialogLayout.setVisibility(View.VISIBLE);
+            mDialogLayout.addView(mView);
+        }
+
+
+        if (getShowsDialog()) {
+
+            // http://stackoverflow.com/a/9409391
+</prefix>
+<before></before>
+<after>            int[] attrs = new int[] { R.attr.listItemBackground /* index 0 */};
+            TypedArray ta = themedContext.obtainStyledAttributes(attrs); Drawable drawableFromTheme = ta.getDrawable(0 /* index */);
+
+// Finally, free the resources used by TypedArray
+            ta.recycle();
+</after>
+<suffix>
+        return view;
+    }
+	}
+
+    @Override
+    public void onDestroyView()
+    {
+        if (getDialog() != null && getRetainInstance()) {
+            getDialog().setOnDismissListener(null);
+        }
+
+        mDialogLayout.removeAllViews();
+
+</suffix>
+</Edit>
+</CtxEdits>

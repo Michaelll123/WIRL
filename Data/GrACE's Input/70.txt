@@ -1,0 +1,76 @@
+<CurrentEdit>
+<prefix>
+    public static boolean isXLarge(Context context) {
+        if ((context.getResources().getConfiguration().screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK) == Configuration.SCREENLAYOUT_SIZE_XLARGE)
+            return true;
+        return false;
+    }
+
+    /**
+     * returns the height of the ActionBar if one is enabled - supports both the native ActionBar
+     * and ActionBarSherlock - http://stackoverflow.com/a/15476793/1673548
+     */
+    public static int getActionBarHeight(Context context) {
+        if (context == null) {
+            return 0;
+        }
+</prefix>
+<before>        TypedValue tv = new TypedValue();
+        if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.HONEYCOMB){
+            if (getTheme().resolveAttribute(android.R.attr.actionBarSize, tv, true))
+                actionBarHeight = TypedValue.complexToDimensionPixelSize(tv.data,getResources().getDisplayMetrics());
+</before>
+<after></after>
+<suffix>        // if we get this far, it's because the device doesn't support an ActionBar,
+        // so return the standard ActionBar height (48dp)
+        return dpToPx(context, 48);
+    }
+
+    /**
+     * detect when FEATURE_ACTION_BAR_OVERLAY has been set
+     */
+    public static boolean hasActionBarOverlay(Window window) {
+        return window.hasFeature(Window.FEATURE_ACTION_BAR_OVERLAY);
+    }
+}
+</suffix>
+</CurrentEdit>
+<CtxEdits>
+<Edit>
+<prefix>
+    public static boolean isXLarge(Context context) {
+        if ((context.getResources().getConfiguration().screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK) == Configuration.SCREENLAYOUT_SIZE_XLARGE)
+            return true;
+        return false;
+    }
+
+    /**
+     * returns the height of the ActionBar if one is enabled - supports both the native ActionBar
+     * and ActionBarSherlock - http://stackoverflow.com/a/15476793/1673548
+     */
+    public static int getActionBarHeight(Context context) {
+        if (context == null) {
+            return 0;
+        }
+</prefix>
+<before></before>
+<after>        TypedValue tv = new TypedValue();
+        if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.HONEYCOMB){
+            if (getTheme().resolveAttribute(android.R.attr.actionBarSize, tv, true))
+                actionBarHeight = TypedValue.complexToDimensionPixelSize(tv.data,getResources().getDisplayMetrics());
+</after>
+<suffix>        // if we get this far, it's because the device doesn't support an ActionBar,
+        // so return the standard ActionBar height (48dp)
+        return dpToPx(context, 48);
+    }
+
+    /**
+     * detect when FEATURE_ACTION_BAR_OVERLAY has been set
+     */
+    public static boolean hasActionBarOverlay(Window window) {
+        return window.hasFeature(Window.FEATURE_ACTION_BAR_OVERLAY);
+    }
+}
+</suffix>
+</Edit>
+</CtxEdits>

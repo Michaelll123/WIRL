@@ -1,0 +1,60 @@
+<CurrentEdit>
+<prefix>            return s.getLocalPort();
+        }
+    }
+
+    public static int pickOrDie() {
+        try {
+            return pick();
+        } catch (IOException e) {
+            return die("Error picking port: "+e, e);
+        }
+    }
+
+    // adapted from https://stackoverflow.com/a/434731/1251543
+    public static boolean portIsAvailable (int port) {
+        boolean free;
+</prefix>
+<before>        try (var ignored = new ServerSocket(portNr)) {
+            portFree = true;
+        } catch (IOException e) {
+            portFree = false;
+        }
+        return portFree;
+</before>
+<after></after>
+<suffix>    }
+
+}</suffix>
+</CurrentEdit>
+<CtxEdits>
+<Edit>
+<prefix>            return s.getLocalPort();
+        }
+    }
+
+    public static int pickOrDie() {
+        try {
+            return pick();
+        } catch (IOException e) {
+            return die("Error picking port: "+e, e);
+        }
+    }
+
+    // adapted from https://stackoverflow.com/a/434731/1251543
+    public static boolean portIsAvailable (int port) {
+        boolean free;
+</prefix>
+<before></before>
+<after>        try (var ignored = new ServerSocket(portNr)) {
+            portFree = true;
+        } catch (IOException e) {
+            portFree = false;
+        }
+        return portFree;
+</after>
+<suffix>    }
+
+}</suffix>
+</Edit>
+</CtxEdits>

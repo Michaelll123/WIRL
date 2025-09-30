@@ -1,0 +1,74 @@
+<CurrentEdit>
+<prefix>             * 再調整時は，末尾に"…"があることを考慮し，"…"に置換する位置を変える．
+             */
+            @Override
+            public void onGlobalLayout() {
+                if(view.getLineCount() > maxLines){
+                    final int lineEndIndex = view.getLayout().getLineEnd(maxLines - 1);
+                    int reservingPosition =  (mIsPassedOnce ? lineEndIndex : lineEndIndex - 1);
+
+                    final CharSequence text = view.getText();
+                    if (mIsPassedOnce) {
+                        if (isTooShortToReplace(text, lineEndIndex)) {
+                            reservingPosition -= 1;
+                        }
+                    }
+                    final String result = text.subSequence(0, reservingPosition) + REPLACER;
+</prefix>
+<before>                    title.setText(text);
+</before>
+<after></after>
+<suffix>                }
+            }
+
+            private boolean isTooShortToReplace(CharSequence charSequence, int lineEndIndex) {
+                String str = String.valueOf(charSequence.charAt(lineEndIndex));
+                if (REPLACER.equals(str)) return true;
+                return isAnASCII(str);
+            }
+
+
+            private boolean isAnASCII(String str){
+                Pattern p = Pattern.compile("^[\\p{ASCII}]$");
+                Matcher m = p.matcher(str);
+                return m.find();
+</suffix>
+</CurrentEdit>
+<CtxEdits>
+<Edit>
+<prefix>             * 再調整時は，末尾に"…"があることを考慮し，"…"に置換する位置を変える．
+             */
+            @Override
+            public void onGlobalLayout() {
+                if(view.getLineCount() > maxLines){
+                    final int lineEndIndex = view.getLayout().getLineEnd(maxLines - 1);
+                    int reservingPosition =  (mIsPassedOnce ? lineEndIndex : lineEndIndex - 1);
+
+                    final CharSequence text = view.getText();
+                    if (mIsPassedOnce) {
+                        if (isTooShortToReplace(text, lineEndIndex)) {
+                            reservingPosition -= 1;
+                        }
+                    }
+                    final String result = text.subSequence(0, reservingPosition) + REPLACER;
+</prefix>
+<before></before>
+<after>                    title.setText(text);
+</after>
+<suffix>                }
+            }
+
+            private boolean isTooShortToReplace(CharSequence charSequence, int lineEndIndex) {
+                String str = String.valueOf(charSequence.charAt(lineEndIndex));
+                if (REPLACER.equals(str)) return true;
+                return isAnASCII(str);
+            }
+
+
+            private boolean isAnASCII(String str){
+                Pattern p = Pattern.compile("^[\\p{ASCII}]$");
+                Matcher m = p.matcher(str);
+                return m.find();
+</suffix>
+</Edit>
+</CtxEdits>

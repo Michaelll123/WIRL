@@ -1,0 +1,84 @@
+<CurrentEdit>
+<prefix>    onView(withId(R.id.pick)).perform(click());
+
+    intended(allOf(
+            toPackage("com.google.android.contacts"),
+            hasAction(Intent.ACTION_PICK),
+            hasData(ContactsContract.Contacts.CONTENT_URI)));
+
+    onView(withId(R.id.view)).check(matches(isEnabled()));
+  }
+
+  // inspired by http://stackoverflow.com/a/35139887/115145
+
+  @Test
+  public void recreate() {
+    stubPick();
+</prefix>
+<before>    InstrumentationRegistry.getInstrumentation().runOnMainSync(new Runnable() {
+      @Override
+      public void run() {
+        activity.recreate();
+      }
+    });
+</before>
+<after></after>
+<suffix>  }
+
+  @Test
+  public void orientation() {
+    int original=testOrientation();
+
+    rotate();
+
+    int postRotate=testOrientation();
+
+    Assert.assertFalse("orientation changed", original==postRotate);
+  }
+
+  private int testOrientation() {
+</suffix>
+</CurrentEdit>
+<CtxEdits>
+<Edit>
+<prefix>    onView(withId(R.id.pick)).perform(click());
+
+    intended(allOf(
+            toPackage("com.google.android.contacts"),
+            hasAction(Intent.ACTION_PICK),
+            hasData(ContactsContract.Contacts.CONTENT_URI)));
+
+    onView(withId(R.id.view)).check(matches(isEnabled()));
+  }
+
+  // inspired by http://stackoverflow.com/a/35139887/115145
+
+  @Test
+  public void recreate() {
+    stubPick();
+</prefix>
+<before></before>
+<after>    InstrumentationRegistry.getInstrumentation().runOnMainSync(new Runnable() {
+      @Override
+      public void run() {
+        activity.recreate();
+      }
+    });
+</after>
+<suffix>  }
+
+  @Test
+  public void orientation() {
+    int original=testOrientation();
+
+    rotate();
+
+    int postRotate=testOrientation();
+
+    Assert.assertFalse("orientation changed", original==postRotate);
+  }
+
+  private int testOrientation() {
+</suffix>
+</Edit>
+</CtxEdits>

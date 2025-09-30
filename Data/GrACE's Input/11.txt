@@ -1,0 +1,50 @@
+<CurrentEdit>
+<prefix>		final SortedMap<Integer, ImageVisualizationInfo.Datum> imgVisualizationInfoDataById = new TreeMap<>();
+
+		imgVizInfoData.forEach(imgVisualizationInfoDatum -> {
+			final Integer id = imgVisualizationInfoDataById.size();
+			final ImageVisualizationInfo.Datum oldVizInfo = imgVisualizationInfoDataById.put(id,
+					imgVisualizationInfoDatum);
+			assert oldVizInfo == null;
+
+			final Entry<ImageViewInfo, Image> imgViewInfoDatum = imgViewInfoFactory.apply(imgVisualizationInfoDatum);
+			final Image oldImg = pieceImgs.put(id, imgViewInfoDatum.getValue());
+			assert oldImg == null;
+		});
+		imgVizInfoWriter.accept(imgVisualizationInfoDataById.entrySet().iterator());
+
+		// http://stackoverflow.com/a/1936582/1391325
+</prefix>
+<before>		final Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
+</before>
+<after></after>
+<suffix>
+	}
+}</suffix>
+</CurrentEdit>
+<CtxEdits>
+<Edit>
+<prefix>		final SortedMap<Integer, ImageVisualizationInfo.Datum> imgVisualizationInfoDataById = new TreeMap<>();
+
+		imgVizInfoData.forEach(imgVisualizationInfoDatum -> {
+			final Integer id = imgVisualizationInfoDataById.size();
+			final ImageVisualizationInfo.Datum oldVizInfo = imgVisualizationInfoDataById.put(id,
+					imgVisualizationInfoDatum);
+			assert oldVizInfo == null;
+
+			final Entry<ImageViewInfo, Image> imgViewInfoDatum = imgViewInfoFactory.apply(imgVisualizationInfoDatum);
+			final Image oldImg = pieceImgs.put(id, imgViewInfoDatum.getValue());
+			assert oldImg == null;
+		});
+		imgVizInfoWriter.accept(imgVisualizationInfoDataById.entrySet().iterator());
+
+		// http://stackoverflow.com/a/1936582/1391325
+</prefix>
+<before></before>
+<after>		final Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
+</after>
+<suffix>
+	}
+}</suffix>
+</Edit>
+</CtxEdits>

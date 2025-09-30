@@ -1,0 +1,94 @@
+<CurrentEdit>
+<prefix>        getGridPane().add(nameLbl, 0, rowNum);
+        GridPane.setMargin(nameLbl, INSET_TOP);
+
+        getGridPane().add(waypointNameTxt, 1, rowNum, 3, 1);
+        GridPane.setMargin(waypointNameTxt, INSET_TOP);
+        
+        rowNum++;
+        // 2nd row: sym
+        final Label symLbl = new Label("Symbol:");
+        getGridPane().add(symLbl, 0, rowNum);
+        GridPane.setMargin(symLbl, INSET_TOP);
+
+        waypointSymTxt.setEditable(true);
+        waypointSymTxt.setVisibleRowCount(10);
+        // https://stackoverflow.com/a/58286816
+</prefix>
+<before>        cboPersons.setConverter(new StringConverter<Person>() {
+        @Override
+        public String toString(Person person) {
+            return person.getName();
+        }
+
+        @Override
+        public Person fromString(String string) {
+            return null;
+        }
+    });
+</before>
+<after></after>
+<suffix>
+    }
+
+    public void setCallback(final GPXEditor gpxEditor) {
+        myGPXEditor = gpxEditor;
+    }
+    
+    public void editWaypoint(final List<GPXWaypoint> gpxWaypoints) {
+        assert myGPXEditor != null;
+        assert !CollectionUtils.isEmpty(gpxWaypoints);
+        
+        if (getStage().isShowing()) {
+            getStage().close();
+        }
+</suffix>
+</CurrentEdit>
+<CtxEdits>
+<Edit>
+<prefix>        getGridPane().add(nameLbl, 0, rowNum);
+        GridPane.setMargin(nameLbl, INSET_TOP);
+
+        getGridPane().add(waypointNameTxt, 1, rowNum, 3, 1);
+        GridPane.setMargin(waypointNameTxt, INSET_TOP);
+        
+        rowNum++;
+        // 2nd row: sym
+        final Label symLbl = new Label("Symbol:");
+        getGridPane().add(symLbl, 0, rowNum);
+        GridPane.setMargin(symLbl, INSET_TOP);
+
+        waypointSymTxt.setEditable(true);
+        waypointSymTxt.setVisibleRowCount(10);
+        // https://stackoverflow.com/a/58286816
+</prefix>
+<before></before>
+<after>        cboPersons.setConverter(new StringConverter<Person>() {
+        @Override
+        public String toString(Person person) {
+            return person.getName();
+        }
+
+        @Override
+        public Person fromString(String string) {
+            return null;
+        }
+    });
+</after>
+<suffix>
+    }
+
+    public void setCallback(final GPXEditor gpxEditor) {
+        myGPXEditor = gpxEditor;
+    }
+    
+    public void editWaypoint(final List<GPXWaypoint> gpxWaypoints) {
+        assert myGPXEditor != null;
+        assert !CollectionUtils.isEmpty(gpxWaypoints);
+        
+        if (getStage().isShowing()) {
+            getStage().close();
+        }
+</suffix>
+</Edit>
+</CtxEdits>

@@ -1,0 +1,74 @@
+<CurrentEdit>
+<prefix>    private final DBMSConnectionProperties properties;
+
+
+    public DBMSConnection(DBMSConnectionProperties properties) throws SQLException, InvalidDBMSConnectionPropertiesException {
+
+        if (!properties.isValid()) {
+            throw new InvalidDBMSConnectionPropertiesException();
+        }
+        this.properties = properties;
+
+        try {
+            DriverManager.setLoginTimeout(3);
+            // ensure that all SQL drivers are loaded - source: http://stackoverflow.com/a/22384826/873282
+            // we use the side effect of getAvailableDBMSTypes() - it loads all available drivers
+            DBMSConnection.getAvailableDBMSTypes();
+</prefix>
+<before>            this.connection = DriverManager.getConnection(url1, user, password);
+</before>
+<after></after>
+<suffix>        } catch (SQLException e) {
+            // Some systems like PostgreSQL retrieves 0 to every exception.
+            // Therefore a stable error determination is not possible.
+            LOGGER.error("Could not connect to database: " + e.getMessage() + " - Error code: " + e.getErrorCode());
+
+            throw e;
+        }
+    }
+
+    @Override
+    public Connection getConnection() {
+        return this.connection;
+    }
+
+</suffix>
+</CurrentEdit>
+<CtxEdits>
+<Edit>
+<prefix>    private final DBMSConnectionProperties properties;
+
+
+    public DBMSConnection(DBMSConnectionProperties properties) throws SQLException, InvalidDBMSConnectionPropertiesException {
+
+        if (!properties.isValid()) {
+            throw new InvalidDBMSConnectionPropertiesException();
+        }
+        this.properties = properties;
+
+        try {
+            DriverManager.setLoginTimeout(3);
+            // ensure that all SQL drivers are loaded - source: http://stackoverflow.com/a/22384826/873282
+            // we use the side effect of getAvailableDBMSTypes() - it loads all available drivers
+            DBMSConnection.getAvailableDBMSTypes();
+</prefix>
+<before></before>
+<after>            this.connection = DriverManager.getConnection(url1, user, password);
+</after>
+<suffix>        } catch (SQLException e) {
+            // Some systems like PostgreSQL retrieves 0 to every exception.
+            // Therefore a stable error determination is not possible.
+            LOGGER.error("Could not connect to database: " + e.getMessage() + " - Error code: " + e.getErrorCode());
+
+            throw e;
+        }
+    }
+
+    @Override
+    public Connection getConnection() {
+        return this.connection;
+    }
+
+</suffix>
+</Edit>
+</CtxEdits>

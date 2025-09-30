@@ -1,0 +1,74 @@
+<CurrentEdit>
+<prefix>    }
+
+    /**
+     * Add a circle shape to the path.
+     *
+     * @param cs Content stream
+     * @param x
+     * @param y
+     * @param r Radius
+     * 
+     * @throws IOException If the content stream could not be written
+     */
+    void addCircle(PDAppearanceContentStream cs, float x, float y, float r) throws IOException
+    {
+        // http://stackoverflow.com/a/2007782/535646
+</prefix>
+<before>        double xmagic = xrad * magic;
+</before>
+<after></after>
+<suffix>    }
+
+    /**
+     * Get the annotations normal appearance.
+     * 
+     * <p>
+     * This will get the annotations normal appearance. If this is not existent
+     * an empty appearance entry will be created.
+     * 
+     * @return the appearance entry representing the normal appearance.
+     */
+    private PDAppearanceEntry getNormalAppearance()
+    {
+        PDAppearanceDictionary appearanceDictionary = getAppearance();
+</suffix>
+</CurrentEdit>
+<CtxEdits>
+<Edit>
+<prefix>    }
+
+    /**
+     * Add a circle shape to the path.
+     *
+     * @param cs Content stream
+     * @param x
+     * @param y
+     * @param r Radius
+     * 
+     * @throws IOException If the content stream could not be written
+     */
+    void addCircle(PDAppearanceContentStream cs, float x, float y, float r) throws IOException
+    {
+        // http://stackoverflow.com/a/2007782/535646
+</prefix>
+<before></before>
+<after>        double xmagic = xrad * magic;
+</after>
+<suffix>    }
+
+    /**
+     * Get the annotations normal appearance.
+     * 
+     * <p>
+     * This will get the annotations normal appearance. If this is not existent
+     * an empty appearance entry will be created.
+     * 
+     * @return the appearance entry representing the normal appearance.
+     */
+    private PDAppearanceEntry getNormalAppearance()
+    {
+        PDAppearanceDictionary appearanceDictionary = getAppearance();
+</suffix>
+</Edit>
+</CtxEdits>

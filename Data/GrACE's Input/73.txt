@@ -1,0 +1,74 @@
+<CurrentEdit>
+<prefix>        + " or (#e.id != null and hasPermission(#e, 'UPDATE'))")
+    public void saveOrUpdate(E e) {
+        dao.saveOrUpdate(e);
+    }
+
+    /**
+     * @param jsonObject
+     * @param entity
+     * @return
+     * @throws IOException
+     * @throws JsonProcessingException
+     */
+    @PreAuthorize("hasRole(@configHolder.getSuperAdminRoleName()) or hasPermission(#entity, 'UPDATE')")
+    public E updatePartialWithJsonNode(E entity, JsonNode jsonObject, ObjectMapper objectMapper) throws IOException, JsonProcessingException {
+        // update "partially". credits go to http://stackoverflow.com/a/15145480
+</prefix>
+<before>        entity = objectMapper.readerForUpdating(user).readValue(request.getReader());
+</before>
+<after></after>
+<suffix>        return entity;
+    }
+
+    /**
+     * Return the real object from the database. Returns null if the object does
+     * not exist.
+     *
+     * @param id
+     */
+    @PostAuthorize("hasRole(@configHolder.getSuperAdminRoleName()) or hasPermission(returnObject, 'READ')")
+    @Transactional(readOnly = true)
+    public E findById(Integer id) {
+        return dao.findById(id);
+    }
+</suffix>
+</CurrentEdit>
+<CtxEdits>
+<Edit>
+<prefix>        + " or (#e.id != null and hasPermission(#e, 'UPDATE'))")
+    public void saveOrUpdate(E e) {
+        dao.saveOrUpdate(e);
+    }
+
+    /**
+     * @param jsonObject
+     * @param entity
+     * @return
+     * @throws IOException
+     * @throws JsonProcessingException
+     */
+    @PreAuthorize("hasRole(@configHolder.getSuperAdminRoleName()) or hasPermission(#entity, 'UPDATE')")
+    public E updatePartialWithJsonNode(E entity, JsonNode jsonObject, ObjectMapper objectMapper) throws IOException, JsonProcessingException {
+        // update "partially". credits go to http://stackoverflow.com/a/15145480
+</prefix>
+<before></before>
+<after>        entity = objectMapper.readerForUpdating(user).readValue(request.getReader());
+</after>
+<suffix>        return entity;
+    }
+
+    /**
+     * Return the real object from the database. Returns null if the object does
+     * not exist.
+     *
+     * @param id
+     */
+    @PostAuthorize("hasRole(@configHolder.getSuperAdminRoleName()) or hasPermission(returnObject, 'READ')")
+    @Transactional(readOnly = true)
+    public E findById(Integer id) {
+        return dao.findById(id);
+    }
+</suffix>
+</Edit>
+</CtxEdits>

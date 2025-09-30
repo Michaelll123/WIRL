@@ -1,0 +1,48 @@
+<CurrentEdit>
+<prefix>		this.connectionStatusView = connectionStatusView;
+		this.recordingManager = recordingManager;
+		this.playerId = playerId;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 *
+	 * @see java.lang.Runnable#run()
+	 */
+	@Override
+	public void run() {
+		LOGGER.debug("Closing connection status view.");
+		connectionStatusView.setStatus(ConnectionStatusFrame.Status.CONNECTED);
+		// http://stackoverflow.com/a/1235994/1391325
+</prefix>
+<before>		frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+</before>
+<after></after>
+<suffix>	}
+}</suffix>
+</CurrentEdit>
+<CtxEdits>
+<Edit>
+<prefix>		this.connectionStatusView = connectionStatusView;
+		this.recordingManager = recordingManager;
+		this.playerId = playerId;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 *
+	 * @see java.lang.Runnable#run()
+	 */
+	@Override
+	public void run() {
+		LOGGER.debug("Closing connection status view.");
+		connectionStatusView.setStatus(ConnectionStatusFrame.Status.CONNECTED);
+		// http://stackoverflow.com/a/1235994/1391325
+</prefix>
+<before></before>
+<after>		frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+</after>
+<suffix>	}
+}</suffix>
+</Edit>
+</CtxEdits>

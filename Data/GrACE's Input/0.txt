@@ -1,0 +1,78 @@
+<CurrentEdit>
+<prefix>            
+            // use sorting since order is different in UI or JAR...
+            // https://stackoverflow.com/a/7199929
+            // TFE, 20200510: icons are now in sub-folders to have same clustering as in garmin mapsource, basecamp
+            // https://stackoverflow.com/a/14676430
+//            Files.list(myPath).filter(t -> FilenameUtils.isExtension(t.toString(), ICON_EXT)).sorted().forEach((t) -> {
+//                final String iconName = t.toString();
+//                final String baseName = FilenameUtils.getBaseName(iconName);
+//                // add name without extension to list
+//                iconMap.put(jsCompatibleIconName(baseName), new MarkerIcon(baseName, jsCompatibleIconName(baseName)));
+//                //System.out.println(baseName + ", " + jsCompatibleIconName(baseName));
+//            });
+            // TFE, 20200611: Path.toFile() not working in jar file...
+            // https://stackoverflow.com/a/24006711
+//            final List<File> iconFiles = new ArrayList<>(FileUtils.listFiles(myPath.toFile(), new String[] {ICON_EXT}, true));
+</prefix>
+<before>            Files.walk(Paths.get(path))
+                    .filter(Files::isRegularFile)
+                    .forEach(System.out::println);
+</before>
+<after></after>
+<suffix>        } catch (URISyntaxException | IOException ex) {
+            Logger.getLogger(MarkerManager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    private static String jsCompatibleIconName(final String iconName) {
+        // don't crash on null input...
+        String result = Objects.requireNonNullElse(iconName, "");
+        
+        //TFE, 20191122: name can contain invalid characters for a js variable name - needs to be sanitized or quoted
+        // simple version: replace all " ", ",", "(", ")", "-" with "_"
+        return JSVARNAME_PREFIX + result.replaceAll(JSVARNAME_PATTERN, "_");
+    }
+    
+</suffix>
+</CurrentEdit>
+<CtxEdits>
+<Edit>
+<prefix>            
+            // use sorting since order is different in UI or JAR...
+            // https://stackoverflow.com/a/7199929
+            // TFE, 20200510: icons are now in sub-folders to have same clustering as in garmin mapsource, basecamp
+            // https://stackoverflow.com/a/14676430
+//            Files.list(myPath).filter(t -> FilenameUtils.isExtension(t.toString(), ICON_EXT)).sorted().forEach((t) -> {
+//                final String iconName = t.toString();
+//                final String baseName = FilenameUtils.getBaseName(iconName);
+//                // add name without extension to list
+//                iconMap.put(jsCompatibleIconName(baseName), new MarkerIcon(baseName, jsCompatibleIconName(baseName)));
+//                //System.out.println(baseName + ", " + jsCompatibleIconName(baseName));
+//            });
+            // TFE, 20200611: Path.toFile() not working in jar file...
+            // https://stackoverflow.com/a/24006711
+//            final List<File> iconFiles = new ArrayList<>(FileUtils.listFiles(myPath.toFile(), new String[] {ICON_EXT}, true));
+</prefix>
+<before></before>
+<after>            Files.walk(Paths.get(path))
+                    .filter(Files::isRegularFile)
+                    .forEach(System.out::println);
+</after>
+<suffix>        } catch (URISyntaxException | IOException ex) {
+            Logger.getLogger(MarkerManager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    private static String jsCompatibleIconName(final String iconName) {
+        // don't crash on null input...
+        String result = Objects.requireNonNullElse(iconName, "");
+        
+        //TFE, 20191122: name can contain invalid characters for a js variable name - needs to be sanitized or quoted
+        // simple version: replace all " ", ",", "(", ")", "-" with "_"
+        return JSVARNAME_PREFIX + result.replaceAll(JSVARNAME_PATTERN, "_");
+    }
+    
+</suffix>
+</Edit>
+</CtxEdits>

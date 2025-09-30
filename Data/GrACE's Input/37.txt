@@ -1,0 +1,74 @@
+<CurrentEdit>
+<prefix>
+
+    public static boolean isStrictDaysBetweenMinus(DateTime var0, DateTime var1) {
+        if (var0 == null || var1 == null) return false;
+        return strictDaysBetween(var0, var1).getDays() < 0;
+    }
+
+    /**
+     *
+     * @param var0 date from
+     * @param var1 date to
+     * @return days
+     * @see <a href="http://stackoverflow.com/a/17959137">参考リンク</a>
+     */
+    public static Days strictDaysBetween(DateTime var0, DateTime var1) {
+</prefix>
+<before>        return Days.daysBetween(start.toLocalDate(), end.toLocalDate()).getDays();
+</before>
+<after></after>
+<suffix>    }
+
+    /**
+     * 「201601012700」のように、24時間表記ではなく27時間表記など（テレビ的時間表記，日本独自）になっている場合に，
+     * 「201601020300」と正しく解釈して返します．
+     * @param dateString
+     * @param yyyyMMddHHmm
+     * @param tvHourLimit 認識する表記の上限を返します．27時59分が最大であれば，"27"と設定してください．
+     * @return
+     * @throws IllegalFieldValueException
+     */
+    public static DateTime parse(String dateString, DateTimeFormatter yyyyMMddHHmm, String tvHourLimit) throws IllegalFieldValueException {
+        try {
+            return DateTime.parse(dateString, yyyyMMddHHmm);
+</suffix>
+</CurrentEdit>
+<CtxEdits>
+<Edit>
+<prefix>
+
+    public static boolean isStrictDaysBetweenMinus(DateTime var0, DateTime var1) {
+        if (var0 == null || var1 == null) return false;
+        return strictDaysBetween(var0, var1).getDays() < 0;
+    }
+
+    /**
+     *
+     * @param var0 date from
+     * @param var1 date to
+     * @return days
+     * @see <a href="http://stackoverflow.com/a/17959137">参考リンク</a>
+     */
+    public static Days strictDaysBetween(DateTime var0, DateTime var1) {
+</prefix>
+<before></before>
+<after>        return Days.daysBetween(start.toLocalDate(), end.toLocalDate()).getDays();
+</after>
+<suffix>    }
+
+    /**
+     * 「201601012700」のように、24時間表記ではなく27時間表記など（テレビ的時間表記，日本独自）になっている場合に，
+     * 「201601020300」と正しく解釈して返します．
+     * @param dateString
+     * @param yyyyMMddHHmm
+     * @param tvHourLimit 認識する表記の上限を返します．27時59分が最大であれば，"27"と設定してください．
+     * @return
+     * @throws IllegalFieldValueException
+     */
+    public static DateTime parse(String dateString, DateTimeFormatter yyyyMMddHHmm, String tvHourLimit) throws IllegalFieldValueException {
+        try {
+            return DateTime.parse(dateString, yyyyMMddHHmm);
+</suffix>
+</Edit>
+</CtxEdits>

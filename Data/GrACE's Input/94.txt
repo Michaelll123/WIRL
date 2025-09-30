@@ -1,0 +1,90 @@
+<CurrentEdit>
+<prefix>        assertNotNull("File '" + filename + "' could not be read", newImage);
+        checkNotBlank(filename, newImage);
+        checkBufferedImageSize(filename, image, newImage);
+    }
+
+    private void checkBufferedImageSize(String filename,
+            BufferedImage image, BufferedImage newImage) throws IOException
+    {
+        assertEquals("File '" + filename + "' has different height after read", image.getHeight(), newImage.getHeight());
+        assertEquals("File '" + filename + "' has different width after read", image.getWidth(), newImage.getWidth());
+    }
+
+    private void checkNotBlank(String filename, BufferedImage newImage)
+    {
+        // http://stackoverflow.com/a/5253698/535646
+</prefix>
+<before>        Set<Integer> colors = new HashSet<Integer>();
+        int w = image.getWidth();
+        int h = image.getHeight();
+        for(int y = 0; y < h; y++) {
+            for(int x = 0; x < w; x++) {
+                int pixel = image.getRGB(x, y);
+                colors.add(pixel);
+            }
+        }
+</before>
+<after></after>
+<suffix>    }
+
+    private void writeImage(PDDocument document, String imageFormat, String outputPrefix,
+            ImageType imageType, float dpi) throws IOException
+    {
+        PDFRenderer renderer = new PDFRenderer(document);
+        BufferedImage image = renderer.renderImageWithDPI(0, dpi, imageType);
+        String fileName = outputPrefix + 1;
+        LOG.info("Writing: " + fileName + "." + imageFormat);
+        System.out.println("  " + fileName + "." + imageFormat); // for Maven (keep me!)
+        boolean res = ImageIOUtil.writeImage(image, fileName + "." + imageFormat, Math.round(dpi));
+        assertTrue("ImageIOUtil.writeImage() failed for file " + fileName, res);
+        if ("jpg".equals(imageFormat) || "gif".equals(imageFormat))
+        {
+</suffix>
+</CurrentEdit>
+<CtxEdits>
+<Edit>
+<prefix>        assertNotNull("File '" + filename + "' could not be read", newImage);
+        checkNotBlank(filename, newImage);
+        checkBufferedImageSize(filename, image, newImage);
+    }
+
+    private void checkBufferedImageSize(String filename,
+            BufferedImage image, BufferedImage newImage) throws IOException
+    {
+        assertEquals("File '" + filename + "' has different height after read", image.getHeight(), newImage.getHeight());
+        assertEquals("File '" + filename + "' has different width after read", image.getWidth(), newImage.getWidth());
+    }
+
+    private void checkNotBlank(String filename, BufferedImage newImage)
+    {
+        // http://stackoverflow.com/a/5253698/535646
+</prefix>
+<before></before>
+<after>        Set<Integer> colors = new HashSet<Integer>();
+        int w = image.getWidth();
+        int h = image.getHeight();
+        for(int y = 0; y < h; y++) {
+            for(int x = 0; x < w; x++) {
+                int pixel = image.getRGB(x, y);
+                colors.add(pixel);
+            }
+        }
+</after>
+<suffix>    }
+
+    private void writeImage(PDDocument document, String imageFormat, String outputPrefix,
+            ImageType imageType, float dpi) throws IOException
+    {
+        PDFRenderer renderer = new PDFRenderer(document);
+        BufferedImage image = renderer.renderImageWithDPI(0, dpi, imageType);
+        String fileName = outputPrefix + 1;
+        LOG.info("Writing: " + fileName + "." + imageFormat);
+        System.out.println("  " + fileName + "." + imageFormat); // for Maven (keep me!)
+        boolean res = ImageIOUtil.writeImage(image, fileName + "." + imageFormat, Math.round(dpi));
+        assertTrue("ImageIOUtil.writeImage() failed for file " + fileName, res);
+        if ("jpg".equals(imageFormat) || "gif".equals(imageFormat))
+        {
+</suffix>
+</Edit>
+</CtxEdits>

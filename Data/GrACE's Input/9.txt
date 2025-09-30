@@ -1,0 +1,94 @@
+<CurrentEdit>
+<prefix>            return;
+        }
+
+        TaskExecutor.executeTask(
+            TaskExecutor.taskFromRunnableForLater(() -> {
+                // make sure we only include waypoints from track segments
+                final List<Integer> trackIndices = selectedIndices.stream().filter((t) -> {
+                    return GPXLineItem.GPXLineItemType.GPXTrackSegment.equals(selectedWaypoints.get(t).getParent().getType());
+                }).collect(Collectors.toList());        
+
+                // find start & end of selected clusterMap AND determine center
+                // AND keep in mind that track segment might change during the loop
+                final Map<GPXTrackSegment, List<GPXWaypointNeighbours>> clusterMap = new HashMap<>();
+
+                // https://stackoverflow.com/a/39873051
+</prefix>
+<before>                int start = input[0];
+                int end = input[0];
+
+                for (int rev : input) {
+                    if (rev - end > 1) {
+                        // break in range
+                        System.out.println("Range: [" + start + ", " + end + "]");
+                        start = rev;
+                    }
+                    end = rev;
+                }
+</before>
+<after></after>
+<suffix>    }
+    
+    public void selectHighlightedWaypoints() {
+        TaskExecutor.executeTask(
+            TaskExecutor.taskFromRunnableForLater(() -> {
+                // disable listener for checked changes since it fires for each waypoint...
+                // TODO: use something fancy like LibFX ListenerHandle...
+                gpxWaypoints.getSelectionModel().getSelectedItems().removeListener(gpxWaypointSelectionListener);
+
+                gpxWaypoints.getSelectionModel().clearSelection();
+
+                int index = 0;
+                final List<Integer> selectedList = new ArrayList<>();
+                for (GPXWaypoint waypoint : gpxWaypoints.getItems()){
+</suffix>
+</CurrentEdit>
+<CtxEdits>
+<Edit>
+<prefix>            return;
+        }
+
+        TaskExecutor.executeTask(
+            TaskExecutor.taskFromRunnableForLater(() -> {
+                // make sure we only include waypoints from track segments
+                final List<Integer> trackIndices = selectedIndices.stream().filter((t) -> {
+                    return GPXLineItem.GPXLineItemType.GPXTrackSegment.equals(selectedWaypoints.get(t).getParent().getType());
+                }).collect(Collectors.toList());        
+
+                // find start & end of selected clusterMap AND determine center
+                // AND keep in mind that track segment might change during the loop
+                final Map<GPXTrackSegment, List<GPXWaypointNeighbours>> clusterMap = new HashMap<>();
+
+                // https://stackoverflow.com/a/39873051
+</prefix>
+<before></before>
+<after>                int start = input[0];
+                int end = input[0];
+
+                for (int rev : input) {
+                    if (rev - end > 1) {
+                        // break in range
+                        System.out.println("Range: [" + start + ", " + end + "]");
+                        start = rev;
+                    }
+                    end = rev;
+                }
+</after>
+<suffix>    }
+    
+    public void selectHighlightedWaypoints() {
+        TaskExecutor.executeTask(
+            TaskExecutor.taskFromRunnableForLater(() -> {
+                // disable listener for checked changes since it fires for each waypoint...
+                // TODO: use something fancy like LibFX ListenerHandle...
+                gpxWaypoints.getSelectionModel().getSelectedItems().removeListener(gpxWaypointSelectionListener);
+
+                gpxWaypoints.getSelectionModel().clearSelection();
+
+                int index = 0;
+                final List<Integer> selectedList = new ArrayList<>();
+                for (GPXWaypoint waypoint : gpxWaypoints.getItems()){
+</suffix>
+</Edit>
+</CtxEdits>

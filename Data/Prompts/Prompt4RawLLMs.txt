@@ -1,0 +1,5 @@
+Please adapt the code snippets enclosed in "<start>" and "<end>" into the following given code snippets. 
+Only consider the variables or expressions that are unresolved or inappropriate. 
+Only output the pair of variables or expressions before and after the adaptation.
+
+[To-be-adapted Code Snippet]

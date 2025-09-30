@@ -1,0 +1,76 @@
+<CurrentEdit>
+<prefix>                    }
+                }
+            });
+        }
+
+        /**
+         * http://stackoverflow.com/a/9293207/527759
+         * 
+         * @param container
+         * @param fragmentManager
+         * @param position
+         * @return
+         */
+        public Fragment getActiveFragment(ViewPager container, FragmentManager fragmentManager,
+                int position) {
+</prefix>
+<before>            String name = makeFragmentName(container.getId(), position);
+            return  mFragmentManager.findFragmentByTag(name);
+</before>
+<after></after>
+<suffix>        }
+
+        /**
+         * Copy of makeFragmentName from parent FragmentPagerAdapter class
+         * 
+         * @param viewId
+         * @param id
+         * @return
+         */
+        private String makeFragmentName(int viewId, long id) {
+            return "android:switcher:" + viewId + ":" + id;
+        }
+    }
+
+</suffix>
+</CurrentEdit>
+<CtxEdits>
+<Edit>
+<prefix>                    }
+                }
+            });
+        }
+
+        /**
+         * http://stackoverflow.com/a/9293207/527759
+         * 
+         * @param container
+         * @param fragmentManager
+         * @param position
+         * @return
+         */
+        public Fragment getActiveFragment(ViewPager container, FragmentManager fragmentManager,
+                int position) {
+</prefix>
+<before></before>
+<after>            String name = makeFragmentName(container.getId(), position);
+            return  mFragmentManager.findFragmentByTag(name);
+</after>
+<suffix>        }
+
+        /**
+         * Copy of makeFragmentName from parent FragmentPagerAdapter class
+         * 
+         * @param viewId
+         * @param id
+         * @return
+         */
+        private String makeFragmentName(int viewId, long id) {
+            return "android:switcher:" + viewId + ":" + id;
+        }
+    }
+
+</suffix>
+</Edit>
+</CtxEdits>

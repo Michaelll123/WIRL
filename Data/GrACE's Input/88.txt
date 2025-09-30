@@ -1,0 +1,54 @@
+<CurrentEdit>
+<prefix>        return output;
+    }
+
+    /**
+     * Get the correctly oriented bitmap if orientation is different fro 0 value
+     * Idea and code from http://stackoverflow.com/a/11081918/527759
+     * 
+     * @param bitmap - bitmap to orient properly
+     * @param orientation - rotation degrees
+     * @return
+     */
+    public static Bitmap getCorrectlyOrientedBitmap(Bitmap bitmap, int orientation) {
+        if (orientation != 0) {
+            Matrix matrix = new Matrix();
+            matrix.postRotate(orientation);
+</prefix>
+<before>            bitmap = Bitmap.createBitmap(sourceBitmap, 0, 0, width, height, matrix, true);
+</before>
+<after></after>
+<suffix>        }
+        return bitmap;
+    }
+}
+</suffix>
+</CurrentEdit>
+<CtxEdits>
+<Edit>
+<prefix>        return output;
+    }
+
+    /**
+     * Get the correctly oriented bitmap if orientation is different fro 0 value
+     * Idea and code from http://stackoverflow.com/a/11081918/527759
+     * 
+     * @param bitmap - bitmap to orient properly
+     * @param orientation - rotation degrees
+     * @return
+     */
+    public static Bitmap getCorrectlyOrientedBitmap(Bitmap bitmap, int orientation) {
+        if (orientation != 0) {
+            Matrix matrix = new Matrix();
+            matrix.postRotate(orientation);
+</prefix>
+<before></before>
+<after>            bitmap = Bitmap.createBitmap(sourceBitmap, 0, 0, width, height, matrix, true);
+</after>
+<suffix>        }
+        return bitmap;
+    }
+}
+</suffix>
+</Edit>
+</CtxEdits>
