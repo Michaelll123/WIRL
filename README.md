@@ -38,8 +38,8 @@
 - All the unresolved variables in the method where the selected one located will be addressed together!
  
 ## A Demo of WIRL 
-Detailed introduction of WIRL is presented [here](https://plugins.jetbrains.com/plugin/27840-wirl).
+The IntelliJ plugin implementation of WIRL with detailed introduction is available [here](https://plugins.jetbrains.com/plugin/27840-wirl).
 
-The version of WIRL with permissive MIT license is available [here](https://github.com/AnonymousAccount4SEConference/WIRL-With-License).
+The source code of WIRL with permissive MIT license is available [here](https://github.com/Michaelll123/WIRL-With-License).
 
 ![](demo.gif)
